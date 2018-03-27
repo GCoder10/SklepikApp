@@ -1,0 +1,58 @@
+body {
+    margin:0;
+    color:#6a6f8c;
+	background: no-repeat center;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+
+.login-wrap {
+	width:100%;
+	margin:auto;
+	max-width:1500px;
+	min-height:1000px;
+	position:relative;
+	background: no-repeat center;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+
+.login-html {
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:0px 70px 50px 70px;
+	background:rgba(40,57,101,.9);
+}
+
+.footer {
+	font-family: montserrat, arial, verdana;
+    height: 200px;
+	background: 
+		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+}
+
+table {
+    border: 4px solid red;
+}
+
+td {
+	height: 50px;
+	width: 150px;
+	border: 1px solid black;
+}
+
+th {
+	height: 100px;
+	width: 250px;
+	border: 3px solid gold;
+	font-size: 25px;
+	text-align: center;
+	color: darkgoldenrod;
+	background-color: aqua;
+}
+
+hr {
+	height:2px;
+	margin:35px 0 20px 0;
+	background:rgba(255,255,255,.2);
+	max-width: 100%;
+}

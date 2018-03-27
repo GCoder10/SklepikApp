@@ -1,0 +1,58 @@
+<body [ngStyle]="{'background-image': 'url(' + BG2 + ')'}">
+   
+  <div class="login-wrap">
+    
+    <div class="login-html">
+      <i class="fa fa-vcard" style="font-size:24px;"></i>
+      <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Zarejestruj się</label>
+      <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Opcje</label>
+   
+
+
+
+   <div class="login-form">    
+        <div class="sign-in-htm">
+          <form (ngSubmit)="onSignup(f)" #f="ngForm">
+            <div class="group">
+              <label for="user" class="label">Nazwa użytkownika</label>
+              <input id="user" name="user" ngModel required type="text" class="input" #user="ngModel">
+              <span class="help-block" *ngIf="!user.valid && user.touched" style="color:red;">Wprowadź poprawną nazwę użytkownika !</span>
+            </div>
+            <div class="group">
+              <label for="pass" class="label">Hasło</label>
+              <input id="pass" name="pass" ngModel required type="password" class="input" data-type="password" #pass="ngModel">
+              <span class="help-block" *ngIf="!pass.valid && pass.touched" style="color:red;">Wprowadź poprawne hasło !</span>
+            </div>
+            <div class="group">
+              <label for="passrep" class="label">Powtórz hasło</label>
+              <input id="passrep" name="passrep" ngModel required type="password" class="input" data-type="password">
+            </div>
+            <div class="group">
+              <label for="email" class="label">Adres email</label>
+              <input id="email" name="email" ngModel required email type="email" class="input" #email="ngModel">
+              <span class="help-block" *ngIf="!email.valid && email.touched" style="color:red;">Wprowadź poprawny adres email !</span>
+            </div>
+            <div class="group">
+              <input type="submit" class="button" value="Zarejestruj się" [disabled]="!f.valid">
+            </div>
+              </form>
+            <div class="hr"></div>
+            <div class="foot-lnk">
+              <a routerLink="/regulamin">Regulamin</a>
+            </div>
+        </div>   
+        <div class="sign-up-htm">
+
+            <h2>Jakieś opcje do rejestracji</h2>
+   
+        </div>         
+      </div>
+      
+
+
+
+    </div>
+    <img src="assets/images/partners/partner1.png" align="left" style="position:absolute; top:90%; left:5%;">
+    <img src="assets/images/partners/partner4.png" align="right" style="position:absolute; top:92%; right:5%;">
+  </div>
+  </body>

@@ -1,0 +1,23 @@
+#conatcat-info{
+  background: #A4A4A4 no-repeat 90% 0;
+  padding: 30px 0;
+}
+.contact-info i{
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
+  line-height: 60px;
+  color: #fff;
+  background: #000;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.contact-info h2{
+  margin-top: 0;
+  color: #000;
+}
+
+.contact-info{
+  color:#000;
+}

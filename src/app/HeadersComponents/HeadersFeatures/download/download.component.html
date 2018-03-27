@@ -1,0 +1,34 @@
+<body [ngStyle]="{'background-image': 'url(' + BGdownload + ')'}">
+    <div class="login-wrap">
+        <div class="login-html">
+          <div style="overflow-y: scroll; height:1000px;">
+
+                    <div *ngIf="Decyzja == '0'">
+              <p>Próba połączenia się z serwerem i zainicjonowanie pobierania pliku JSON</p>
+              <p>Po pierwszym pobraniu nalezy przelaczyc sie na inna zakladke, potem wrocic i pobrac</p>
+              <p>ponownie aby plik zawieral dane z serwera :( </p>
+                <button type="button" (click)="onDownload()">Pobierz plik JSON</button>   
+                <button type="button" (click)="onStartWatsonConversation()">Watson Conversation</button>     
+                    </div>
+                    <div *ngIf="Decyzja == '1'">
+              <p>Pobranie pliku JSON</p>
+                 <button type="button" (click)="onDownloadFile()">Download JSON</button>
+                    </div>
+
+
+
+                    <div *ngIf="Decyzja == '2'">
+              <p> done </p>         
+                    </div>
+
+
+          </div>
+        </div>
+    </div>
+</body>
+<div class="footer">
+          <img src="assets/images/partners/partner1.png" align="left" style="position:absolute; left:5%;margin-top:50px;">
+          <img src="assets/images/partners/partner2.png" align="left" style="position:absolute; right:35%;margin-top:50px;">
+          <img src="assets/images/partners/partner3.png" align="left" style="position:absolute; right:60%;margin-top:80px;">
+          <img src="assets/images/partners/partner4.png" align="right" style="position:absolute; right:5%;margin-top:80px;">
+</div>

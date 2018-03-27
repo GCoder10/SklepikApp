@@ -1,0 +1,47 @@
+{ 
+"Kol": {
+	"city":	"Gizycko",
+	"email": "Kol@gizycko.com",
+	"name": "Przemyslaw",
+	"pass": "kolpass",
+	"pesel": "4636464676",
+	"street": "Gdanska",
+	"surname": "Kol"
+},
+"Gorowski": {
+	"city":	"Ryn",
+	"email": "Gorowski@ryn.com",
+	"name": "Ryszard",
+	"pass": "gorowskipass",
+	"pesel": "4673246743267",
+	"street": "Pokatna",
+	"surname": "Gorowski"
+},
+"Nowski": {
+	"city":	"Warszawa",
+	"email": "Nowski@warszawa.com",
+	"name": "Pawel",
+	"pass": "nowskipass",
+	"pesel": "467237626723",
+	"street": "Warszawska",
+	"surname": "Nowski"
+},
+"Szczescie": {
+	"city":	"Warszawa",
+	"email": "Szczescie@warszawa.com",
+	"name": "Przemek",
+	"pass": "szczesciepass",
+	"pesel": "32623467326732",
+	"street": "Glowna",
+	"surname": "Szczescie"
+},
+"Udanowski": {
+	"city":	"Olsztyn",
+	"email": "Udanowski@olsztyn.com",
+	"name": "Tomasz",
+	"pass": "udanowskipass",
+	"pesel": "46436436737",
+	"street": "Kolobrzeska",
+	"surname": "Udanowski"
+}
+}
