@@ -9,19 +9,19 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class JsonService {
 
-    ArrayForJSONSurnames: Array<any> = [];
-    ArrayForAllJSONChildNames: Array<any> = [];
-    allJSONitems: Array<any> = [];
-    newJSONObj: string;
+    arrayForJsonSurnames: Array<any> = [];
+    arrayForAllJsonChildNames: Array<any> = [];
+    allJsonItems: Array<any> = [];
+    newJsonObj: string;
 
 constructor(private router: Router) { }
 
 
 
-  sendJSON(file) {
+  sendJson(file) {
 
       Object.keys(file).map((obj) =>
-      this.ArrayForJSONSurnames.push({
+      this.arrayForJsonSurnames.push({
                 city: file[obj].city,
                 email: file[obj].email,
                 name: file[obj].name,
@@ -31,15 +31,15 @@ constructor(private router: Router) { }
                 surname: file[obj].surname
       }),
       );
-      this.onNextStepinSENDINGjson();
+      this.onNextStepInSendingJson();
 
   }
 
 
 
-  onNextStepinSENDINGjson() {
+  onNextStepInSendingJson() {
 
-        this.ArrayForJSONSurnames.forEach((obj) => {
+        this.arrayForJsonSurnames.forEach((obj) => {
         var database = firebase.database().ref().child('pracownicy/' + obj.surname);
 
     var newData = {
@@ -57,36 +57,36 @@ constructor(private router: Router) { }
         });
 
         window.alert('Wyslano pomyslnie');
-        this.ArrayForJSONSurnames = [];
+        this.arrayForJsonSurnames = [];
 
   }
 
 
 
-    getJSON() {
+    getJson() {
 
        var database = firebase.database().ref('pracownicy/');
         database.on('value', (snapshot) => {
             snapshot.forEach((snap) => {
-            this.ArrayForAllJSONChildNames.push({
+            this.arrayForAllJsonChildNames.push({
             key: snap.key
             });
             return false;
             });
         });
-        this.onNextStepinGETTINGjson();
+        this.onNextStepInGettingJson();
     }
 
 
-    onNextStepinGETTINGjson() {
+    onNextStepInGettingJson() {
 
-        this.ArrayForAllJSONChildNames.forEach((item) => {
+        this.arrayForAllJsonChildNames.forEach((item) => {
         var database = firebase.database().ref('pracownicy/').child(item.key);
         database.orderByValue().on('value', (snapshot) => {
            snapshot.forEach((snap) => {
 
 
-                this.allJSONitems.push({
+                this.allJsonItems.push({
                 city: snap.val().city,
                 email: snap.val().email,
                 name: snap.val().name,
@@ -102,23 +102,23 @@ constructor(private router: Router) { }
 });
  });
 });
-this.onBeforeLastStepinGETTINGjson();
+this.onBeforeLastStepInGettingJson();
     }
 
 
-    onBeforeLastStepinGETTINGjson() {
+    onBeforeLastStepInGettingJson() {
 
-          this.newJSONObj = JSON.stringify(this.allJSONitems);
-          this.makeJSONSTRINGobservable();
+          this.newJsonObj = JSON.stringify(this.allJsonItems);
+          this.makeJsonStringObservable();
 
     }
 
 
 
-    makeJSONSTRINGobservable(): Observable<any> {
+    makeJsonStringObservable(): Observable<any> {
 
         window.alert('Plik JSON gotowy do pobrania');
-        return Observable.of(this.newJSONObj);
+        return Observable.of(this.newJsonObj);
 
     }
 

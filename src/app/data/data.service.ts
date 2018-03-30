@@ -10,14 +10,14 @@ import 'rxjs/add/observable/of';
 export class DataService {
 
     items: Array<any> = [];
-    ArrayForAllChildNames: Array<any> = [];
-    allitems: Array<any> = [];
-    ImageUrl: any;
+    arrayForAllChildNames: Array<any> = [];
+    allItems: Array<any> = [];
+    imageUrl: any;
 
 constructor(private router: Router) { }
 
 
-AddNewWorker(name: string, surname: string, city: string, street: string, email: string, pesel: number, pass: string) {
+addNewWorker(name: string, surname: string, city: string, street: string, email: string, pesel: number, pass: string) {
 
     var database = firebase.database().ref().child('pracownicy/' + surname);
 
@@ -107,7 +107,7 @@ onPrepareToSyncAllDataWithDatabaseData() {
 
     database.on('value', (snapshot) => {
         snapshot.forEach((snap) => {
-        this.ArrayForAllChildNames.push({
+        this.arrayForAllChildNames.push({
             key: snap.key
     });
 
@@ -124,12 +124,12 @@ this.getAllDataOfWorkers();
 
 getAllDataOfWorkers() {
 
-    this.ArrayForAllChildNames.forEach((item) => {
+    this.arrayForAllChildNames.forEach((item) => {
 
     var database = firebase.database().ref('pracownicy/').child(item.key);
         database.orderByValue().on('value', (snapshot) => {
           snapshot.forEach((snap) => {
-                this.allitems.push({
+                this.allItems.push({
                 city: snap.val().city,
                 email: snap.val().email,
                 name: snap.val().name,
@@ -152,7 +152,7 @@ this.makeAllDataOfWorkersObservable();
 makeAllDataOfWorkersObservable(): Observable<any> {
 
       window.alert('Tablica z danymi została przygotowana poprawnie');
-      return Observable.of(this.allitems);
+      return Observable.of(this.allItems);
 
 }
 
@@ -161,8 +161,8 @@ makeAllDataOfWorkersObservable(): Observable<any> {
 
 resetDataOfDownloadedWorkers() {
 
-    this.allitems = [];
-    this.ArrayForAllChildNames = [];
+    this.allItems = [];
+    this.arrayForAllChildNames = [];
 
 }
 
@@ -171,7 +171,7 @@ resetDataOfDownloadedWorkers() {
 getPhotoOfWorkerFromDatabase(SurnameWorker) {
 
     firebase.storage().ref().child('pracownicy/' + SurnameWorker + '.png').getDownloadURL().then((url) => {
-        this.ImageUrl = url;
+        this.imageUrl = url;
     });
     this.makeObservablePhoto();
 
@@ -183,7 +183,7 @@ getPhotoOfWorkerFromDatabase(SurnameWorker) {
 makeObservablePhoto(): Observable<any> {
 
           window.alert('Zdjęcie jest już gotowe do wyświetlenia');
-          return Observable.of(this.ImageUrl);
+          return Observable.of(this.imageUrl);
 
 }
 
@@ -192,7 +192,7 @@ makeObservablePhoto(): Observable<any> {
 
 resetPhotoSearching() {
 
-    this.ImageUrl = null;
+    this.imageUrl = null;
 
 }
 

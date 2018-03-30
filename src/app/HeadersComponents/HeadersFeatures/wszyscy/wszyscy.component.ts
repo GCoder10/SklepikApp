@@ -40,7 +40,7 @@ onPrepareToSyncAllDataWithDatabase() {
 
 onShowTableWithAllWorkers() {
 
-    let danePracownika = this.dataService.allitems;
+    let danePracownika = this.dataService.allItems;
       for (let obj of danePracownika ){
         this.danePracownika2.push({
           city: obj.city,

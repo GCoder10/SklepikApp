@@ -42,7 +42,7 @@ export interface GALLERY_IMAGE {
 
 
 export class GaleriaBiuraComponent implements OnInit {
-BGGaleriaBiura: string;
+backgroundImagePath: string;
 
 
 
@@ -157,7 +157,7 @@ BGGaleriaBiura: string;
   constructor() { }
 
   ngOnInit() {
-    this.BGGaleriaBiura = 'assets/images/BGsignin2.jpg';
+    this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
   }
 
 

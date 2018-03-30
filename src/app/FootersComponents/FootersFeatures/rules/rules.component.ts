@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rules.component.css']
 })
 export class RulesComponent implements OnInit {
-  BGrules: string;
+  backgroundImagePath: string;
 
   constructor() { }
 
   ngOnInit() {
-  this.BGrules = 'assets/images/BGsignin2.jpg';
+  this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
   }
 
 }

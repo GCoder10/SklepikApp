@@ -1,4 +1,4 @@
-<body [ngStyle]="{'background-image': 'url(' + BGpytania + ')'}">
+<body [ngStyle]="{'background-image': 'url(' + backgroundImagePath + ')'}">
  
             
     <div class="login-wrap">
@@ -9,49 +9,49 @@
 <div style="overflow-y: scroll; height:1000px;">
 
 <div class="sidenav">
-  <a style="cursor: pointer;" (click)="pyt1()">lacus dapibus vulputate vestibulum?
+  <a style="cursor: pointer;" (click)="quest1()">lacus dapibus vulputate vestibulum?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
-  <a style="cursor: pointer;" (click)="pyt2()">Donec volutpat?
+  <a style="cursor: pointer;" (click)="quest2()">Donec volutpat?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
-  <a style="cursor: pointer;" (click)="pyt3()">Maecenas aliquet lacinia neque at?
+  <a style="cursor: pointer;" (click)="quest3()">Maecenas aliquet lacinia neque at?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
-  <a style="cursor: pointer;" (click)="pyt4()">lacinia tempor?
+  <a style="cursor: pointer;" (click)="quest4()">lacinia tempor?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
-  <a style="cursor: pointer;" (click)="pyt5()">Donec placerat?
+  <a style="cursor: pointer;" (click)="quest5()">Donec placerat?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
-  <a style="cursor: pointer;" (click)="pyt6()">pellentesque sapien quis, luctus diam?
+  <a style="cursor: pointer;" (click)="quest6()">pellentesque sapien quis, luctus diam?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
-  <a style="cursor: pointer;" (click)="pyt7()">Aenean ullamcorper commodo leo?
+  <a style="cursor: pointer;" (click)="quest7()">Aenean ullamcorper commodo leo?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
-  <a style="cursor: pointer;" (click)="pyt8()">Aenean diam erat, malesuada nec ullamcorper ut, auctor eu nisl?
+  <a style="cursor: pointer;" (click)="quest8()">Aenean diam erat, malesuada nec ullamcorper ut, auctor eu nisl?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
-  <a style="cursor: pointer;" (click)="pyt9()">Donec placerat, eros sit amet dictum gravida, nisi sem porta erat, at luctus velit metus in est?
+  <a style="cursor: pointer;" (click)="quest9()">Donec placerat, eros sit amet dictum gravida, nisi sem porta erat, at luctus velit metus in est?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
-  <a style="cursor: pointer;" (click)="pyt10()">Aenean ullamcorper commodo leo, eget aliquam risus pretium ac?
+  <a style="cursor: pointer;" (click)="quest10()">Aenean ullamcorper commodo leo, eget aliquam risus pretium ac?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
-  <a style="cursor: pointer;" (click)="pyt11()">Sed vitae porttitor ante?
+  <a style="cursor: pointer;" (click)="quest11()">Sed vitae porttitor ante?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
-  <a style="cursor: pointer;" (click)="pyt12()">Aenean diam erat, malesuada nec ullamcorper ut, auctor eu nisl?
+  <a style="cursor: pointer;" (click)="quest12()">Aenean diam erat, malesuada nec ullamcorper ut, auctor eu nisl?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
-  <a style="cursor: pointer;" (click)="pyt13()">Nunc a condimentum ipsum, a dictum velit?
+  <a style="cursor: pointer;" (click)="quest13()">Nunc a condimentum ipsum, a dictum velit?
     <i class="fa fa-angle-double-right" style="font-size:42px;position:relative;padding-left:90%;">
       </i></a>
 </div>
            
 
-<article id="pyt1" *ngIf="(pytanie1)">
+<article id="quest1" *ngIf="(question1)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 1: </b></h3>
         <p align="justify">
@@ -64,7 +64,7 @@
 
 
 
-<article id="pyt2" *ngIf="(pytanie2)">
+<article id="quest2" *ngIf="(question2)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 2: </b></h3>
         <p align="justify">
@@ -76,7 +76,7 @@
 
 
 
-<article id="pyt3" *ngIf="(pytanie3)">
+<article id="quest3" *ngIf="(question3)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 3: </b></h3>
         <p align="justify">
@@ -88,7 +88,7 @@
 
 
 
-<article id="pyt4" *ngIf="(pytanie4)">
+<article id="quest4" *ngIf="(question4)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 4: </b></h3>
         <p align="justify">
@@ -104,7 +104,7 @@
 
 
 
-<article id="pyt5" *ngIf="(pytanie5)">
+<article id="quest5" *ngIf="(question5)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 5: </b></h3>
         <p align="justify">
@@ -116,7 +116,7 @@
 
 
 
-<article id="pyt6" *ngIf="(pytanie6)">
+<article id="quest6" *ngIf="(question6)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 6: </b></h3>
         <p align="justify">
@@ -129,7 +129,7 @@
 
 
 
-<article id="pyt7" *ngIf="(pytanie7)">
+<article id="quest7" *ngIf="(question7)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 7: </b></h3>
         <p align="justify">
@@ -142,7 +142,7 @@
 
 
 
-<article id="pyt8" *ngIf="(pytanie8)">
+<article id="quest8" *ngIf="(question8)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 8: </b></h3>
         <p align="justify">
@@ -164,7 +164,7 @@
 
 
 
-<article id="pyt9" *ngIf="(pytanie9)">
+<article id="quest9" *ngIf="(question9)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 9: </b></h3>
         <p align="justify">
@@ -186,7 +186,7 @@
 
 
 
-<article id="pyt10" *ngIf="(pytanie10)">
+<article id="quest10" *ngIf="(question10)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 10: </b></h3>
         <p align="justify">
@@ -217,7 +217,7 @@
 
 
 
-<article id="pyt11" *ngIf="(pytanie11)">
+<article id="quest11" *ngIf="(question11)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 11: </b></h3>
         <p align="justify">
@@ -261,7 +261,7 @@
 
 
 
-<article id="pyt12" *ngIf="(pytanie12)">
+<article id="quest12" *ngIf="(question12)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 12: </b></h3>
         <p align="justify">
@@ -311,7 +311,7 @@
 
 
 
-<article id="pyt13" *ngIf="(pytanie13)">
+<article id="quest13" *ngIf="(question13)">
         <h2 style="color: black;" align="center"><b>Przykładowa odpowiedź</b></h2>
         <h3 style="color: black;" align="center"><b>Pytanie 13: </b></h3>
         <p align="justify">

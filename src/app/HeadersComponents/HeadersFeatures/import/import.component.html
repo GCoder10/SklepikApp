@@ -1,4 +1,4 @@
-<body [ngStyle]="{'background-image': 'url(' + BGimport + ')'}">
+<body [ngStyle]="{'background-image': 'url(' + backgroundImagePath + ')'}">
     <div class="login-wrap">
         <div class="login-html">
           <div style="overflow-y: scroll; height:1000px;">
@@ -7,7 +7,7 @@
               <p>Przygotowany przykładowy plik JSON z danymi znajduje się w plikach projektu</p>
               <p>Jest to: ImportDATA.json</p>
               <input type="file" (change)="onFileSelected($event)">
-              <button type="button" (click)="onUpload()">Prześlij plik JSON</button>
+              <button type="button" (click)="onUploadJson()">Prześlij plik JSON</button>
           </div>
         </div>
     </div>

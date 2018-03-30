@@ -12,10 +12,10 @@ import { Http, Response, ResponseOptions } from '@angular/http';
 
 export class DownloadComponent implements OnInit {
 
-    BGdownload: string;
-    daneJSON: any;
-    Decyzja = '0';
-    fileJSON: File;
+backgroundImagePath: string;
+dataOfDownloadedJson: any;
+decision = '0';
+
 
   constructor(public jsonService: JsonService,
               public http: Http
@@ -24,15 +24,15 @@ export class DownloadComponent implements OnInit {
 
 
   ngOnInit() {
-    this.BGdownload = 'assets/images/BGsignin2.jpg';
+    this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
   }
 
 
 
   onDownload() {
 
-    this.jsonService.getJSON();
-    this.Decyzja = '1';
+    this.jsonService.getJson();
+    this.decision = '1';
 
   }
 
@@ -40,10 +40,10 @@ export class DownloadComponent implements OnInit {
 
   onDownloadFile() {
 
-    this.daneJSON = this.jsonService.newJSONObj;
-    this.Decyzja = '2';
+    this.dataOfDownloadedJson = this.jsonService.newJsonObj;
+    this.decision = '2';
 
-    var blob = new Blob([ this.daneJSON ], { type : 'json' });
+    var blob = new Blob([ this.dataOfDownloadedJson ], { type : 'json' });
 
         var fileName = 'ALLdataOfWORKERS.json';
         var a = document.createElement('a');

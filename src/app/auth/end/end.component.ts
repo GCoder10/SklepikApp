@@ -13,7 +13,9 @@ export class EndComponent implements OnInit {
   ngOnInit() {
   }
 
-   onGO3() {
+
+
+  onBackToHomePage() {
     this.router.navigate(['/']);
   }
 

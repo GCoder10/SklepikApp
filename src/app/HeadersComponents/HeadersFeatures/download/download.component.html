@@ -1,23 +1,23 @@
-<body [ngStyle]="{'background-image': 'url(' + BGdownload + ')'}">
+<body [ngStyle]="{'background-image': 'url(' + backgroundImagePath + ')'}">
     <div class="login-wrap">
         <div class="login-html">
           <div style="overflow-y: scroll; height:1000px;">
 
-                    <div *ngIf="Decyzja == '0'">
+                    <div *ngIf="decision == '0'">
               <p>Próba połączenia się z serwerem i zainicjonowanie pobierania pliku JSON</p>
               <p>Po pierwszym pobraniu nalezy przelaczyc sie na inna zakladke, potem wrocic i pobrac</p>
               <p>ponownie aby plik zawieral dane z serwera :( </p>
                 <button type="button" (click)="onDownload()">Pobierz plik JSON</button>   
                 <button type="button" (click)="onStartWatsonConversation()">Watson Conversation</button>     
                     </div>
-                    <div *ngIf="Decyzja == '1'">
+                    <div *ngIf="decision == '1'">
               <p>Pobranie pliku JSON</p>
                  <button type="button" (click)="onDownloadFile()">Download JSON</button>
                     </div>
 
 
 
-                    <div *ngIf="Decyzja == '2'">
+                    <div *ngIf="decision == '2'">
               <p> done </p>         
                     </div>
 

@@ -10,7 +10,7 @@ import { MapsAPILoader } from '@agm/core';
 })
 export class LokalizacjaComponent implements OnInit {
 
-BGlokalizacja: string;
+backgroundImagePath: string;
 latitude: number;
 longitude: number;
 searchControl: FormControl;
@@ -32,7 +32,7 @@ locationChosen = false;
     this.latitude = 53.777634;
     this.longitude = 20.479967;
 
-    this.BGlokalizacja = 'assets/images/BGsignin2.jpg';
+    this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
 
     this.searchControl = new FormControl();
 
@@ -83,7 +83,7 @@ onChoseLocation(event) {
 
 
 
-lok1() {
+location1() {
 
     this.latitude = 53.754182;
     this.longitude = 20.485456;
@@ -93,7 +93,7 @@ lok1() {
 
 
 
-lok2() {
+location2() {
 
     this.latitude = 53.7771014;
     this.longitude = 20.4835347;
@@ -103,7 +103,7 @@ lok2() {
 
 
 
-lok3() {
+location3() {
 
     this.latitude = 54.0355644;
     this.longitude = 21.7720319;
@@ -113,7 +113,7 @@ lok3() {
 
 
 
-lok4() {
+location4() {
 
     this.latitude = 54.0318157;
     this.longitude = 21.7729304;
@@ -123,7 +123,7 @@ lok4() {
 
 
 
-lok5() {
+location5() {
 
     this.latitude = 53.938641;
     this.longitude = 21.5461713;
@@ -133,7 +133,7 @@ lok5() {
 
 
 
-lok6() {
+location6() {
 
     this.latitude = 53.9375014;
     this.longitude = 21.544166;
@@ -143,7 +143,7 @@ lok6() {
 
 
 
-lok7() {
+location7() {
 
     this.latitude = 54.3826835;
     this.longitude = 18.6010427;
@@ -153,7 +153,7 @@ lok7() {
 
 
 
-lok8() {
+location8() {
 
     this.latitude = 54.3773229;
     this.longitude = 18.6084529;
@@ -163,7 +163,7 @@ lok8() {
 
 
 
-lok9() {
+location9() {
 
     this.latitude = 52.2396463;
     this.longitude = 21.0313452;
@@ -173,7 +173,7 @@ lok9() {
 
 
 
-lok10() {
+location10() {
 
     this.latitude = 52.2683273;
     this.longitude = 20.9119048;
@@ -183,7 +183,7 @@ lok10() {
 
 
 
-lok11() {
+location11() {
 
     this.latitude = 50.0614252;
     this.longitude = 19.9372235;
@@ -193,7 +193,7 @@ lok11() {
 
 
 
-lok12() {
+location12() {
 
     this.latitude = 50.064294;
     this.longitude = 19.9841872;

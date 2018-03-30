@@ -15,9 +15,9 @@ export class StartComponent implements OnInit {
   }
 
 
- onGO3() {
+ onBackToHomePage() {
     this.router.navigate(['/']);
-  }
+ }
 
 
 }

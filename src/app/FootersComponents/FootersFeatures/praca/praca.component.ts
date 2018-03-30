@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./praca.component.css']
 })
 export class PracaComponent implements OnInit {
-BGpraca: string;
+backgroundImagePath: string;
 
 
 
@@ -15,7 +15,7 @@ BGpraca: string;
 
 
   ngOnInit() {
-    this.BGpraca = 'assets/images/BGsignin2.jpg';
+    this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
   }
 
 

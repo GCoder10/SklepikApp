@@ -1,4 +1,4 @@
-<body [ngStyle]="{'background-image': 'url(' + BGdodawanie + ')'}">
+<body [ngStyle]="{'background-image': 'url(' + backgroundImagePath + ')'}">
     <div class="login-wrap">
         <div class="login-html">
           <div style="overflow-y: scroll; height:1000px;">
@@ -7,7 +7,7 @@
 
         <div class="login-form">    
         <div class="sign-in-htm">
-          <form (ngSubmit)="onSignup(f)" #f="ngForm">
+          <form (ngSubmit)="onSignUp(f)" #f="ngForm">
             <div class="group">
               <label for="name" class="label">Imie pracownika</label>
               <input id="name" name="name" ngModel required type="text" class="input" #name="ngModel">
@@ -60,7 +60,7 @@
 
           <div class="uploadPhoto">
               <input type="file" (change)="onFileSelected($event)">
-              <button type="button" (click)="onUpload()">Prześlij zdjęcie</button>
+              <button type="button" (click)="onUploadSelectedPhoto()">Prześlij zdjęcie</button>
           </div>
 <div class="photo">
 

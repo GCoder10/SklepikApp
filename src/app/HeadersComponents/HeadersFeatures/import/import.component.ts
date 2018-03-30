@@ -11,12 +11,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 export class ImportComponent implements OnInit {
 
-BGimport: string;
+backgroundImagePath: string;
 selectedFile = null;
-JSONfile = null;
 fileReader = new FileReader();
 obj = {};
-myJSON: string;
+myJson: string;
 
 
 // tslint:disable-next-line:no-output-on-prefix
@@ -30,7 +29,7 @@ myJSON: string;
 
 
   ngOnInit() {
-    this.BGimport = 'assets/images/BGsignin2.jpg';
+    this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
   }
 
 
@@ -48,7 +47,7 @@ myJSON: string;
   onReaderLoad = (event: any) => {
 
         this.obj = JSON.parse(event.target.result);
-        this.myJSON = JSON.stringify(this.obj);
+        this.myJson = JSON.stringify(this.obj);
 
         this.onClick.emit(this.obj);
         window.alert('Dane zostaly przygotowane. Mozesz uploadowac plik JSON');
@@ -57,9 +56,9 @@ myJSON: string;
 
 
 
-  onUpload() {
+  onUploadJson() {
 
-        this.jsonService.sendJSON(this.obj);
+        this.jsonService.sendJson(this.obj);
 
   }
 

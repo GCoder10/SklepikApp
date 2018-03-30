@@ -10,21 +10,21 @@ import { NgForm } from '@angular/forms';
 })
 
 export class CityComponent implements OnInit {
-BGcity: string;
-showtable: boolean;
-danePracownika2: Array<any> = [];
-danePracownika3: Array<any> = [];
+backgroundImagePath: string;
+showTable: boolean;
+dataOfAllWorkersForSearchingOperations: Array<any> = [];
+dataOfSearchedWorkers: Array<any> = [];
 citySearching: any;
-CanSearch = '1';
-danePracownika: any;
-Button1 = '1';
+canSearch = '1';
+dataOfAllWorkers: any;
+button1 = '1';
 
 
 
   constructor(public dataService: DataService) { }
 
   ngOnInit() {
-    this.BGcity = 'assets/images/BGsignin2.jpg';
+    this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
   }
 
 
@@ -32,7 +32,7 @@ Button1 = '1';
 onPrepareToAll() {
 
     this.dataService.onPrepareToSyncAllDataWithDatabaseData();
-    this.Button1 = '2';
+    this.button1 = '2';
 
 }
 
@@ -40,10 +40,10 @@ onPrepareToAll() {
 
 onGenerateTableInApi() {
 
-    let danePracownika = this.dataService.allitems;
+    let dataOfAllWorkers = this.dataService.allItems;
 
-    for (let obj of danePracownika ){
-      this.danePracownika2.push({
+    for (let obj of dataOfAllWorkers ){
+      this.dataOfAllWorkersForSearchingOperations.push({
         city: obj.city,
         email: obj.email,
         name: obj.name,
@@ -61,13 +61,13 @@ onGenerateTableInApi() {
 onTrySearch(form: NgForm) {
 
     this.citySearching = form.value.city;
-    this.CanSearch = '1';
+    this.canSearch = '1';
 
 
 
-  for (let obj of this.danePracownika2 ){
+  for (let obj of this.dataOfAllWorkersForSearchingOperations ){
     if (obj.city == this.citySearching) {
-      this.danePracownika3.push({
+      this.dataOfSearchedWorkers.push({
         city: obj.city,
         email: obj.email,
         name: obj.name,
@@ -78,7 +78,7 @@ onTrySearch(form: NgForm) {
       });
     }
 
-    this.showtable = true;
+    this.showTable = true;
   }
 
 }
@@ -87,14 +87,14 @@ onTrySearch(form: NgForm) {
 
   onSearchAgain() {
 
-  this.danePracownika3 = [];
-  this.danePracownika2 = [];
-  this.danePracownika = [];
+  this.dataOfSearchedWorkers = [];
+  this.dataOfAllWorkersForSearchingOperations = [];
+  this.dataOfAllWorkers = [];
 
     this.dataService.resetDataOfDownloadedWorkers();
 
-    this.showtable = false;
-    this.Button1 = '1';
+    this.showTable = false;
+    this.button1 = '1';
 
   }
 

@@ -16,10 +16,10 @@ import { HttpClient } from '@angular/common/http';
 export class DodawanieComponent implements OnInit {
 
 
-BGdodawanie: string;
+backgroundImagePath: string;
 selectedFile = null;
-imageSRC = null;
-imageSRC2img: FileReader = null;
+imageSrc = null;
+
 
 
 
@@ -30,11 +30,11 @@ imageSRC2img: FileReader = null;
 
 
   ngOnInit() {
-    this.BGdodawanie = 'assets/images/BGsignin2.jpg';
+    this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
   }
 
 
-  onSignup(form: NgForm) {
+  onSignUp(form: NgForm) {
 
     const name = form.value.name;
     const surname = form.value.surname;
@@ -46,7 +46,7 @@ imageSRC2img: FileReader = null;
 
     const pass = form.value.pass;
 
-    this.dataService.AddNewWorker(name, surname, city, street, email, pesel, pass);
+    this.dataService.addNewWorker(name, surname, city, street, email, pesel, pass);
 
 }
 
@@ -56,7 +56,7 @@ imageSRC2img: FileReader = null;
   onFileSelected(event) {
 
     this.selectedFile = <File>event.target.files[0];
-    this.imageSRC = <File>event.target.files[0].result;
+    this.imageSrc = <File>event.target.files[0].result;
 
   }
 
@@ -64,7 +64,7 @@ imageSRC2img: FileReader = null;
 
 
 
-  onUpload() {
+  onUploadSelectedPhoto() {
 
     this.dataService.sendPhoto(this.selectedFile);
 

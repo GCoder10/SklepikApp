@@ -6,233 +6,233 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pytania.component.css']
 })
 export class PytaniaComponent implements OnInit {
-pytanie1: boolean;
-pytanie2: boolean;
-pytanie3: boolean;
-pytanie4: boolean;
-pytanie5: boolean;
-pytanie6: boolean;
-pytanie7: boolean;
-pytanie8: boolean;
-pytanie9: boolean;
-pytanie10: boolean;
-pytanie11: boolean;
-pytanie12: boolean;
-pytanie13: boolean;
-BGpytania: string;
+question1: boolean;
+question2: boolean;
+question3: boolean;
+question4: boolean;
+question5: boolean;
+question6: boolean;
+question7: boolean;
+question8: boolean;
+question9: boolean;
+question10: boolean;
+question11: boolean;
+question12: boolean;
+question13: boolean;
+backgroundImagePath: string;
 
 
   constructor() { }
 
   ngOnInit() {
-    this.BGpytania = 'assets/images/BGsignin2.jpg';
+    this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
   }
 
-  pyt1() {
-    this.pytanie1 = true;
-    this.pytanie2 = false;
-    this.pytanie3 = false;
-    this.pytanie4 = false;
-    this.pytanie5 = false;
-    this.pytanie6 = false;
-    this.pytanie7 = false;
-    this.pytanie8 = false;
-    this.pytanie9 = false;
-    this.pytanie10 = false;
-    this.pytanie11 = false;
-    this.pytanie12 = false;
-    this.pytanie13 = false;
+  quest1() {
+    this.question1 = true;
+    this.question2 = false;
+    this.question3 = false;
+    this.question4 = false;
+    this.question5 = false;
+    this.question6 = false;
+    this.question7 = false;
+    this.question8 = false;
+    this.question9 = false;
+    this.question10 = false;
+    this.question11 = false;
+    this.question12 = false;
+    this.question13 = false;
   }
 
-  pyt2() {
-    this.pytanie1 = false;
-    this.pytanie2 = true;
-    this.pytanie3 = false;
-    this.pytanie4 = false;
-    this.pytanie5 = false;
-    this.pytanie6 = false;
-    this.pytanie7 = false;
-    this.pytanie8 = false;
-    this.pytanie9 = false;
-    this.pytanie10 = false;
-    this.pytanie11 = false;
-    this.pytanie12 = false;
-    this.pytanie13 = false;
+  quest2() {
+    this.question1 = false;
+    this.question2 = true;
+    this.question3 = false;
+    this.question4 = false;
+    this.question5 = false;
+    this.question6 = false;
+    this.question7 = false;
+    this.question8 = false;
+    this.question9 = false;
+    this.question10 = false;
+    this.question11 = false;
+    this.question12 = false;
+    this.question13 = false;
   }
 
-  pyt3() {
-    this.pytanie1 = false;
-    this.pytanie2 = false;
-    this.pytanie3 = true;
-    this.pytanie4 = false;
-    this.pytanie5 = false;
-    this.pytanie6 = false;
-    this.pytanie7 = false;
-    this.pytanie8 = false;
-    this.pytanie9 = false;
-    this.pytanie10 = false;
-    this.pytanie11 = false;
-    this.pytanie12 = false;
-    this.pytanie13 = false;
+  quest3() {
+    this.question1 = false;
+    this.question2 = false;
+    this.question3 = true;
+    this.question4 = false;
+    this.question5 = false;
+    this.question6 = false;
+    this.question7 = false;
+    this.question8 = false;
+    this.question9 = false;
+    this.question10 = false;
+    this.question11 = false;
+    this.question12 = false;
+    this.question13 = false;
   }
 
-  pyt4() {
-    this.pytanie1 = false;
-    this.pytanie2 = false;
-    this.pytanie3 = false;
-    this.pytanie4 = true;
-    this.pytanie5 = false;
-    this.pytanie6 = false;
-    this.pytanie7 = false;
-    this.pytanie8 = false;
-    this.pytanie9 = false;
-    this.pytanie10 = false;
-    this.pytanie11 = false;
-    this.pytanie12 = false;
-    this.pytanie13 = false;
+  quest4() {
+    this.question1 = false;
+    this.question2 = false;
+    this.question3 = false;
+    this.question4 = true;
+    this.question5 = false;
+    this.question6 = false;
+    this.question7 = false;
+    this.question8 = false;
+    this.question9 = false;
+    this.question10 = false;
+    this.question11 = false;
+    this.question12 = false;
+    this.question13 = false;
   }
 
-  pyt5() {
-    this.pytanie1 = false;
-    this.pytanie2 = false;
-    this.pytanie3 = false;
-    this.pytanie4 = false;
-    this.pytanie5 = true;
-    this.pytanie6 = false;
-    this.pytanie7 = false;
-    this.pytanie8 = false;
-    this.pytanie9 = false;
-    this.pytanie10 = false;
-    this.pytanie11 = false;
-    this.pytanie12 = false;
-    this.pytanie13 = false;
+  quest5() {
+    this.question1 = false;
+    this.question2 = false;
+    this.question3 = false;
+    this.question4 = false;
+    this.question5 = true;
+    this.question6 = false;
+    this.question7 = false;
+    this.question8 = false;
+    this.question9 = false;
+    this.question10 = false;
+    this.question11 = false;
+    this.question12 = false;
+    this.question13 = false;
   }
 
-  pyt6() {
-    this.pytanie1 = false;
-    this.pytanie2 = false;
-    this.pytanie3 = false;
-    this.pytanie4 = false;
-    this.pytanie5 = false;
-    this.pytanie6 = true;
-    this.pytanie7 = false;
-    this.pytanie8 = false;
-    this.pytanie9 = false;
-    this.pytanie10 = false;
-    this.pytanie11 = false;
-    this.pytanie12 = false;
-    this.pytanie13 = false;
+  quest6() {
+    this.question1 = false;
+    this.question2 = false;
+    this.question3 = false;
+    this.question4 = false;
+    this.question5 = false;
+    this.question6 = true;
+    this.question7 = false;
+    this.question8 = false;
+    this.question9 = false;
+    this.question10 = false;
+    this.question11 = false;
+    this.question12 = false;
+    this.question13 = false;
   }
 
-  pyt7() {
-    this.pytanie1 = false;
-    this.pytanie2 = false;
-    this.pytanie3 = false;
-    this.pytanie4 = false;
-    this.pytanie5 = false;
-    this.pytanie6 = false;
-    this.pytanie7 = true;
-    this.pytanie8 = false;
-    this.pytanie9 = false;
-    this.pytanie10 = false;
-    this.pytanie11 = false;
-    this.pytanie12 = false;
-    this.pytanie13 = false;
+  quest7() {
+    this.question1 = false;
+    this.question2 = false;
+    this.question3 = false;
+    this.question4 = false;
+    this.question5 = false;
+    this.question6 = false;
+    this.question7 = true;
+    this.question8 = false;
+    this.question9 = false;
+    this.question10 = false;
+    this.question11 = false;
+    this.question12 = false;
+    this.question13 = false;
   }
 
-  pyt8() {
-    this.pytanie1 = false;
-    this.pytanie2 = false;
-    this.pytanie3 = false;
-    this.pytanie4 = false;
-    this.pytanie5 = false;
-    this.pytanie6 = false;
-    this.pytanie7 = false;
-    this.pytanie8 = true;
-    this.pytanie9 = false;
-    this.pytanie10 = false;
-    this.pytanie11 = false;
-    this.pytanie12 = false;
-    this.pytanie13 = false;
+  quest8() {
+    this.question1 = false;
+    this.question2 = false;
+    this.question3 = false;
+    this.question4 = false;
+    this.question5 = false;
+    this.question6 = false;
+    this.question7 = false;
+    this.question8 = true;
+    this.question9 = false;
+    this.question10 = false;
+    this.question11 = false;
+    this.question12 = false;
+    this.question13 = false;
   }
 
-  pyt9() {
-    this.pytanie1 = false;
-    this.pytanie2 = false;
-    this.pytanie3 = false;
-    this.pytanie4 = false;
-    this.pytanie5 = false;
-    this.pytanie6 = false;
-    this.pytanie7 = false;
-    this.pytanie8 = false;
-    this.pytanie9 = true;
-    this.pytanie10 = false;
-    this.pytanie11 = false;
-    this.pytanie12 = false;
-    this.pytanie13 = false;
+  quest9() {
+    this.question1 = false;
+    this.question2 = false;
+    this.question3 = false;
+    this.question4 = false;
+    this.question5 = false;
+    this.question6 = false;
+    this.question7 = false;
+    this.question8 = false;
+    this.question9 = true;
+    this.question10 = false;
+    this.question11 = false;
+    this.question12 = false;
+    this.question13 = false;
   }
 
-  pyt10() {
-    this.pytanie1 = false;
-    this.pytanie2 = false;
-    this.pytanie3 = false;
-    this.pytanie4 = false;
-    this.pytanie5 = false;
-    this.pytanie6 = false;
-    this.pytanie7 = false;
-    this.pytanie8 = false;
-    this.pytanie9 = false;
-    this.pytanie10 = true;
-    this.pytanie11 = false;
-    this.pytanie12 = false;
-    this.pytanie13 = false;
+  quest10() {
+    this.question1 = false;
+    this.question2 = false;
+    this.question3 = false;
+    this.question4 = false;
+    this.question5 = false;
+    this.question6 = false;
+    this.question7 = false;
+    this.question8 = false;
+    this.question9 = false;
+    this.question10 = true;
+    this.question11 = false;
+    this.question12 = false;
+    this.question13 = false;
   }
 
-  pyt11() {
-    this.pytanie1 = false;
-    this.pytanie2 = false;
-    this.pytanie3 = false;
-    this.pytanie4 = false;
-    this.pytanie5 = false;
-    this.pytanie6 = false;
-    this.pytanie7 = false;
-    this.pytanie8 = false;
-    this.pytanie9 = false;
-    this.pytanie10 = false;
-    this.pytanie11 = true;
-    this.pytanie12 = false;
-    this.pytanie13 = false;
+  quest11() {
+    this.question1 = false;
+    this.question2 = false;
+    this.question3 = false;
+    this.question4 = false;
+    this.question5 = false;
+    this.question6 = false;
+    this.question7 = false;
+    this.question8 = false;
+    this.question9 = false;
+    this.question10 = false;
+    this.question11 = true;
+    this.question12 = false;
+    this.question13 = false;
   }
 
-  pyt12() {
-    this.pytanie1 = false;
-    this.pytanie2 = false;
-    this.pytanie3 = false;
-    this.pytanie4 = false;
-    this.pytanie5 = false;
-    this.pytanie6 = false;
-    this.pytanie7 = false;
-    this.pytanie8 = false;
-    this.pytanie9 = false;
-    this.pytanie10 = false;
-    this.pytanie11 = false;
-    this.pytanie12 = true;
-    this.pytanie13 = false;
+  quest12() {
+    this.question1 = false;
+    this.question2 = false;
+    this.question3 = false;
+    this.question4 = false;
+    this.question5 = false;
+    this.question6 = false;
+    this.question7 = false;
+    this.question8 = false;
+    this.question9 = false;
+    this.question10 = false;
+    this.question11 = false;
+    this.question12 = true;
+    this.question13 = false;
   }
 
-  pyt13() {
-    this.pytanie1 = false;
-    this.pytanie2 = false;
-    this.pytanie3 = false;
-    this.pytanie4 = false;
-    this.pytanie5 = false;
-    this.pytanie6 = false;
-    this.pytanie7 = false;
-    this.pytanie8 = false;
-    this.pytanie9 = false;
-    this.pytanie10 = false;
-    this.pytanie11 = false;
-    this.pytanie12 = false;
-    this.pytanie13 = true;
+  quest13() {
+    this.question1 = false;
+    this.question2 = false;
+    this.question3 = false;
+    this.question4 = false;
+    this.question5 = false;
+    this.question6 = false;
+    this.question7 = false;
+    this.question8 = false;
+    this.question9 = false;
+    this.question10 = false;
+    this.question11 = false;
+    this.question12 = false;
+    this.question13 = true;
   }
 }

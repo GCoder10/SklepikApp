@@ -1,15 +1,15 @@
-<body [ngStyle]="{'background-image': 'url(' + BGcity + ')'}">
+<body [ngStyle]="{'background-image': 'url(' + backgroundImagePath + ')'}">
     <div class="login-wrap">
         <div class="login-html">
           <div style="overflow-y: scroll; height:1000px;">
-              <button (click)="onPrepareToAll()" class="btn btn-info" *ngIf="Button1=='1'">BeforeSync</button>  
-              <button (click)="onGenerateTableInApi()" class="btn btn-success" *ngIf="Button1=='2'">GenerateTable</button> 
-              <button (click)="onSearchAgain()" class="btn btn-warning" *ngIf="Button1=='2'">reset</button> 
+              <button (click)="onPrepareToAll()" class="btn btn-info" *ngIf="button1=='1'">BeforeSync</button>  
+              <button (click)="onGenerateTableInApi()" class="btn btn-success" *ngIf="button1=='2'">GenerateTable</button> 
+              <button (click)="onSearchAgain()" class="btn btn-warning" *ngIf="button1=='2'">reset</button> 
               <hr>
 
 
 
-                    <div class="setForm" *ngIf="Button1=='2'">
+                    <div class="setForm" *ngIf="button1=='2'">
                     <div class="login-form">    
                     <div class="sign-in-htm">
     <form (ngSubmit)="onTrySearch(f)" #f="ngForm">
@@ -18,11 +18,11 @@
               <input id="city" name="city" ngModel required type="text" class="input" #city="ngModel">
               <span class="help-block" *ngIf="!city.valid && city.touched" style="color:red;">Wprowadź poprawną nazwę miasta!</span>
     </div>
-             <div class="group" *ngIf="CanSearch=='1'">
+             <div class="group" *ngIf="canSearch=='1'">
               <input type="submit" class="button" value="Wyszukaj pracownika" [disabled]="!f.valid">
               </div>
     </form>
-              <button (click)="onSearchAgain()" *ngIf="CanSearch=='0'" class="btn btn-warning">Ponowne wyszukiwanie</button>           
+              <button (click)="onSearchAgain()" *ngIf="canSearch=='0'" class="btn btn-warning">Ponowne wyszukiwanie</button>           
         <hr>
 
                     </div>
@@ -31,18 +31,18 @@
 
 
   <br>
-<p *ngIf="Button1=='1'">BeforeSync - pobranie danych przez api umożliwi późniejsze przeszukanie pracowników</p>
-<p *ngIf="Button1=='1'">Przygotowanie aplikacji do wysłania zapytania na serwer w celu pobrania danych o pracownikach</p>
-<p *ngIf="Button1=='2'">Reset - przy pierwszym wyszukiwaniu zresetować dane i spróbować jeszcze raz</p>
-<p *ngIf="Button1=='2'">1. GenerateTable - wczytanie pobranych danych do api</p>
-<p *ngIf="Button1=='2'">2. Wyszukaj pracownika - wpisz nazwe miasta</p>
-<p *ngIf="Button1=='2'">3. Nastepnie kliknij wyszukaj pracownika</p>    
+<p *ngIf="button1=='1'">BeforeSync - pobranie danych przez api umożliwi późniejsze przeszukanie pracowników</p>
+<p *ngIf="button1=='1'">Przygotowanie aplikacji do wysłania zapytania na serwer w celu pobrania danych o pracownikach</p>
+<p *ngIf="button1=='2'">Reset - przy pierwszym wyszukiwaniu zresetować dane i spróbować jeszcze raz</p>
+<p *ngIf="button1=='2'">1. GenerateTable - wczytanie pobranych danych do api</p>
+<p *ngIf="button1=='2'">2. Wyszukaj pracownika - wpisz nazwe miasta</p>
+<p *ngIf="button1=='2'">3. Nastepnie kliknij wyszukaj pracownika</p>    
 
             <br>
             <br>
 
 
-<div *ngIf="(showtable)">
+<div *ngIf="(showTable)">
  <table>
    <thead>
      
@@ -56,7 +56,7 @@
     
    </thead>
    <tbody>    
-     <tr *ngFor="let row of danePracownika3">    
+     <tr *ngFor="let row of dataOfSearchedWorkers">    
                <td>{{row.city}}</td>    
                <td>{{row.email}}</td>    
                <td>{{row.name}}</td>     

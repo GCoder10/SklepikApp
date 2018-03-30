@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./o-nas.component.css']
 })
 export class ONasComponent implements OnInit {
-  BGoNas: string;
+  backgroundImagePath: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.BGoNas = 'assets/images/BGsignin2.jpg';
+    this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
   }
 
 }

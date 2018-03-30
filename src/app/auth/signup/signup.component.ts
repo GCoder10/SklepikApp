@@ -10,8 +10,7 @@ import { Store } from '@ngrx/store';
 })
 
 export class SignupComponent implements OnInit {
-  BG2: string;
-  BG: string;
+  backgroundImagePath: string;
 
 
 
@@ -20,13 +19,12 @@ export class SignupComponent implements OnInit {
 
 
   ngOnInit() {
-    this.BG = 'assets/images/BGsignin.jpg';
-    this.BG2 = 'assets/images/BGsignin2.jpg';
+    this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
   }
 
 
 
-  onSignup(form: NgForm) {
+  onSignUp(form: NgForm) {
     const email = form.value.email;
     const pass = form.value.pass;
     const user = form.value.user;

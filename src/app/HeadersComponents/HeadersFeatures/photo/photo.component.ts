@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./photo.component.css']
 })
 export class PhotoComponent implements OnInit {
-BGphoto: string;
+backgroundImagePath: string;
 surnameSearching: any;
 CanSearch = '1';
 daneZdjecia: any;
@@ -19,7 +19,7 @@ daneZdjecia: any;
 
 
   ngOnInit() {
-     this.BGphoto = 'assets/images/BGsignin2.jpg';
+     this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
   }
 
 
@@ -36,7 +36,7 @@ daneZdjecia: any;
 
   ShowPhoto() {
 
-    this.daneZdjecia = this.dataService.ImageUrl;
+    this.daneZdjecia = this.dataService.imageUrl;
     this.CanSearch = '0';
 
   }
