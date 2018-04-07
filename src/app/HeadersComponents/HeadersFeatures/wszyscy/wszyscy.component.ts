@@ -1,15 +1,16 @@
 import { DataService } from '../../../data/data.service';
 import { Component, OnInit } from '@angular/core';
-
-
+import { ConfigService } from '../../../core/configuration.service';
 
 @Component({
   selector: 'app-wszyscy',
   templateUrl: './wszyscy.component.html',
-  styleUrls: ['./wszyscy.component.css']
+  styleUrls: ['./wszyscy.component.css'],
+  providers: [ConfigService],
 })
 
 export class WszyscyComponent implements OnInit {
+
 BGwszyscy: string;
 danePracownika: any;
 danePracownika2: Array<any> = [];
@@ -17,14 +18,27 @@ surnameSearching: string;
 showtable: boolean;
 Button1 = '1';
 
+  configuration;
+  columns = [
+    { key: 'surname', title: 'Surname' },
+    { key: 'city', title: 'City' },
+    { key: 'email', title: 'Email' },
+    { key: 'name', title: 'Name' },
+    { key: 'pass', title: 'Pass' },
+    { key: 'pesel', title: 'PESEL' },
+    { key: 'street', title: 'Street' }
+  ];
 
 
-  constructor(public dataService: DataService) { }
-
+  constructor(public dataService: DataService
+  ) {
+    this.configuration = ConfigService.config;
+  }
 
 
   ngOnInit() {
     this.BGwszyscy = 'assets/images/BGsignin2.jpg';
+
   }
 
 

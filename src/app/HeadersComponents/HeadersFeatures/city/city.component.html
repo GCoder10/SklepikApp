@@ -43,30 +43,12 @@
 
 
 <div *ngIf="(showTable)">
- <table>
-   <thead>
-     
-       <th>CITY</th>
-       <th>EMAIL</th>
-       <th>NAME</th>
-       <th>PASS</th>
-       <th>PESEL</th>
-       <th>STREET</th>
-       <th>SURNAME</th>
-    
-   </thead>
-   <tbody>    
-     <tr *ngFor="let row of dataOfSearchedWorkers">    
-               <td>{{row.city}}</td>    
-               <td>{{row.email}}</td>    
-               <td>{{row.name}}</td>     
-               <td>{{row.pass}}</td>     
-               <td>{{row.pesel}}</td>   
-               <td>{{row.street}}</td>  
-               <td>{{row.surname}}</td> 
-     </tr>  
-    </tbody>
- </table>
+	<div class="columns">
+		<div class="column col-12">
+			<ngx-table [configuration]="configuration" [data]="dataOfSearchedWorkers" [columns]="columns" [groupRowsBy]="'surname'">
+            </ngx-table>
+        </div>
+	</div>
 </div>
 
 

@@ -41,6 +41,9 @@ import { CityComponent } from './HeadersComponents/HeadersFeatures/city/city.com
 import { ImportComponent } from './HeadersComponents/HeadersFeatures/import/import.component';
 import { HttpModule } from '@angular/http';
 import { DownloadComponent } from './HeadersComponents/HeadersFeatures/download/download.component';
+import { TableModule } from 'ngx-easy-table';
+
+
 
 
 @NgModule({
@@ -87,6 +90,7 @@ import { DownloadComponent } from './HeadersComponents/HeadersFeatures/download/
       libraries: ['places']
     }),
     NgxImageGalleryModule,
+    TableModule,
     HttpClientModule,
     HttpModule
   ],

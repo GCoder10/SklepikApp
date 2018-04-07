@@ -3,7 +3,10 @@ import * as firebase from 'firebase';
 import database from 'firebase/database';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
+import { RequestOptions } from '@angular/http';
 
 
 @Injectable()
@@ -14,12 +17,21 @@ export class DataService {
     allItems: Array<any> = [];
     imageUrl: any;
 
-constructor(private router: Router) { }
+
+constructor(private router: Router,
+            private http: HttpClient
+) { }
+
 
 
 addNewWorker(name: string, surname: string, city: string, street: string, email: string, pesel: number, pass: string) {
+  //  var database = firebase.database().ref().child('pracownicy/' + surname);
 
-    var database = firebase.database().ref().child('pracownicy/' + surname);
+  let headers = new HttpHeaders().set(
+      'Authorization', 'AIzaSyDVuKIfeknL-msuguakxrjIwLO0ohj_o0'
+  );
+ // let options = new RequestOptions( {headers: headers} );
+
 
     var newData = {
         name: name,
@@ -29,12 +41,20 @@ addNewWorker(name: string, surname: string, city: string, street: string, email:
         email: email,
         pesel: pesel,
         pass: pass
-
     };
 
-  database.push(newData);
-  console.log('Pracownik został pomyślnie dodany do bazy danych');
-  this.router.navigate(['/']);
+
+    // tslint:disable-next-line:max-line-length
+    this.http.post('https://sklepikapp-32f5b.firebaseio.com/pracownicy/' + surname, newData)// , {headers} )
+    .catch(err => {
+        console.log(err);
+        return Observable.of(err);
+    });
+
+
+    //  database.push(newData);
+    console.log('Pracownik został pomyślnie dodany do bazy danych');
+    this.router.navigate(['/']);
 
 }
 

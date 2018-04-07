@@ -2,9 +2,6 @@ import { DataService } from '../../../data/data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { HttpClient } from '@angular/common/http';
-
-
 
 
 @Component({
@@ -23,9 +20,7 @@ imageSrc = null;
 
 
 
-  constructor(public dataService: DataService,
-              private http: HttpClient
-  ) { }
+  constructor(public dataService: DataService) { }
 
 
 
