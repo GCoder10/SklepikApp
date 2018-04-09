@@ -5,8 +5,9 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
-import { RequestOptions } from '@angular/http';
+import { RequestOptions, Http } from '@angular/http';
 
 
 @Injectable()
@@ -15,23 +16,18 @@ export class DataService {
     items: Array<any> = [];
     arrayForAllChildNames: Array<any> = [];
     allItems: Array<any> = [];
+    allWorkers: any;
     imageUrl: any;
 
 
 constructor(private router: Router,
-            private http: HttpClient
+            private http: Http
 ) { }
 
 
 
 addNewWorker(name: string, surname: string, city: string, street: string, email: string, pesel: number, pass: string) {
   //  var database = firebase.database().ref().child('pracownicy/' + surname);
-
-  let headers = new HttpHeaders().set(
-      'Authorization', 'AIzaSyDVuKIfeknL-msuguakxrjIwLO0ohj_o0'
-  );
- // let options = new RequestOptions( {headers: headers} );
-
 
     var newData = {
         name: name,
@@ -43,21 +39,25 @@ addNewWorker(name: string, surname: string, city: string, street: string, email:
         pass: pass
     };
 
+    var payload = JSON.stringify(newData);
 
-    // tslint:disable-next-line:max-line-length
-    this.http.post('https://sklepikapp-32f5b.firebaseio.com/pracownicy/' + surname, newData)// , {headers} )
+    let url = 'https://sklepikapp-32f5b.firebaseio.com/pracownicy';
+    let headers = new HttpHeaders({
+       'Content-Type': 'application/json',
+    });
+
+
+    console.log('Pracownik został pomyślnie dodany do bazy danych');
+  //  this.router.navigate(['/']);
+    return this.http.post(url, payload)
     .catch(err => {
         console.log(err);
         return Observable.of(err);
     });
 
-
     //  database.push(newData);
-    console.log('Pracownik został pomyślnie dodany do bazy danych');
-    this.router.navigate(['/']);
 
 }
-
 
 
 
@@ -118,26 +118,19 @@ resetWorkersSearching() {
 
 
 
-
-
-
-onPrepareToSyncAllDataWithDatabaseData() {
-
-    var database = firebase.database().ref('pracownicy/');
-
-    database.on('value', (snapshot) => {
-        snapshot.forEach((snap) => {
-        this.arrayForAllChildNames.push({
-            key: snap.key
-    });
-
-    return false;
-  });
-
-});
-this.getAllDataOfWorkers();
+onDownloadAllWorkersFromLocalDatabase() {
+        this.http.get('http://localhost:5000/api/values').subscribe(response => {
+            console.log(response);
+           this.allWorkers = response.json();
+        });
+       this.makeAllDataOfWorkersFromLocalDatabaseObservable();
 }
+makeAllDataOfWorkersFromLocalDatabaseObservable(): Observable<any> {
 
+      window.alert('Tablica z danymi została przygotowana poprawnie');
+      return Observable.of(this.allWorkers);
+
+}
 
 
 

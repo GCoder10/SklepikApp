@@ -43,7 +43,7 @@ button1 = '1';
 
 onPrepareToAll() {
 
-    this.dataService.onPrepareToSyncAllDataWithDatabaseData();
+   // this.dataService.onPrepareToSyncAllDataWithDatabaseData();
     this.button1 = '2';
 
 }

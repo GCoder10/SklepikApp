@@ -12,6 +12,7 @@ export const environment = {
       databaseURL: 'https://sklepikapp-32f5b.firebaseio.com/',
       storageBucket: 'gs://sklepikapp-32f5b.appspot.com',
   }
+
     /*
 #WATSON
 # Set CONVERSATION_URL to correct gateway

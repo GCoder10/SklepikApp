@@ -1,0 +1,158 @@
+{
+  "pracownicy" : {
+    "Gorowski" : {
+      "-L9VJ7t6EwtNPwvwxmgh" : {
+        "city" : "Ryn",
+        "email" : "Gorowski@ryn.com",
+        "name" : "Ryszard",
+        "pass" : "gorowskipass",
+        "pesel" : "4673246743267",
+        "street" : "Pokatna",
+        "surname" : "Gorowski"
+      }
+    },
+    "Kleszczowski" : {
+      "-L7itVj2ktDzzSYEUcst" : {
+        "city" : "Gizycko",
+        "email" : "Kleszczowski@gizycko.com",
+        "name" : "Tomasz",
+        "pass" : "kleszczowskipass",
+        "pesel" : "35262363627",
+        "street" : "Uniwersytecka",
+        "surname" : "Kleszczowski"
+      }
+    },
+    "Klon" : {
+      "-L7fMESPd5hMjfzCDdyg" : {
+        "city" : "Ryn",
+        "email" : "Klon@gizycko.com",
+        "name" : "Michal",
+        "pass" : "klonpass",
+        "pesel" : "213231232327",
+        "street" : "Udana",
+        "surname" : "Klon"
+      }
+    },
+    "Kol" : {
+      "-L9VJ7t4sxWnBU2AyW67" : {
+        "city" : "Gizycko",
+        "email" : "Kol@gizycko.com",
+        "name" : "Przemyslaw",
+        "pass" : "kolpass",
+        "pesel" : "4636464676",
+        "street" : "Gdanska",
+        "surname" : "Kol"
+      }
+    },
+    "Kolczowski" : {
+      "-L7itVizFnAK1aSIM4J1" : {
+        "city" : "Gizycko",
+        "email" : "Kolczowski@gizycko.com",
+        "name" : "Krzysztof",
+        "pass" : "kolczowskipass",
+        "pesel" : "25625632563256",
+        "street" : "Generalow",
+        "surname" : "Kolczowski"
+      }
+    },
+    "Kowalski" : {
+      "-L8I3Aa_Kku_0dCFWmg0" : {
+        "city" : "Olsztyn",
+        "email" : "Kowalski@olsztyn.pl",
+        "name" : "Jan",
+        "pass" : "JanKowalski",
+        "pesel" : 152561562561,
+        "street" : "Słoneczna",
+        "surname" : "Kowalski"
+      }
+    },
+    "Mlecz" : {
+      "-L7itVj1Ra083QRjAPbz" : {
+        "city" : "Ryn",
+        "email" : "Mlecz@ryn.com",
+        "name" : "Michal",
+        "pass" : "mleczpass",
+        "pesel" : "234236236365",
+        "street" : "Sloneczna",
+        "surname" : "Mlecz"
+      }
+    },
+    "Mleczowski" : {
+      "-L8I3DeU5SY4zgJHnbcj" : {
+        "city" : "Gdansk",
+        "email" : "Mleczowski@gdansk.com",
+        "name" : "Pawel",
+        "pass" : "mleczowskipass",
+        "pesel" : "352532635262",
+        "street" : "Warszawska",
+        "surname" : "Mleczowski"
+      }
+    },
+    "Nowak" : {
+      "-L5tpk198hR8y_bITgcS" : {
+        "city" : "Olsztyn",
+        "email" : "Nowak@olsztyn.pl",
+        "name" : "Krzysztof",
+        "pass" : "NowakKK",
+        "pesel" : 145124512,
+        "street" : "Słoneczna",
+        "surname" : "Nowak"
+      }
+    },
+    "Nowski" : {
+      "-L9VJ7t9p8PbGij4X7u_" : {
+        "city" : "Warszawa",
+        "email" : "Nowski@warszawa.com",
+        "name" : "Pawel",
+        "pass" : "nowskipass",
+        "pesel" : "467237626723",
+        "street" : "Warszawska",
+        "surname" : "Nowski"
+      }
+    },
+    "Ryjowski" : {
+      "-L7itVj2ktDzzSYEUcss" : {
+        "city" : "Gdansk",
+        "email" : "Ryjowski@gdansk.com",
+        "name" : "Przemek",
+        "pass" : "ryjowskipass",
+        "pesel" : "362732673762",
+        "street" : "Uniwersytecka",
+        "surname" : "Ryjowski"
+      }
+    },
+    "Szczescie" : {
+      "-L9VJ7tAv7mxoW_WElCs" : {
+        "city" : "Warszawa",
+        "email" : "Szczescie@warszawa.com",
+        "name" : "Przemek",
+        "pass" : "szczesciepass",
+        "pesel" : "32623467326732",
+        "street" : "Glowna",
+        "surname" : "Szczescie"
+      }
+    },
+    "Szyszka" : {
+      "-L7fMESL9XlFeGlO4d3-" : {
+        "city" : "Gizycko",
+        "email" : "Szyszka@gizycko.com",
+        "name" : "Pawel",
+        "pass" : "szyszkapass",
+        "pesel" : "6127167162171",
+        "street" : "Wawrzycka",
+        "surname" : "Szyszka"
+      }
+    },
+    "Udanowski" : {
+      "-L9VJ7tAv7mxoW_WElCt" : {
+        "city" : "Olsztyn",
+        "email" : "Udanowski@olsztyn.com",
+        "name" : "Tomasz",
+        "pass" : "udanowskipass",
+        "pesel" : "46436436737",
+        "street" : "Kolobrzeska",
+        "surname" : "Udanowski"
+      }
+    }
+  }
+}

@@ -20,6 +20,11 @@ Button1 = '1';
 
   configuration;
   columns = [
+    { key: 'id', title: 'id' },
+    { key: 'name', title: 'Name' }
+  ];
+
+  /*  columns = [
     { key: 'surname', title: 'Surname' },
     { key: 'city', title: 'City' },
     { key: 'email', title: 'Email' },
@@ -27,7 +32,8 @@ Button1 = '1';
     { key: 'pass', title: 'Pass' },
     { key: 'pesel', title: 'PESEL' },
     { key: 'street', title: 'Street' }
-  ];
+  ];*/
+
 
 
   constructor(public dataService: DataService
@@ -37,26 +43,51 @@ Button1 = '1';
 
 
   ngOnInit() {
+
     this.BGwszyscy = 'assets/images/BGsignin2.jpg';
 
   }
 
 
 
-onPrepareToSyncAllDataWithDatabase() {
 
-    this.dataService.onPrepareToSyncAllDataWithDatabaseData();
-    this.Button1 = '2';
+onDownloadAllWorkersFromLocalDatabase() {
+
+  this.dataService.onDownloadAllWorkersFromLocalDatabase();
+  this.Button1 = '2';
 
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 onShowTableWithAllWorkers() {
 
-    let danePracownika = this.dataService.allItems;
+    let danePracownika = this.dataService.allWorkers;
       for (let obj of danePracownika ){
         this.danePracownika2.push({
+          id: obj.id,
+          name: obj.name
+/*
           city: obj.city,
           email: obj.email,
           name: obj.name,
@@ -64,9 +95,9 @@ onShowTableWithAllWorkers() {
           pesel: obj.pesel,
           street: obj.street,
           surname: obj.surname
+          */
 });
-}
-
+      }
     this.showtable = true;
 }
 

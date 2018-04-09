@@ -2,7 +2,7 @@
     <div class="login-wrap">
         <div class="login-html">
           <div style="overflow-y: scroll; height:1000px;">
-              <button (click)="onPrepareToSyncAllDataWithDatabase()" class="btn btn-info" *ngIf="Button1=='1'">BeforeSync</button>  
+              <button (click)="onDownloadAllWorkersFromLocalDatabase()" class="btn btn-info" *ngIf="Button1=='1'">LocalDatabase</button>   
               <button (click)="onShowTableWithAllWorkers()" class="btn btn-success" *ngIf="Button1=='2'">GenerateTable</button> 
               <button (click)="resetDataOfDownloadedAllWorkers()" class="btn btn-danger" *ngIf="Button1=='2'">ResetTable/Arrays</button> 
               <hr>
@@ -18,8 +18,9 @@
 <div *ngIf="(showtable)">
 	<div class="columns">
 		<div class="column col-12">
-			<ngx-table [configuration]="configuration" [data]="danePracownika2" [columns]="columns" [groupRowsBy]="'surname'">
+			<ngx-table [configuration]="configuration" [data]="danePracownika2" [columns]="columns">
             </ngx-table>
+            <p *ngFor="let val of danePracownika2">{{val.id}}  {{val.name}}</p>
         </div>
 	</div>
 </div>
