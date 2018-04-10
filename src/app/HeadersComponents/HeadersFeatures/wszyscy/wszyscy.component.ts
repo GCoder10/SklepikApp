@@ -12,19 +12,15 @@ import { ConfigService } from '../../../core/configuration.service';
 export class WszyscyComponent implements OnInit {
 
 BGwszyscy: string;
-danePracownika: any;
-danePracownika2: Array<any> = [];
+dataOfAllWorkers: any;
+dataOfAllWorkers2: Array<any> = [];
 surnameSearching: string;
 showtable: boolean;
 Button1 = '1';
 
   configuration;
   columns = [
-    { key: 'id', title: 'id' },
-    { key: 'name', title: 'Name' }
-  ];
-
-  /*  columns = [
+    { key: 'id', title: 'ID' },
     { key: 'surname', title: 'Surname' },
     { key: 'city', title: 'City' },
     { key: 'email', title: 'Email' },
@@ -32,7 +28,7 @@ Button1 = '1';
     { key: 'pass', title: 'Pass' },
     { key: 'pesel', title: 'PESEL' },
     { key: 'street', title: 'Street' }
-  ];*/
+  ];
 
 
 
@@ -82,12 +78,10 @@ onDownloadAllWorkersFromLocalDatabase() {
 
 onShowTableWithAllWorkers() {
 
-    let danePracownika = this.dataService.allWorkers;
-      for (let obj of danePracownika ){
-        this.danePracownika2.push({
+    let dataOfAllWorkers = this.dataService.allWorkers;
+      for (let obj of dataOfAllWorkers ){
+        this.dataOfAllWorkers2.push({
           id: obj.id,
-          name: obj.name
-/*
           city: obj.city,
           email: obj.email,
           name: obj.name,
@@ -95,7 +89,6 @@ onShowTableWithAllWorkers() {
           pesel: obj.pesel,
           street: obj.street,
           surname: obj.surname
-          */
 });
       }
     this.showtable = true;
@@ -105,8 +98,8 @@ onShowTableWithAllWorkers() {
 
 resetDataOfDownloadedAllWorkers() {
 
-    this.danePracownika2 = [];
-    this.danePracownika = [];
+    this.dataOfAllWorkers2 = [];
+    this.dataOfAllWorkers = [];
 
     this.dataService.resetDataOfDownloadedWorkers();
 

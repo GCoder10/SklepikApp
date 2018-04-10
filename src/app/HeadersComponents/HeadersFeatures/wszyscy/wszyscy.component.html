@@ -18,9 +18,9 @@
 <div *ngIf="(showtable)">
 	<div class="columns">
 		<div class="column col-12">
-			<ngx-table [configuration]="configuration" [data]="danePracownika2" [columns]="columns">
+			<ngx-table [configuration]="configuration" [data]="dataOfAllWorkers2" [columns]="columns">
             </ngx-table>
-            <p *ngFor="let val of danePracownika2">{{val.id}}  {{val.name}}</p>
+            <p *ngFor="let val of dataOfAllWorkers2">{{val.id}}  {{val.name}}  {{val.surname}}  {{val.city}}</p>
         </div>
 	</div>
 </div>

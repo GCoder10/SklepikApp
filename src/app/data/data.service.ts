@@ -14,7 +14,6 @@ import { RequestOptions, Http } from '@angular/http';
 export class DataService {
 
     items: Array<any> = [];
-    arrayForAllChildNames: Array<any> = [];
     allItems: Array<any> = [];
     allWorkers: any;
     imageUrl: any;
@@ -119,7 +118,7 @@ resetWorkersSearching() {
 
 
 onDownloadAllWorkersFromLocalDatabase() {
-        this.http.get('http://localhost:5000/api/values').subscribe(response => {
+        this.http.get('http://localhost:5000/api/workers').subscribe(response => {
             console.log(response);
            this.allWorkers = response.json();
         });
@@ -134,48 +133,9 @@ makeAllDataOfWorkersFromLocalDatabaseObservable(): Observable<any> {
 
 
 
-
-getAllDataOfWorkers() {
-
-    this.arrayForAllChildNames.forEach((item) => {
-
-    var database = firebase.database().ref('pracownicy/').child(item.key);
-        database.orderByValue().on('value', (snapshot) => {
-          snapshot.forEach((snap) => {
-                this.allItems.push({
-                city: snap.val().city,
-                email: snap.val().email,
-                name: snap.val().name,
-                pass: snap.val().pass,
-                pesel: snap.val().pesel,
-                street: snap.val().street,
-                surname: snap.val().surname
-                });
-            return false;
-          });
-        });
-    });
-this.makeAllDataOfWorkersObservable();
-}
-
-
-
-
-
-makeAllDataOfWorkersObservable(): Observable<any> {
-
-      window.alert('Tablica z danymi została przygotowana poprawnie');
-      return Observable.of(this.allItems);
-
-}
-
-
-
-
 resetDataOfDownloadedWorkers() {
 
-    this.allItems = [];
-    this.arrayForAllChildNames = [];
+    this.allWorkers = [];
 
 }
 
@@ -189,7 +149,6 @@ getPhotoOfWorkerFromDatabase(SurnameWorker) {
     this.makeObservablePhoto();
 
 }
-
 
 
 
