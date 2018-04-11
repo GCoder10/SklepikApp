@@ -3,13 +3,11 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { ConfigService } from '../../../core/configuration.service';
 
 @Component({
   selector: 'app-pobieranie',
   templateUrl: './pobieranie.component.html',
-  styleUrls: ['./pobieranie.component.css'],
-  providers: [ConfigService],
+  styleUrls: ['./pobieranie.component.css']
 })
 
 export class PobieranieComponent implements OnInit {
@@ -21,22 +19,8 @@ surnameSearching: any;
 CanSearch = '1';
 danePracownika: any;
 
-  configuration;
-  columns = [
-    { key: 'surname', title: 'Surname' },
-    { key: 'city', title: 'City' },
-    { key: 'email', title: 'Email' },
-    { key: 'name', title: 'Name' },
-    { key: 'pass', title: 'Pass' },
-    { key: 'pesel', title: 'PESEL' },
-    { key: 'street', title: 'Street' }
-  ];
 
-
-
-  constructor(public dataService: DataService) {
-    this.configuration = ConfigService.config;
-  }
+  constructor(public dataService: DataService) { }
 
   ngOnInit() {
     this.BGpobieranie = 'assets/images/BGsignin2.jpg';

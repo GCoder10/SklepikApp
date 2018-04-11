@@ -1,13 +1,11 @@
 import { DataService } from './../../../data/data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ConfigService } from '../../../core/configuration.service';
 
 @Component({
   selector: 'app-city',
   templateUrl: './city.component.html',
-  styleUrls: ['./city.component.css'],
-  providers: [ConfigService],
+  styleUrls: ['./city.component.css']
 })
 
 export class CityComponent implements OnInit {
@@ -20,20 +18,9 @@ canSearch = '1';
 dataOfAllWorkers: any;
 button1 = '1';
 
-  configuration;
-  columns = [
-    { key: 'surname', title: 'Surname' },
-    { key: 'city', title: 'City' },
-    { key: 'email', title: 'Email' },
-    { key: 'name', title: 'Name' },
-    { key: 'pass', title: 'Pass' },
-    { key: 'pesel', title: 'PESEL' },
-    { key: 'street', title: 'Street' }
-  ];
 
-  constructor(public dataService: DataService) {
-     this.configuration = ConfigService.config;
-  }
+
+  constructor(public dataService: DataService) { }
 
   ngOnInit() {
     this.backgroundImagePath = 'assets/images/BGsignin2.jpg';

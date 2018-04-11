@@ -1,7 +1,7 @@
 <body [ngStyle]="{'background-image': 'url(' + BGwszyscy + ')'}">
     <div class="login-wrap">
         <div class="login-html">
-          <div style="overflow-y: scroll; height:1000px;">
+
               <button (click)="onDownloadAllWorkersFromLocalDatabase()" class="btn btn-info" *ngIf="Button1=='1'">LocalDatabase</button>   
               <button (click)="onShowTableWithAllWorkers()" class="btn btn-success" *ngIf="Button1=='2'">GenerateTable</button> 
               <button (click)="resetDataOfDownloadedAllWorkers()" class="btn btn-danger" *ngIf="Button1=='2'">ResetTable/Arrays</button> 
@@ -16,18 +16,36 @@
 
 
 <div *ngIf="(showtable)">
-	<div class="columns">
-		<div class="column col-12">
-			<ngx-table [configuration]="configuration" [data]="dataOfAllWorkers2" [columns]="columns">
-            </ngx-table>
-            <p *ngFor="let val of dataOfAllWorkers2">{{val.id}}  {{val.name}}  {{val.surname}}  {{val.city}}</p>
-        </div>
-	</div>
+<div class="scroll">
+<table>
+   <thead>
+    <th>id</th>
+    <th>Surname</th> 
+    <th>Name</th>
+    <th>City</th>
+    <th>Street</th>
+    <th>Email</th>
+    <th>Pesel</th>
+    <th>Pass</th>
+   </thead>
+   <tbody>
+  <tr *ngFor="let obj of dataOfAllWorkers2">
+    <td> {{ obj.id }} </td>
+    <td> {{ obj.surname }} </td> 
+    <td> {{ obj.name }} </td>
+    <td> {{ obj.city }} </td>
+    <td> {{ obj.street }} </td>
+    <td> {{ obj.email }} </td>
+    <td> {{ obj.pesel }} </td>
+    <td> {{ obj.pass }} </td>
+  </tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
-
-          </div>
+    
         </div>
     </div>
 </body>

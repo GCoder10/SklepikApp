@@ -1,12 +1,10 @@
 import { DataService } from '../../../data/data.service';
 import { Component, OnInit } from '@angular/core';
-import { ConfigService } from '../../../core/configuration.service';
 
 @Component({
   selector: 'app-wszyscy',
   templateUrl: './wszyscy.component.html',
-  styleUrls: ['./wszyscy.component.css'],
-  providers: [ConfigService],
+  styleUrls: ['./wszyscy.component.css']
 })
 
 export class WszyscyComponent implements OnInit {
@@ -18,24 +16,9 @@ surnameSearching: string;
 showtable: boolean;
 Button1 = '1';
 
-  configuration;
-  columns = [
-    { key: 'id', title: 'ID' },
-    { key: 'surname', title: 'Surname' },
-    { key: 'city', title: 'City' },
-    { key: 'email', title: 'Email' },
-    { key: 'name', title: 'Name' },
-    { key: 'pass', title: 'Pass' },
-    { key: 'pesel', title: 'PESEL' },
-    { key: 'street', title: 'Street' }
-  ];
-
-
 
   constructor(public dataService: DataService
-  ) {
-    this.configuration = ConfigService.config;
-  }
+  ) { }
 
 
   ngOnInit() {
@@ -56,26 +39,6 @@ onDownloadAllWorkersFromLocalDatabase() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 onShowTableWithAllWorkers() {
 
     let dataOfAllWorkers = this.dataService.allWorkers;
@@ -91,7 +54,9 @@ onShowTableWithAllWorkers() {
           surname: obj.surname
 });
       }
+    console.log(this.dataOfAllWorkers2);
     this.showtable = true;
+
 }
 
 

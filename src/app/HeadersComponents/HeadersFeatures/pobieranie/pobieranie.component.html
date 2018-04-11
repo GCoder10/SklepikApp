@@ -36,14 +36,33 @@
 
 
 <div *ngIf="(showtable)">
-	<div class="columns">
-		<div class="column col-12">
-			<ngx-table [configuration]="configuration" [data]="danePracownika2" [columns]="columns">
-            </ngx-table>
-        </div>
-	</div>
+<div class="scroll">
+<table>
+   <thead>
+    <th>id</th>
+    <th>Surname</th> 
+    <th>Name</th>
+    <th>City</th>
+    <th>Street</th>
+    <th>Email</th>
+    <th>Pesel</th>
+    <th>Pass</th>
+   </thead>
+   <tbody>
+  <tr *ngFor="let obj of danePracownika2">
+    <td> {{ obj.id }} </td>
+    <td> {{ obj.surname }} </td> 
+    <td> {{ obj.name }} </td>
+    <td> {{ obj.city }} </td>
+    <td> {{ obj.street }} </td>
+    <td> {{ obj.email }} </td>
+    <td> {{ obj.pesel }} </td>
+    <td> {{ obj.pass }} </td>
+  </tr>
+</tbody>
+</table>
 </div>
-
+</div>
 
 
 
