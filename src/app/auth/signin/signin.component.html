@@ -8,9 +8,9 @@
 			<div class="sign-in-htm">
 				<form (ngSubmit)="onSignIn(f)" #f="ngForm">
 				<div class="group">
-					<label for="email" class="label">Adres email</label>
-					<input id="email" name="email" ngModel required email type="email" class="input" #email="ngModel">
-					<span class="help-block" *ngIf="!email.valid && email.touched" style="color:red;">Wprowadź poprawny adres email !</span>
+					<label for="username" class="label">Login</label>
+					<input id="username" name="username" ngModel required username type="username" class="input" #username="ngModel">
+					<span class="help-block" *ngIf="!username.valid && username.touched" style="color:red;">Wprowadź poprawny login !</span>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Hasło</label>

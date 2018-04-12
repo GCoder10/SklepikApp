@@ -13,11 +13,13 @@ import { Store } from '@ngrx/store';
 export class PobieranieComponent implements OnInit {
 
 BGpobieranie: string;
-showtable: boolean;
-danePracownika2: Array<any> = [];
+showTable: boolean;
+dataOfAllWorkersForSearchingOperations: Array<any> = [];
+dataOfSearchedWorkers: Array<any> = [];
 surnameSearching: any;
-CanSearch = '1';
-danePracownika: any;
+canSearch = '1';
+dataOfAllWorkers: any;
+button1 = '1';
 
 
   constructor(public dataService: DataService) { }
@@ -27,37 +29,58 @@ danePracownika: any;
   }
 
 
+onPrepareToAll() {
 
-  showWorkersInTable() {
-  let danePracownika = this.dataService.items;
+    this.dataService.onDownloadAllWorkersFromLocalDatabase();
+    this.button1 = '2';
 
-  for (let obj of danePracownika ){
-  this.danePracownika2.push({
-    city: obj.city,
-    email: obj.email,
-    name: obj.name,
-    pass: obj.pass,
-    pesel: obj.pesel,
-    street: obj.street,
-    surname: obj.surname
-  });
-  }
+}
 
 
 
-  this.showtable = true;
-  this.CanSearch = '0';
-  }
+onGenerateTableInApi() {
 
+    let dataOfAllWorkers = this.dataService.allWorkers;
+
+    for (let obj of dataOfAllWorkers ){
+      this.dataOfAllWorkersForSearchingOperations.push({
+        city: obj.city,
+        email: obj.email,
+        name: obj.name,
+        pass: obj.pass,
+        pesel: obj.pesel,
+        street: obj.street,
+        surname: obj.surname
+      });
+    }
+
+}
 
 
 
   onTrySearch(form: NgForm) {
 
-      this.surnameSearching = form.value.surname;
-      this.dataService.getWorkersfromDatabase(this.surnameSearching);
-      this.CanSearch = '1';
 
+    this.surnameSearching = form.value.surname;
+    this.canSearch = '1';
+
+
+  for (let obj of this.dataOfAllWorkersForSearchingOperations ){
+    if (obj.surname == this.surnameSearching) {
+      this.dataOfSearchedWorkers.push({
+        city: obj.city,
+        email: obj.email,
+        name: obj.name,
+        pass: obj.pass,
+        pesel: obj.pesel,
+        street: obj.street,
+        surname: obj.surname
+      });
+    }
+
+    this.showTable = true;
+    this.button1 = '3';
+  }
   }
 
 
@@ -65,12 +88,13 @@ danePracownika: any;
 
   onSearchAgain() {
 
-        this.danePracownika2 = [];
-        this.CanSearch = '1';
-        this.danePracownika = [];
-        this.dataService.resetWorkersSearching();
-        this.showtable = false;
-
+        this.dataOfAllWorkersForSearchingOperations = [];
+        this.dataOfSearchedWorkers = [];
+        this.canSearch = '1';
+        this.dataOfAllWorkers = [];
+        this.dataService.resetDataOfDownloadedWorkers();
+        this.showTable = false;
+        this.button1 = '1';
   }
 
 

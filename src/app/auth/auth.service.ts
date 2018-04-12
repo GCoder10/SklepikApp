@@ -1,10 +1,8 @@
+import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase';
-import database from 'firebase/database';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 
 
@@ -13,71 +11,56 @@ export class AuthService {
 
 @Output()
 user2: EventEmitter<any> = new EventEmitter<any>();
+user: boolean;
 
-  user: Observable<firebase.User>;
+  baseUrl = 'http://localhost:5000/api/auth';
+  userToken: any;
 
-  constructor(private firebaseAuth: AngularFireAuth,
-              private router: Router
-  ) {
-    this.user = firebaseAuth.authState;
+  constructor(private router: Router,
+              private http: Http
+  ) { this.user = false;
   }
 
 
   signup(email: string, password: string) {
-    this.firebaseAuth
-      .auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(value => {
-        console.log('Success!', value);
 
-      })
-      .catch(err => {
-        console.log('Something went wrong:', err.message);
-
-      });
   }
 
 
 
-  login(email: string, password: string) {
-    this.firebaseAuth
-      .auth
-      .signInWithEmailAndPassword(email, password)
-      .then(value => {
 
-      this.user2.emit(this.user);
+  login(username: string, password: string) {
 
-      setTimeout((router: Router) => {
+    const dataToSendAsJson = {username, password};
+    const headers = new Headers({
+      'Content-type': 'application/json'
+    });
+    const options = new RequestOptions({headers: headers});
+
+
+     return this.http.post(this.baseUrl + '/login', JSON.stringify(dataToSendAsJson), options).map((response: Response) => {
+        const dataOfUser = response.json();
+        if (dataOfUser) {
+
+          localStorage.setItem('token', dataOfUser.tokenString);
+          this.userToken = dataOfUser.tokenString;
+          this.user = true;
+          this.makeLoggedUserObservable();
           this.router.navigate(['/start']);
-      }, 0);
+        }
+     });
 
-     })
-      .catch(err => {
-        console.log('Something went wrong:', err.message);
-      });
   }
 
 
+  makeLoggedUserObservable(): Observable<any> {
+      return Observable.of(this.user);
+  }
 
 
 
   logout() {
-    this.firebaseAuth
-        .auth
-        .signOut()
-        .then(value => {
 
-
-          setTimeout((router: Router) => {
-          this.router.navigate(['/end']);
-          }, 0);
-
-
-    this.user2.emit(this.user);
-        })
-        .catch(err => {
-          console.log('Something went wrong:', err.message);
-        });
   }
 
 

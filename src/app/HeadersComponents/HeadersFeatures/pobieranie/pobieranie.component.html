@@ -2,8 +2,13 @@
     <div class="login-wrap">
         <div class="login-html">
           <div style="overflow-y: scroll; height:1000px;">
+                          <button (click)="onPrepareToAll()" class="btn btn-info" *ngIf="button1=='1'">Pobierz dane</button>  
+                          <button (click)="onGenerateTableInApi()" class="btn btn-info" *ngIf="button1=='2'">Generuj dane</button>  
+                          <button (click)="onSearchAgain()" class="btn btn-warning" *ngIf="button1=='3'">reset</button> 
+              <hr>
 
-        <div class="setForm">
+
+        <div class="setForm" *ngIf="button1=='2'">
         <div class="login-form">    
         <div class="sign-in-htm">
   <form (ngSubmit)="onTrySearch(f)" #f="ngForm">
@@ -12,30 +17,26 @@
               <input id="surname" name="surname" ngModel required type="text" class="input" #surname="ngModel">
               <span class="help-block" *ngIf="!surname.valid && surname.touched" style="color:red;">Wprowadź poprawne nazwisko pracownika!</span>
    </div>
-             <div class="group" *ngIf="CanSearch=='1'">
+             <div class="group" *ngIf="canSearch=='1'">
               <input type="submit" class="button" value="Wyszukaj pracownika" [disabled]="!f.valid">
             </div>
               </form>
-            <button (click)="onSearchAgain()" *ngIf="CanSearch=='0'" class="btn btn-warning">Ponowne wyszukiwanie</button>           
+            <button (click)="onSearchAgain()" *ngIf="canSearch=='0'" class="btn btn-warning">Ponowne wyszukiwanie</button>           
            <hr>
 
         </div>
         </div>
         </div>
+      <p *ngIf="button1=='1'">1. Pobierz dane - pobranie danych przez api umożliwi późniejsze przeszukanie pracowników</p>
+<p *ngIf="button1=='2'">2. Generuj dane - przygotowanie danych pod dalsza analize</p>
+<p *ngIf="button1=='2'">3. Wyszukaj pracownika - wpisz nazwisko</p>
+<p *ngIf="button1=='2'">4. Nastepnie kliknij wyszukaj pracownika</p>    
 
-<br>
-<p> Wpisz nazwisko pracownika a następnie po zsynchronizowaniu się aplikacji z bazą danych, naciśnij "Pokaż tabelkę"
-    . Na początku pewnie wyszuka za drugim razem
-</p>
-   
-
-     <button (click)="showWorkersInTable()" class="btn btn-success" *ngIf="CanSearch=='1'">Pokaż tabelkę</button>           
-            
             <br>
-            <br>
+            <br>     
 
 
-<div *ngIf="(showtable)">
+<div *ngIf="(showTable)">
 <div class="scroll">
 <table>
    <thead>
@@ -49,7 +50,7 @@
     <th>Pass</th>
    </thead>
    <tbody>
-  <tr *ngFor="let obj of danePracownika2">
+  <tr *ngFor="let obj of dataOfSearchedWorkers">
     <td> {{ obj.id }} </td>
     <td> {{ obj.surname }} </td> 
     <td> {{ obj.name }} </td>

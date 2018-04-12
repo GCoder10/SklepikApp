@@ -69,57 +69,8 @@ sendPhoto(file) {
 
 
 
-
-
-getWorkersfromDatabase(SurnameWorker) {
-
-  var database = firebase.database().ref('pracownicy/' + SurnameWorker);
-
-  database.orderByValue().on('value', (snapshot) => {
-           snapshot.forEach((snap) => {
-               this.items.push({
-                city: snap.val().city,
-                email: snap.val().email,
-                name: snap.val().name,
-                pass: snap.val().pass,
-                pesel: snap.val().pesel,
-                street: snap.val().street,
-                surname: snap.val().surname
-            });
-            return false;
-            });
-
-  });
-this.makeWorkersDataObservable();
-}
-
-
-
-
-
-makeWorkersDataObservable(): Observable<any> {
-
-      window.alert('Tablica z danymi została przygotowana poprawnie');
-      return Observable.of(this.items);
-
-}
-
-
-
-
-
-
-resetWorkersSearching() {
-
-    this.items = [];
-
-}
-
-
-
 onDownloadAllWorkersFromLocalDatabase() {
         this.http.get('http://localhost:5000/api/workers').subscribe(response => {
-            console.log(response);
            this.allWorkers = response.json();
         });
        this.makeAllDataOfWorkersFromLocalDatabaseObservable();

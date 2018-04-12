@@ -54,7 +54,6 @@ onShowTableWithAllWorkers() {
           surname: obj.surname
 });
       }
-    console.log(this.dataOfAllWorkers2);
     this.showtable = true;
 
 }

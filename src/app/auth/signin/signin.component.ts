@@ -27,9 +27,13 @@ export class SigninComponent implements OnInit {
 
 
   onSignIn(form: NgForm) {
-    const email = form.value.email;
+    const username = form.value.username;
     const pass = form.value.pass;
 
-    this.authService.login(email, pass);
+    this.authService.login(username, pass).subscribe(data => {
+      console.log('successfull');
+    }, error => {
+      console.log('failed');
+  });
   }
 }

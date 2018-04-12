@@ -7,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./headerlogged.component.css']
 })
 export class HeaderloggedComponent implements OnInit {
+user: boolean;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {
+
+  }
 
   ngOnInit() {
+
   }
+
+
 
 }

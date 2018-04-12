@@ -30,16 +30,15 @@ button1 = '1';
 
 onPrepareToAll() {
 
-   // this.dataService.onPrepareToSyncAllDataWithDatabaseData();
+    this.dataService.onDownloadAllWorkersFromLocalDatabase();
     this.button1 = '2';
-
 }
 
 
 
 onGenerateTableInApi() {
 
-    let dataOfAllWorkers = this.dataService.allItems;
+    let dataOfAllWorkers = this.dataService.allWorkers;
 
     for (let obj of dataOfAllWorkers ){
       this.dataOfAllWorkersForSearchingOperations.push({
@@ -78,6 +77,7 @@ onTrySearch(form: NgForm) {
     }
 
     this.showTable = true;
+    this.button1 = '3';
   }
 
 }
