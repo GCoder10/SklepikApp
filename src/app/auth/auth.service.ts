@@ -21,8 +21,20 @@ user: boolean;
   ) { this.user = false;
   }
 
+  private requestOptions() {
 
-  signup(email: string, password: string) {
+        const headers = new Headers({
+          'Content-type': 'application/json'
+        });
+        return new RequestOptions({headers: headers});
+  }
+
+
+
+  signup(username: string, password: string) {
+
+        const dataToSendAsJson = {username, password};
+        return this.http.post(this.baseUrl + '/register', JSON.stringify(dataToSendAsJson), this.requestOptions());
 
   }
 
@@ -32,13 +44,7 @@ user: boolean;
   login(username: string, password: string) {
 
     const dataToSendAsJson = {username, password};
-    const headers = new Headers({
-      'Content-type': 'application/json'
-    });
-    const options = new RequestOptions({headers: headers});
-
-
-     return this.http.post(this.baseUrl + '/login', JSON.stringify(dataToSendAsJson), options).map((response: Response) => {
+    return this.http.post(this.baseUrl + '/login', JSON.stringify(dataToSendAsJson), this.requestOptions()).map((response: Response) => {
         const dataOfUser = response.json();
         if (dataOfUser) {
 
@@ -60,7 +66,24 @@ user: boolean;
 
 
   logout() {
+      this.userToken = null;
+      localStorage.removeItem('token');
+      this.user = false;
+      this.makeUserLoggedOutObservable();
+      this.router.navigate(['/end']);
+  }
 
+
+
+  makeUserLoggedOutObservable(): Observable<any> {
+      return Observable.of(this.user);
+  }
+
+
+
+  checkIfSomeUserIsLoggedInBySavedToken() {
+    const token = localStorage.getItem('token');
+    return !!token;
   }
 
 

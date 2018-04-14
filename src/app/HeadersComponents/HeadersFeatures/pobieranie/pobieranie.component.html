@@ -1,7 +1,6 @@
 <body [ngStyle]="{'background-image': 'url(' + BGpobieranie + ')'}">
     <div class="login-wrap">
         <div class="login-html">
-          <div style="overflow-y: scroll; height:1000px;">
                           <button (click)="onPrepareToAll()" class="btn btn-info" *ngIf="button1=='1'">Pobierz dane</button>  
                           <button (click)="onGenerateTableInApi()" class="btn btn-info" *ngIf="button1=='2'">Generuj dane</button>  
                           <button (click)="onSearchAgain()" class="btn btn-warning" *ngIf="button1=='3'">reset</button> 
@@ -66,8 +65,6 @@
 </div>
 
 
-
- </div>
 
           </div>
         </div>

@@ -29,3 +29,20 @@ body{
 	background: 
 		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
 }
+.scroll {
+	height: 1000px; 
+	overflow-y: scroll; 
+}
+.scroll::-webkit-scrollbar {
+	width: 12px;
+	background: transparent;
+}
+.scroll::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background: #c2c9d3;
+}
+.scroll::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background: #919396;
+	opacity: 0.6
+}

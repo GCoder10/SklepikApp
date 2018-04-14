@@ -14,9 +14,9 @@
         <div class="sign-in-htm">
           <form (ngSubmit)="onSignUp(f)" #f="ngForm">
             <div class="group">
-              <label for="user" class="label">Nazwa użytkownika</label>
-              <input id="user" name="user" ngModel required type="text" class="input" #user="ngModel">
-              <span class="help-block" *ngIf="!user.valid && user.touched" style="color:red;">Wprowadź poprawną nazwę użytkownika !</span>
+              <label for="username" class="label">Nazwa użytkownika</label>
+              <input id="username" name="username" ngModel required type="text" class="input" #username="ngModel">
+              <span class="help-block" *ngIf="!username.valid && username.touched" style="color:red;">Wprowadź poprawną nazwę użytkownika !</span>
             </div>
             <div class="group">
               <label for="pass" class="label">Hasło</label>

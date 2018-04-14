@@ -33,6 +33,7 @@ export class SigninComponent implements OnInit {
     this.authService.login(username, pass).subscribe(data => {
       console.log('successfull');
     }, error => {
+      window.alert('Niepoprawny login/haslo');
       console.log('failed');
   });
   }
