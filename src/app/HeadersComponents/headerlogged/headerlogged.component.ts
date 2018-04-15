@@ -18,5 +18,9 @@ user: boolean;
   }
 
 
+  chechIfSomeUserIsLoggedInViaToken() {
+      return this.authService.chechIfSomeUserIsLoggedInViaDownloadedToken();
+  }
+
 
 }

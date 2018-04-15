@@ -1,4 +1,5 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import * as firebase from 'firebase';
 import database from 'firebase/database';
 import { Router } from '@angular/router';
@@ -9,55 +10,51 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class JsonService {
 
-    arrayForJsonSurnames: Array<any> = [];
-    arrayForAllJsonChildNames: Array<any> = [];
     allJsonItems: Array<any> = [];
     newJsonObj: string;
+    baseUrl = 'http://localhost:5000/api/workers';
 
-constructor(private router: Router) { }
+constructor(private router: Router,
+            private http: Http
+) { }
+
+  private requestOptions() {
+
+        const headers = new Headers({
+          'Content-type': 'application/json'
+        });
+        return new RequestOptions({headers: headers});
+
+  }
 
 
+  private handleError(error: any) {
 
-  sendJson(file) {
-
-      Object.keys(file).map((obj) =>
-      this.arrayForJsonSurnames.push({
-                city: file[obj].city,
-                email: file[obj].email,
-                name: file[obj].name,
-                pass: file[obj].pass,
-                pesel: file[obj].pesel,
-                street: file[obj].street,
-                surname: file[obj].surname
-      }),
-      );
-      this.onNextStepInSendingJson();
+    const applicationError = error.headers.get('Application-Error');
+    if (applicationError) {
+      return Observable.throw(applicationError);
+    }
+    const serverError = error.json();
+    let modelStateErrors = '';
+    if (serverError) {
+      for (const key in serverError) {
+        if (serverError[key]) {
+          modelStateErrors += serverError[key] + '\n';
+        }
+      }
+    }
+    return Observable.throw(
+      modelStateErrors || 'Server error'
+    );
 
   }
 
 
 
-  onNextStepInSendingJson() {
+  sendJson(file) {
 
-        this.arrayForJsonSurnames.forEach((obj) => {
-        var database = firebase.database().ref().child('pracownicy/' + obj.surname);
-
-    var newData = {
-        name: obj.name,
-        surname: obj.surname,
-        city: obj.city,
-        street: obj.street,
-        email: obj.email,
-        pesel: obj.pesel,
-        pass: obj.pass
-
-    };
-
-    database.push(newData);
-        });
-
-        window.alert('Wyslano pomyslnie');
-        this.arrayForJsonSurnames = [];
+        const dataToSendAsJson = file;
+        return this.http.post(this.baseUrl, dataToSendAsJson, this.requestOptions()).catch(this.handleError);
 
   }
 
@@ -65,60 +62,11 @@ constructor(private router: Router) { }
 
     getJson() {
 
-       var database = firebase.database().ref('pracownicy/');
-        database.on('value', (snapshot) => {
-            snapshot.forEach((snap) => {
-            this.arrayForAllJsonChildNames.push({
-            key: snap.key
-            });
-            return false;
-            });
-        });
-        this.onNextStepInGettingJson();
-    }
-
-
-    onNextStepInGettingJson() {
-
-        this.arrayForAllJsonChildNames.forEach((item) => {
-        var database = firebase.database().ref('pracownicy/').child(item.key);
-        database.orderByValue().on('value', (snapshot) => {
-           snapshot.forEach((snap) => {
-
-
-                this.allJsonItems.push({
-                city: snap.val().city,
-                email: snap.val().email,
-                name: snap.val().name,
-                pass: snap.val().pass,
-                pesel: snap.val().pesel,
-                street: snap.val().street,
-                surname: snap.val().surname
-
-
-
-    });
-            return false;
-});
- });
-});
-this.onBeforeLastStepInGettingJson();
-    }
-
-
-    onBeforeLastStepInGettingJson() {
-
-          this.newJsonObj = JSON.stringify(this.allJsonItems);
-          this.makeJsonStringObservable();
-
     }
 
 
 
-    makeJsonStringObservable(): Observable<any> {
-
-        window.alert('Plik JSON gotowy do pobrania');
-        return Observable.of(this.newJsonObj);
+    makeJsonStringObservable()/*: Observable<any>*/ {
 
     }
 

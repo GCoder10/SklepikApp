@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './../../core/page-not-found/page-not-found.component';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
@@ -24,5 +25,9 @@ export class HeaderafterloginComponent implements OnInit {
 logout() {
  this.authService.logout();
 }
+
+  chechIfSomeUserIsLoggedInViaToken() {
+      return this.authService.chechIfSomeUserIsLoggedInViaDownloadedToken();
+  }
 
 }

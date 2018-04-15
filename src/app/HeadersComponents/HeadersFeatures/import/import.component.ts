@@ -16,7 +16,7 @@ selectedFile = null;
 fileReader = new FileReader();
 obj = {};
 myJson: string;
-
+checkIfSend: boolean = false;
 
 // tslint:disable-next-line:no-output-on-prefix
 @Output() onClick: EventEmitter<any> = new EventEmitter();
@@ -46,11 +46,12 @@ myJson: string;
 
   onReaderLoad = (event: any) => {
 
+        var alertify = require('alertifyjs/build/alertify.js');
         this.obj = JSON.parse(event.target.result);
         this.myJson = JSON.stringify(this.obj);
 
-        this.onClick.emit(this.obj);
-        window.alert('Dane zostaly przygotowane. Mozesz uploadowac plik JSON');
+        this.onClick.emit(this.myJson);
+        alertify.message('Dane zostaly przygotowane. Mozesz uploadowac plik JSON');
 
   }
 
@@ -58,10 +59,17 @@ myJson: string;
 
   onUploadJson() {
 
-        this.jsonService.sendJson(this.obj);
+        var alertify = require('alertifyjs/build/alertify.js');
+
+        this.jsonService.sendJson(this.myJson).subscribe(() => {
+              alertify.success('plik JSON zostal uploadowany pomyslnie');
+              this.checkIfSend = true;
+            }, error => {
+              alertify.error('Podczas wysylania pliku JSON wystapil blad: ');
+              alertify.error(error);
+
+  });
 
   }
-
-
 
 }

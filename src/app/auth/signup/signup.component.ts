@@ -26,16 +26,19 @@ export class SignupComponent implements OnInit {
 
 
   onSignUp(form: NgForm) {
+
+    var alertify = require('alertifyjs/build/alertify.js');
     const email = form.value.email;
     const pass = form.value.pass;
     const username = form.value.username;
     this.authService.signup(username, pass).subscribe(() => {
-      console.log('successfull');
+      alertify.success('Rejestracja przebiegla pomyslnie');
       this.router.navigate(['/logowanie']);
     }, error => {
-      window.alert('Sprobuj ponownie');
-      console.log('failed');
+      alertify.error('Podczas rejestracji wystapil blad: ');
+      alertify.error(error);
   });
+
   }
 
 

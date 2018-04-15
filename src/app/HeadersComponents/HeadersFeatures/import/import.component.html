@@ -6,8 +6,10 @@
               <p>Wybierz plik z pracownikami w formacie JSON i importuj go do bazy</p>
               <p>Przygotowany przykładowy plik JSON z danymi znajduje się w plikach projektu</p>
               <p>Jest to: ImportDATA.json</p>
+              <div *ngIf="!(checkIfSend)">
               <input type="file" (change)="onFileSelected($event)">
               <button type="button" (click)="onUploadJson()">Prześlij plik JSON</button>
+              </div>
           </div>
         </div>
     </div>

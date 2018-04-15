@@ -2,24 +2,24 @@ import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 import 'rxjs/add/operator/map';
-
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 
 @Injectable()
 export class AuthService {
 
-@Output()
-user2: EventEmitter<any> = new EventEmitter<any>();
-user: boolean;
-
   baseUrl = 'http://localhost:5000/api/auth';
   userToken: any;
+  decodedToken: any;
+  jwtHelper: JwtHelper = new JwtHelper();
+
 
   constructor(private router: Router,
               private http: Http
-  ) { this.user = false;
-  }
+  ) { }
 
   private requestOptions() {
 
@@ -27,6 +27,29 @@ user: boolean;
           'Content-type': 'application/json'
         });
         return new RequestOptions({headers: headers});
+
+  }
+
+
+  private handleError(error: any) {
+
+    const applicationError = error.headers.get('Application-Error');
+    if (applicationError) {
+      return Observable.throw(applicationError);
+    }
+    const serverError = error.json();
+    let modelStateErrors = '';
+    if (serverError) {
+      for (const key in serverError) {
+        if (serverError[key]) {
+          modelStateErrors += serverError[key] + '\n';
+        }
+      }
+    }
+    return Observable.throw(
+      modelStateErrors || 'Server error'
+    );
+
   }
 
 
@@ -34,7 +57,7 @@ user: boolean;
   signup(username: string, password: string) {
 
         const dataToSendAsJson = {username, password};
-        return this.http.post(this.baseUrl + '/register', JSON.stringify(dataToSendAsJson), this.requestOptions());
+        return this.http.post(this.baseUrl + '/register', JSON.stringify(dataToSendAsJson), this.requestOptions()).catch(this.handleError);
 
   }
 
@@ -49,43 +72,29 @@ user: boolean;
         if (dataOfUser) {
 
           localStorage.setItem('token', dataOfUser.tokenString);
+          this.decodedToken = this.jwtHelper.decodeToken(dataOfUser.tokenString);
           this.userToken = dataOfUser.tokenString;
-          this.user = true;
-          this.makeLoggedUserObservable();
           this.router.navigate(['/start']);
         }
-     });
+     }).catch(this.handleError);
 
-  }
-
-
-  makeLoggedUserObservable(): Observable<any> {
-      return Observable.of(this.user);
   }
 
 
 
   logout() {
+      var alertify = require('alertifyjs/build/alertify.js');
       this.userToken = null;
       localStorage.removeItem('token');
-      this.user = false;
-      this.makeUserLoggedOutObservable();
+      alertify.success('Wylogowales sie poprawnie');
       this.router.navigate(['/end']);
   }
 
 
 
-  makeUserLoggedOutObservable(): Observable<any> {
-      return Observable.of(this.user);
+  chechIfSomeUserIsLoggedInViaDownloadedToken() {
+      return tokenNotExpired('token');
   }
-
-
-
-  checkIfSomeUserIsLoggedInBySavedToken() {
-    const token = localStorage.getItem('token');
-    return !!token;
-  }
-
 
 
 }

@@ -5,8 +5,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 
-
-
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -27,14 +25,14 @@ export class SigninComponent implements OnInit {
 
 
   onSignIn(form: NgForm) {
+    var alertify = require('alertifyjs/build/alertify.js');
     const username = form.value.username;
     const pass = form.value.pass;
 
     this.authService.login(username, pass).subscribe(data => {
-      console.log('successfull');
+      alertify.success('Zalogowales sie poprawnie');
     }, error => {
-      window.alert('Niepoprawny login/haslo');
-      console.log('failed');
+      alertify.error('Niepoprawny login/haslo: ');
   });
   }
 }

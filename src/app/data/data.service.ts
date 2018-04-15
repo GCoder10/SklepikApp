@@ -77,7 +77,8 @@ onDownloadAllWorkersFromLocalDatabase() {
 }
 makeAllDataOfWorkersFromLocalDatabaseObservable(): Observable<any> {
 
-      window.alert('Tablica z danymi została przygotowana poprawnie');
+      var alertify = require('alertifyjs/build/alertify.js');
+      alertify.success('Tablica z danymi została przygotowana poprawnie');
       return Observable.of(this.allWorkers);
 
 }
@@ -87,6 +88,8 @@ makeAllDataOfWorkersFromLocalDatabaseObservable(): Observable<any> {
 resetDataOfDownloadedWorkers() {
 
     this.allWorkers = [];
+    var alertify = require('alertifyjs/build/alertify.js');
+    alertify.message('Dane zostaly zresetowane poprawnie');
 
 }
 
