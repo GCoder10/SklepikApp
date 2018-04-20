@@ -1,6 +1,7 @@
+import { JwtHelper } from 'angular2-jwt';
 import { AuthService } from './auth/auth.service';
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
+
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,17 @@ import * as firebase from 'firebase';
 })
 export class AppComponent implements OnInit {
   title = 'app';
+  jwtHelper: JwtHelper = new JwtHelper();
 
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
-
-  //  firebase.initializeApp({
-  //    apiKey: 'AIzaSyDVuKIfeknL-msuguakxrjIwLO0ohj_o0Q',
-  //    authDomain: 'sklepikapp-32f5b.firebaseapp.com'
-  //  });
+   const token = localStorage.getItem('token');
+   if (token) {
+     this.authService.decodedToken = this.jwtHelper.decodeToken(token);
+   }
   }
+
 
 }
 

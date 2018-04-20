@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { DownloadComponent } from './HeadersComponents/HeadersFeatures/download/download.component';
 import { CityComponent } from './HeadersComponents/HeadersFeatures/city/city.component';
 import { PhotoComponent } from './HeadersComponents/HeadersFeatures/photo/photo.component';
@@ -23,25 +24,34 @@ import { ImportComponent } from './HeadersComponents/HeadersFeatures/import/impo
 
 
 const appRoutes: Routes = [
+
   { path: '', component: HomeComponent },
   { path: 'logowanie', component: SigninComponent },
   { path: 'rejestracja', component: SignupComponent },
   { path: 'oNas', component: ONasComponent },
-  { path: 'end', component: EndComponent },
-  { path: 'start', component: StartComponent },
   { path: 'regulamin', component: RulesComponent },
   { path: 'pytania', component: PytaniaComponent },
   { path: 'praca', component: PracaComponent },
-  { path: 'pobieranie', component: PobieranieComponent },
-  { path: 'wszyscy', component: WszyscyComponent },
-  { path: 'dodawanie', component: DodawanieComponent },
-  { path: 'city', component: CityComponent },
-  { path: 'photo', component: PhotoComponent },
-  { path: 'import', component: ImportComponent },
-  { path: 'download', component: DownloadComponent },
   { path: 'biura', component: GaleriaBiuraComponent },
   { path: 'lokalizacja', component: LokalizacjaComponent },
+
+  { path: '', runGuardsAndResolvers: 'always', canActivate: [AuthGuard], children: [
+
+      { path: 'end', component: EndComponent },
+      { path: 'start', component: StartComponent },
+      { path: 'pobieranie', component: PobieranieComponent },
+      { path: 'wszyscy', component: WszyscyComponent },
+      { path: 'dodawanie', component: DodawanieComponent },
+      { path: 'city', component: CityComponent },
+      { path: 'photo', component: PhotoComponent },
+      { path: 'import', component: ImportComponent },
+      { path: 'download', component: DownloadComponent }
+
+  ]
+  },
+
   { path: '**', component: PageNotFoundComponent }
+
 ];
 
 @NgModule({

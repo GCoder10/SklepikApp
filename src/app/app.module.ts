@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { JsonService } from './json/json.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AgmCoreModule } from '@agm/core';
@@ -41,7 +42,8 @@ import { CityComponent } from './HeadersComponents/HeadersFeatures/city/city.com
 import { ImportComponent } from './HeadersComponents/HeadersFeatures/import/import.component';
 import { HttpModule } from '@angular/http';
 import { DownloadComponent } from './HeadersComponents/HeadersFeatures/download/download.component';
-
+import { BsDropdownModule } from 'ngx-bootstrap';
+import { AccordionModule } from 'ngx-bootstrap';
 
 
 @NgModule({
@@ -80,6 +82,8 @@ import { DownloadComponent } from './HeadersComponents/HeadersFeatures/download/
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    BsDropdownModule.forRoot(),
+    AccordionModule.forRoot(),
     StoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
@@ -91,7 +95,7 @@ import { DownloadComponent } from './HeadersComponents/HeadersFeatures/download/
     HttpClientModule,
     HttpModule
   ],
-  providers: [AuthService, DataService, JsonService],
+  providers: [AuthService, DataService, JsonService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
