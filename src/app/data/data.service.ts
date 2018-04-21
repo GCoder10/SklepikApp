@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
-import { RequestOptions, Http } from '@angular/http';
+import { RequestOptions, Http, Headers } from '@angular/http';
 
 
 @Injectable()
@@ -17,44 +17,51 @@ export class DataService {
     allItems: Array<any> = [];
     allWorkers: any;
     imageUrl: any;
-
+    baseUrl = 'http://localhost:5000/api/workers';
 
 constructor(private router: Router,
             private http: Http
 ) { }
 
 
+  private requestOptions() {
+
+        const headers = new Headers({
+          'Content-type': 'application/json'
+        });
+        return new RequestOptions({headers: headers});
+
+  }
+
+
+  private handleError(error: any) {
+
+    const applicationError = error.headers.get('Application-Error');
+    if (applicationError) {
+      return Observable.throw(applicationError);
+    }
+    const serverError = error.json();
+    let modelStateErrors = '';
+    if (serverError) {
+      for (const key in serverError) {
+        if (serverError[key]) {
+          modelStateErrors += serverError[key] + '\n';
+        }
+      }
+    }
+    return Observable.throw(
+      modelStateErrors || 'Server error'
+    );
+
+  }
+
+
 
 addNewWorker(name: string, surname: string, city: string, street: string, email: string, pesel: number, pass: string) {
-  //  var database = firebase.database().ref().child('pracownicy/' + surname);
 
-    var newData = {
-        name: name,
-        surname: surname,
-        city: city,
-        street: street,
-        email: email,
-        pesel: pesel,
-        pass: pass
-    };
+    var newData = {name, surname, city, street, email, pesel, pass};
 
-    var payload = JSON.stringify(newData);
-
-    let url = 'https://sklepikapp-32f5b.firebaseio.com/pracownicy';
-    let headers = new HttpHeaders({
-       'Content-Type': 'application/json',
-    });
-
-
-    console.log('Pracownik został pomyślnie dodany do bazy danych');
-  //  this.router.navigate(['/']);
-    return this.http.post(url, payload)
-    .catch(err => {
-        console.log(err);
-        return Observable.of(err);
-    });
-
-    //  database.push(newData);
+        return this.http.post(this.baseUrl + '/addNewWorkers', JSON.stringify(newData), this.requestOptions()).catch(this.handleError);
 
 }
 
@@ -89,7 +96,7 @@ resetDataOfDownloadedWorkers() {
 
     this.allWorkers = [];
     var alertify = require('alertifyjs/build/alertify.js');
-    alertify.message('Dane zostaly zresetowane poprawnie');
+    alertify.message('Dane zostały zresetowane poprawnie');
 
 }
 

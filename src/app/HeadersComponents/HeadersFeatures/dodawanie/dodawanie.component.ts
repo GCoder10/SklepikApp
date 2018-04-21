@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DataService } from '../../../data/data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -20,7 +21,7 @@ imageSrc = null;
 
 
 
-  constructor(public dataService: DataService) { }
+  constructor(public dataService: DataService, private router: Router) { }
 
 
 
@@ -30,6 +31,8 @@ imageSrc = null;
 
 
   onSignUp(form: NgForm) {
+
+    var alertify = require('alertifyjs/build/alertify.js');
 
     const name = form.value.name;
     const surname = form.value.surname;
@@ -41,7 +44,13 @@ imageSrc = null;
 
     const pass = form.value.pass;
 
-    this.dataService.addNewWorker(name, surname, city, street, email, pesel, pass);
+    this.dataService.addNewWorker(name, surname, city, street, email, pesel, pass).subscribe(() => {
+      alertify.success('Dodano pracownika pomyślnie');
+      this.router.navigate(['/wszyscy']);
+    }, error => {
+      alertify.error('Podczas dodawania wystąpił błąd: ');
+      alertify.error(error);
+    });
 
 }
 

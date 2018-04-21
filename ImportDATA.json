@@ -6,7 +6,7 @@
 	"pass": "kolpass",
 	"pesel": "4636464676",
 	"street": "Gdanska",
-	"surname": "Kol"
+	"surname": "Kol20"
 },
 "Gorowski20": {
 	"city":	"Ryn",
@@ -15,6 +15,6 @@
 	"pass": "gorowskipass",
 	"pesel": "4673246743267",
 	"street": "Pokatna",
-	"surname": "Gorowski"
+	"surname": "Gorowski20"
 }
 }

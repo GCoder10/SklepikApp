@@ -20,6 +20,8 @@ surnameSearching: any;
 canSearch = '1';
 dataOfAllWorkers: any;
 button1 = '1';
+isCollapsed = true;
+surnameChecked: string;
 
 
   constructor(public dataService: DataService) { }
@@ -95,6 +97,14 @@ onGenerateTableInApi() {
         this.dataService.resetDataOfDownloadedWorkers();
         this.showTable = false;
         this.button1 = '1';
+  }
+
+
+  checkId(data) {
+
+    this.surnameChecked = data;
+    return this.surnameChecked;
+
   }
 
 

@@ -14,9 +14,9 @@ export class ImportComponent implements OnInit {
 backgroundImagePath: string;
 selectedFile = null;
 fileReader = new FileReader();
-obj = {};
-myJson: string;
+obj: any;
 checkIfSend: boolean = false;
+allJsonItems: Array<any> = [];
 
 // tslint:disable-next-line:no-output-on-prefix
 @Output() onClick: EventEmitter<any> = new EventEmitter();
@@ -48,10 +48,23 @@ checkIfSend: boolean = false;
 
         var alertify = require('alertifyjs/build/alertify.js');
         this.obj = JSON.parse(event.target.result);
-        this.myJson = JSON.stringify(this.obj);
+        console.log(this.obj);
 
-        this.onClick.emit(this.myJson);
-        alertify.message('Dane zostaly przygotowane. Mozesz uploadowac plik JSON');
+        for (let obj of this.obj){
+          this.allJsonItems.push({
+               city: obj.city,
+               email: obj.email,
+               name: obj.name,
+               pass: obj.pass,
+               pesel: obj.pesel,
+               street: obj.street,
+               surname: obj.surname
+          });
+        }
+
+        console.log(this.allJsonItems);
+        this.onClick.emit(this.allJsonItems);
+        alertify.message('Dane zostały przygotowane. Możesz uploadować plik JSON');
 
   }
 
@@ -59,17 +72,32 @@ checkIfSend: boolean = false;
 
   onUploadJson() {
 
-        var alertify = require('alertifyjs/build/alertify.js');
+        console.log(this.allJsonItems);
 
-        this.jsonService.sendJson(this.myJson).subscribe(() => {
-              alertify.success('plik JSON zostal uploadowany pomyslnie');
+        var alertify = require('alertifyjs/build/alertify.js');
+        this.allJsonItems.forEach(obj => {
+        var dataToSendAsJson = {
+               city: obj.city,
+               email: obj.email,
+               name: obj.name,
+               pass: obj.pass,
+               pesel: obj.pesel,
+               street: obj.street,
+               surname: obj.surname
+        };
+
+
+        this.jsonService.sendJson(dataToSendAsJson).subscribe(() => {
+              alertify.success('plik JSON został uploadowany pomyślnie');
               this.checkIfSend = true;
             }, error => {
-              alertify.error('Podczas wysylania pliku JSON wystapil blad: ');
+              alertify.error('Podczas wysyłania pliku JSON wystąpił błąd: ');
               alertify.error(error);
-
+    });
   });
 
   }
+
+
 
 }

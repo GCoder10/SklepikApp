@@ -10,7 +10,6 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class JsonService {
 
-    allJsonItems: Array<any> = [];
     newJsonObj: string;
     baseUrl = 'http://localhost:5000/api/workers';
 
@@ -53,8 +52,10 @@ constructor(private router: Router,
 
   sendJson(file) {
 
-        const dataToSendAsJson = file;
-        return this.http.post(this.baseUrl, dataToSendAsJson, this.requestOptions()).catch(this.handleError);
+    var dataToSendAsJson = file;
+
+     // tslint:disable-next-line:max-line-length
+     return this.http.post(this.baseUrl + '/addNewWorkers', JSON.stringify(dataToSendAsJson), this.requestOptions()).catch(this.handleError);
 
   }
 

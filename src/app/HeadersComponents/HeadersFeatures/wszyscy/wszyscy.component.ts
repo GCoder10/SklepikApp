@@ -15,7 +15,8 @@ dataOfAllWorkers2: Array<any> = [];
 surnameSearching: string;
 showtable: boolean;
 Button1 = '1';
-
+isCollapsed = true;
+idChecked: number;
 
   constructor(public dataService: DataService
   ) { }
@@ -70,4 +71,12 @@ resetDataOfDownloadedAllWorkers() {
     this.showtable = false;
     this.Button1 = '1';
 }
+
+
+
+  checkId(data) {
+    this.idChecked = data;
+    return this.idChecked;
+  }
+
 }

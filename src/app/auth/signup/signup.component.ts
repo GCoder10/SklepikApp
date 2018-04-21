@@ -32,10 +32,10 @@ export class SignupComponent implements OnInit {
     const pass = form.value.pass;
     const username = form.value.username;
     this.authService.signup(username, pass).subscribe(() => {
-      alertify.success('Rejestracja przebiegla pomyslnie');
+      alertify.success('Rejestracja przebiegła pomyślnie');
       this.router.navigate(['/logowanie']);
     }, error => {
-      alertify.error('Podczas rejestracji wystapil blad: ');
+      alertify.error('Podczas rejestracji wystąpił błąd: ');
       alertify.error(error);
   });
 

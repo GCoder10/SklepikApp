@@ -48,8 +48,8 @@
     <th>Pesel</th>
     <th>Pass</th>
    </thead>
-   <tbody>
-  <tr *ngFor="let obj of dataOfSearchedWorkers">
+   <tbody *ngFor="let obj of dataOfSearchedWorkers"> 
+  <tr (click)="isCollapsed = !isCollapsed && checkId(obj.surname)"> 
     <td> {{ obj.id }} </td>
     <td> {{ obj.surname }} </td> 
     <td> {{ obj.name }} </td>
@@ -57,13 +57,29 @@
     <td> {{ obj.street }} </td>
     <td> {{ obj.email }} </td>
     <td> {{ obj.pesel }} </td>
-    <td> {{ obj.pass }} </td>
-  </tr>
+    <td> {{ obj.pass }} </td> 
+  </tr> 
+  <tr *ngIf="(isCollapsed) && obj.surname == surnameChecked">
+    <td></td>
+    <td colspan="3"><div>
+            Button #1
+            Button #2
+            Button #3
+    </div></td>
+    <td colspan="3"><div>
+            Details 1
+            Details 2
+            Details 3
+    </div></td>
+    <td><div>
+            {{ obj.surname }}
+    </div></td>
+      </tr>
+   
 </tbody>
 </table>
 </div>
 </div>
-
 
 
           </div>

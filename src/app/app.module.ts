@@ -44,6 +44,9 @@ import { HttpModule } from '@angular/http';
 import { DownloadComponent } from './HeadersComponents/HeadersFeatures/download/download.component';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { AccordionModule } from 'ngx-bootstrap';
+import { CollapseModule } from 'ngx-bootstrap';
+
+
 
 
 @NgModule({
@@ -84,6 +87,7 @@ import { AccordionModule } from 'ngx-bootstrap';
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     AccordionModule.forRoot(),
+    CollapseModule.forRoot(),
     StoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,

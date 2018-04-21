@@ -30,9 +30,9 @@ export class SigninComponent implements OnInit {
     const pass = form.value.pass;
 
     this.authService.login(username, pass).subscribe(data => {
-      alertify.success('Zalogowales sie poprawnie');
+      alertify.success('Zalogowałeś się poprawnie');
     }, error => {
-      alertify.error('Niepoprawny login/haslo: ');
+      alertify.error('Niepoprawny login/hasło: ');
   });
   }
 }
