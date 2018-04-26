@@ -41,7 +41,6 @@ table {
 	width: 100%;
 	max-height: 500px;
 	position: relative;
-	padding-top: 0px;
 }
 
 th {
@@ -75,7 +74,7 @@ tr:hover td {
 .scroll {
 	max-height: 500px; 
 	overflow-y: scroll; 
-	margin-top:10%;
+	margin-top:8%;
 }
 
 .scroll::-webkit-scrollbar {
@@ -92,4 +91,28 @@ tr:hover td {
 	border-radius: 10px;
 	background: #919396;
 	opacity: 0.6
+}
+
+.searchingSurname {
+	width:50%;
+	align: left;
+	float: left;
+}
+
+.searchingCity {
+	width:50%;
+	align: right;
+	float: right;
+}
+
+.input {
+
+	width:100%;
+	color:#fff;
+	display:block;
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+
 }

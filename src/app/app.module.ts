@@ -35,16 +35,17 @@ import { NgxImageGalleryModule } from 'ngx-image-gallery';
 import { PytaniaComponent } from './FootersComponents/FootersFeatures/pytania/pytania.component';
 import { DodawanieComponent } from './HeadersComponents/HeadersFeatures/dodawanie/dodawanie.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PobieranieComponent } from './HeadersComponents/HeadersFeatures/pobieranie/pobieranie.component';
 import { WszyscyComponent } from './HeadersComponents/HeadersFeatures/wszyscy/wszyscy.component';
 import { PhotoComponent } from './HeadersComponents/HeadersFeatures/photo/photo.component';
-import { CityComponent } from './HeadersComponents/HeadersFeatures/city/city.component';
 import { ImportComponent } from './HeadersComponents/HeadersFeatures/import/import.component';
 import { HttpModule } from '@angular/http';
 import { DownloadComponent } from './HeadersComponents/HeadersFeatures/download/download.component';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { AccordionModule } from 'ngx-bootstrap';
 import { CollapseModule } from 'ngx-bootstrap';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FilterCityPipe } from './pipes/filter-city.pipe';
+import { RatingModule } from 'ngx-bootstrap';
 
 
 
@@ -73,12 +74,12 @@ import { CollapseModule } from 'ngx-bootstrap';
     GaleriaBiuraComponent,
     PytaniaComponent,
     DodawanieComponent,
-    PobieranieComponent,
     WszyscyComponent,
     PhotoComponent,
-    CityComponent,
     ImportComponent,
-    DownloadComponent
+    DownloadComponent,
+    FilterPipe,
+    FilterCityPipe
   ],
   imports: [
     BrowserModule,
@@ -88,6 +89,7 @@ import { CollapseModule } from 'ngx-bootstrap';
     BsDropdownModule.forRoot(),
     AccordionModule.forRoot(),
     CollapseModule.forRoot(),
+    RatingModule.forRoot(),
     StoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,

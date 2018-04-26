@@ -1,9 +1,7 @@
 import { AuthGuard } from './guards/auth.guard';
 import { DownloadComponent } from './HeadersComponents/HeadersFeatures/download/download.component';
-import { CityComponent } from './HeadersComponents/HeadersFeatures/city/city.component';
 import { PhotoComponent } from './HeadersComponents/HeadersFeatures/photo/photo.component';
 import { WszyscyComponent } from './HeadersComponents/HeadersFeatures/wszyscy/wszyscy.component';
-import { PobieranieComponent } from './HeadersComponents/HeadersFeatures/pobieranie/pobieranie.component';
 import { DodawanieComponent } from './HeadersComponents/HeadersFeatures/dodawanie/dodawanie.component';
 import { PytaniaComponent } from './FootersComponents/FootersFeatures/pytania/pytania.component';
 import { GaleriaBiuraComponent } from './FootersComponents/FootersFeatures/galeria-biura/galeria-biura.component';
@@ -39,10 +37,8 @@ const appRoutes: Routes = [
 
       { path: 'end', component: EndComponent },
       { path: 'start', component: StartComponent },
-      { path: 'pobieranie', component: PobieranieComponent },
       { path: 'wszyscy', component: WszyscyComponent },
       { path: 'dodawanie', component: DodawanieComponent },
-      { path: 'city', component: CityComponent },
       { path: 'photo', component: PhotoComponent },
       { path: 'import', component: ImportComponent },
       { path: 'download', component: DownloadComponent }

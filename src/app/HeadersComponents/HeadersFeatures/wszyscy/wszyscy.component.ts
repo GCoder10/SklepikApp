@@ -1,5 +1,8 @@
+import { FilterCityPipe } from './../../../pipes/filter-city.pipe';
+import { FilterPipe } from './../../../pipes/filter.pipe';
 import { DataService } from '../../../data/data.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-wszyscy',
@@ -17,6 +20,18 @@ showtable: boolean;
 Button1 = '1';
 isCollapsed = true;
 idChecked: number;
+surnameConsoleLogTest: string;
+ifCanSendToDataBase = false;
+
+max = 10;
+rate = 1;
+isReadonly = false;
+
+
+overStar: number;
+percent: number;
+
+
 
   constructor(public dataService: DataService
   ) { }
@@ -56,7 +71,7 @@ onShowTableWithAllWorkers() {
 });
       }
     this.showtable = true;
-
+    this.Button1 = '3';
 }
 
 
@@ -77,6 +92,31 @@ resetDataOfDownloadedAllWorkers() {
   checkId(data) {
     this.idChecked = data;
     return this.idChecked;
+  }
+
+
+  onClickTesting(data) {
+    this.surnameConsoleLogTest = data;
+    console.log(this.surnameConsoleLogTest);
+  }
+
+
+  hoveringOver(value, data) {
+    this.overStar = value;
+    this.percent = (value / this.max) * 100;
+    this.surnameConsoleLogTest = data;
+  }
+
+
+
+  resetStar() {
+    this.overStar = void 0;
+  }
+
+
+
+  onClickTestingDatabase() {
+    console.log('Worker with surname:' + this.surnameConsoleLogTest + ' Got: ' + this.rate + ' stars rating');
   }
 
 }

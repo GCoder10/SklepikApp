@@ -4,18 +4,32 @@
 
               <button (click)="onDownloadAllWorkersFromLocalDatabase()" class="btn btn-info" *ngIf="Button1=='1'">LocalDatabase</button>   
               <button (click)="onShowTableWithAllWorkers()" class="btn btn-success" *ngIf="Button1=='2'">GenerateTable</button> 
-              <button (click)="resetDataOfDownloadedAllWorkers()" class="btn btn-danger" *ngIf="Button1=='2'">ResetTable/Arrays</button> 
+              <button (click)="resetDataOfDownloadedAllWorkers()" class="btn btn-danger" *ngIf="Button1=='3'">ResetTable/Arrays</button> 
+
+
+
+ 
               <hr>
 
-<p *ngIf="Button1=='1'"> Po poprawnym pobraniu danych z bazy danych tabelka z danymi kliknij GenerateTable: </p>
-<p *ngIf="Button1=='2'"> ResetTable/Arrays - aby sprobowac ponownie wyswietlic dane: </p>
+
+<p *ngIf="Button1=='1'"> Tabelka zawiera dynamiczne przeszukiwanie po nazwisku i miejscu zamieszkania</p>
+<p *ngIf="Button1=='1'"> Po poprawnym pobraniu danych z bazy danych kliknij GenerateTable: </p>
+<p *ngIf="Button1=='3'"> ResetTable/Arrays - aby sprobowac ponownie wyswietlic dane: </p>
+
+<div *ngIf="(showtable)"> 
+<form id="filter" class="searchingSurname">
+<i class="fa fa-users" style="font-size:24px;padding-left:5px;"></i><label>Filtruj pracowników po nazwisku: </label>
+<input type="text" class="input" [(ngModel)]="termSurname" [ngModelOptions]="{standalone: true}"/>
+</form>
+<form id="filterCity" class="searchingCity">
+<i class="fa fa-home" style="font-size:24px;padding-left:5px;"></i><label>Filtruj pracowników po miejscowości: </label>
+<input type="text" class="input" [(ngModel)]="termCity" [ngModelOptions]="{standalone: true}"/>
+</form> 
+</div>
 
 
-
-
-
-<div *ngIf="(showtable)">
-<div class="scroll">
+<div *ngIf="(showtable)"> 
+<div class="scroll">  
 <table>
    <thead>
     <th>id</th>
@@ -27,7 +41,7 @@
     <th>Pesel</th>
     <th>Pass</th>
    </thead>
-   <tbody *ngFor="let obj of dataOfAllWorkers2"> 
+   <tbody *ngFor="let obj of dataOfAllWorkers2 | filter:termSurname | filterCity:termCity"> 
   <tr (click)="isCollapsed = !isCollapsed && checkId(obj.id)"> 
     <td> {{ obj.id }} </td>
     <td> {{ obj.surname }} </td> 
@@ -41,14 +55,24 @@
   <tr *ngIf="(isCollapsed) && obj.id == idChecked">
     <td></td>
     <td colspan="3"><div>
-            Button #1
-            Button #2
-            Button #3
+            {{ obj.id }}
+            <button type="button" class="btn btn-success" (click)="onClickTesting(obj.surname)">Success - consoleLogTest</button>
+
+            <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"
+            (onHover)="hoveringOver($event,obj.surname)" (onLeave)="resetStar()"
+            [titles]="['one','two','three']">
+            </rating>
+                <span class="label"
+                [ngClass]="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+                [ngStyle]="{display: (overStar && !isReadonly) ? 'inline' : 'none'}">
+                {{percent}}%
+                </span>
+
     </div></td>
     <td colspan="3"><div>
-            Details 1
-            Details 2
-            Details 3
+            <button type="button" class="btn btn-info" (click)="onClickTestingDatabase()">sendToBase - consoleLogTest</button>
+            Wybrales ocene {{ rate }}
+             Details 3
     </div></td>
     <td><div>
             {{ obj.surname }}
