@@ -1,6 +1,6 @@
-import { FilterCityPipe } from './../../../pipes/filter-city.pipe';
-import { FilterPipe } from './../../../pipes/filter.pipe';
-import { DataService } from '../../../data/data.service';
+import { FilterCityPipe } from '../../../shared/pipes/filter-city.pipe';
+import { FilterPipe } from '../../../shared/pipes/filter.pipe';
+import { DataService } from '../../../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -15,7 +15,6 @@ export class WszyscyComponent implements OnInit {
 BGwszyscy: string;
 dataOfAllWorkers: any;
 dataOfAllWorkers2: Array<any> = [];
-surnameSearching: string;
 showtable: boolean;
 Button1 = '1';
 isCollapsed = true;

@@ -1,4 +1,4 @@
-import { JsonService } from './../../../json/json.service';
+import { JsonService } from '../../shared/services/json.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Http, Response, ResponseOptions } from '@angular/http';

@@ -1,23 +1,23 @@
-import { AuthGuard } from './guards/auth.guard';
-import { DownloadComponent } from './HeadersComponents/HeadersFeatures/download/download.component';
-import { PhotoComponent } from './HeadersComponents/HeadersFeatures/photo/photo.component';
-import { WszyscyComponent } from './HeadersComponents/HeadersFeatures/wszyscy/wszyscy.component';
-import { DodawanieComponent } from './HeadersComponents/HeadersFeatures/dodawanie/dodawanie.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { DownloadComponent } from './workers/components/download/download.component';
+import { PhotoComponent } from './workers/components/photo/photo.component';
+import { WszyscyComponent } from './workers/components/wszyscy/wszyscy.component';
+import { DodawanieComponent } from './workers/components/dodawanie/dodawanie.component';
 import { PytaniaComponent } from './FootersComponents/FootersFeatures/pytania/pytania.component';
 import { GaleriaBiuraComponent } from './FootersComponents/FootersFeatures/galeria-biura/galeria-biura.component';
 import { LokalizacjaComponent } from './FootersComponents/FootersFeatures/lokalizacja/lokalizacja.component';
 import { PracaComponent } from './FootersComponents/FootersFeatures/praca/praca.component';
 import { RulesComponent } from './FootersComponents/FootersFeatures/rules/rules.component';
-import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { HomeComponent } from './HomePageComponents/home/home.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { SigninComponent } from './auth/signin/signin.component';
-import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/components/signin/signin.component';
+import { SignupComponent } from './auth/components/signup/signup.component';
 import { ONasComponent } from './HeadersComponents/HeadersFeatures/o-nas/o-nas.component';
-import { StartComponent } from './auth/start/start.component';
-import { EndComponent } from './auth/end/end.component';
-import { ImportComponent } from './HeadersComponents/HeadersFeatures/import/import.component';
+import { StartComponent } from './auth/components/start/start.component';
+import { EndComponent } from './auth/components/end/end.component';
+import { ImportComponent } from './workers/components/import/import.component';
 
 
 

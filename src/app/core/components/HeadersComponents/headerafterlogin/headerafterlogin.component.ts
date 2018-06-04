@@ -1,7 +1,7 @@
-import { PageNotFoundComponent } from './../../core/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from '../../../../shared/components/page-not-found/page-not-found.component';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
-import { AuthService } from '../../auth/auth.service';
+import { AuthService } from '../../../../auth/shared/services/auth.service';
 
 
 @Component({

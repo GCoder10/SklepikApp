@@ -1,4 +1,4 @@
-import { JsonService } from './../../../json/json.service';
+import { JsonService } from '../../shared/services/json.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 

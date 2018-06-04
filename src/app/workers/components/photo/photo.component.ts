@@ -1,4 +1,4 @@
-import { DataService } from '../../../data/data.service';
+import { DataService } from '../../../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 

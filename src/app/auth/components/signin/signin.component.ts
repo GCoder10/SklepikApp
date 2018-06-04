@@ -1,4 +1,4 @@
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { Observable } from 'rxjs/Observable';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
