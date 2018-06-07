@@ -1,0 +1,149 @@
+<body [ngStyle]="{'background-image': 'url(' + backgroundImagePath + ')'}">
+    <div class="login-wrap">
+        <div class="login-html">
+
+
+
+            <div class="scroll">
+       
+                
+
+                    <ngx-image-gallery 
+                    [images]="images" 
+                    [conf]="conf"
+                    (onOpen)="galleryOpened($event)"
+                    (onClose)="galleryClosed()"
+                    (onImageClicked)="galleryImageClicked($event)"
+                    (onImageChange)="galleryImageChanged($event)"
+                    (onDelete)="deleteImage($event)"
+                    >
+                    </ngx-image-gallery>
+
+            <button (click)="openGallery()">Galeria</button>
+
+
+                <br>
+                <br>
+                <p align="justify">
+                Tworzenie regulaminu sklepu internetowego pewnie do najprzyjemniejszych nie należy. I mocno sugerujemy, żeby tworząc regulamin butiku został on skonsultowany  z prawnikiem. Natomiast, żeby uprościć nieco start tym, którzy regulaminu jeszcze nie mają poprosiliśmy zaprzyjaźnioną kancelarię prawną o stworzenie przykładowego regulaminu.
+                W pole „Informacje o firmie” powinny zostać wpisane dane kontaktowe / rejestracyjne firmy (REGON, NIP). Poniższy regulamin ilustruje elementy, które powinny być zawarte w każdym regulaminie sklepu internetowego. Należy je oczywiście dopasować do własnego charakteru działalności.
+                </p>
+                <br>
+                <br>
+
+
+                <h2 style="color: black;">
+                    <b>Przykładowa galeria</b>
+                </h2>
+                <h3 style="color: black;">
+                    <b>§ 1 Opis biura - Olsztyn: </b>
+                </h3>
+                <p align="justify">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur lectus fermentum sapien semper mattis. Morbi nec mi eu est tempor ultricies. Vestibulum neque dolor, ullamcorper at turpis et, dapibus lobortis ex. 
+                Pellentesque malesuada turpis eu dui pellentesque, in facilisis nulla dapibus. 
+                Sed vel lacinia nibh. Praesent placerat sed ligula non euismod. In scelerisque mattis justo. Phasellus ac quam a nunc aliquam ultricies. Etiam ultricies finibus ipsum id placerat.
+                Cras cursus mollis felis non tristique. Morbi venenatis scelerisque nunc. Sed erat massa, eleifend sit amet ornare at, pharetra ac mauris.
+                Nunc urna lectus, feugiat at eros eget, sagittis vulputate arcu. Integer viverra magna quis nunc pretium, vel posuere ligula euismod. Sed sit amet euismod est. Morbi vestibulum lacus felis, ut porta lacus mattis non. 
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                Phasellus varius viverra orci, nec vestibulum urna consectetur eu. Nullam rhoncus consequat diam non feugiat. Nullam diam est, condimentum eget convallis in, commodo et eros.
+                </p>
+
+
+                <br>
+                <br>
+                <h3 style="color: black;">
+                    <b>§ 2 Opis biura - Giżycko: </b>
+                </h3>
+                <p align="justify">
+                Curabitur accumsan ullamcorper quam et semper. Integer in dignissim eros, vel gravida dui. Nulla consectetur, leo sit amet aliquam imperdiet, diam quam consectetur sapien, in faucibus urna lorem non metus. 
+                Donec id diam odio. In gravida, sem in maximus vulputate, libero nunc dictum magna, sed tristique purus sapien et sem. Nulla sit amet rutrum ex. Aenean sit amet leo nec nisi imperdiet porta. Quisque a erat ullamcorper, efficitur urna et, efficitur erat. 
+                Morbi in ante vitae nunc dignissim porttitor in in purus. 
+                Aliquam erat volutpat. Vivamus maximus eros felis, eu aliquet dui venenatis eu.
+                Morbi vel sem sit amet nibh lobortis varius. Vestibulum id elit sapien. Pellentesque in porttitor nulla, et molestie purus. 
+                Duis pellentesque dolor tortor, eget faucibus velit hendrerit eu. Phasellus dapibus tortor gravida metus ultrices, eget venenatis ante mattis. Etiam placerat non erat eget molestie. 
+                Vestibulum vehicula nulla orci.
+                </p>
+
+
+                <br>
+                <br>
+                <h3 style="color: black;">
+                    <b>§ 3 Opis biura - Ryn: </b>
+                </h3>
+                <p align="justify">
+                Integer tempor lorem eget nisl convallis, at varius risus posuere. Aliquam sodales ultricies tempor. Proin a eleifend nibh. Ut et consequat magna. Nam consequat sodales nulla nec pulvinar. 
+                Sed vitae mi vitae lorem posuere laoreet. Phasellus sollicitudin efficitur mauris. Quisque varius vestibulum varius. Suspendisse eu dolor tincidunt, porta ipsum vel, vestibulum lectus. 
+                Duis porttitor porta felis eu molestie. Aenean varius sem eget leo vulputate feugiat. Maecenas at metus sed nisi pulvinar mollis. Mauris feugiat tortor odio, ut accumsan mi ornare nec. 
+                Mauris felis lectus, dapibus non pulvinar a, euismod vitae felis. Proin et scelerisque tortor, et finibus sem. In hac habitasse platea dictumst.
+                </p>
+
+
+                <br>
+                <br>
+                <h3 style="color: black;">
+                    <b>§ 4 Opis biura - Gdańsk: </b>
+                </h3>
+                <p align="justify">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur lectus fermentum sapien semper mattis. Morbi nec mi eu est tempor ultricies. Vestibulum neque dolor, ullamcorper at turpis et, dapibus lobortis ex. 
+                Pellentesque malesuada turpis eu dui pellentesque, in facilisis nulla dapibus. 
+                Sed vel lacinia nibh. Praesent placerat sed ligula non euismod. In scelerisque mattis justo. Phasellus ac quam a nunc aliquam ultricies. Etiam ultricies finibus ipsum id placerat.
+                Cras cursus mollis felis non tristique. Morbi venenatis scelerisque nunc. Sed erat massa, eleifend sit amet ornare at, pharetra ac mauris.
+                Nunc urna lectus, feugiat at eros eget, sagittis vulputate arcu. Integer viverra magna quis nunc pretium, vel posuere ligula euismod. Sed sit amet euismod est. Morbi vestibulum lacus felis, ut porta lacus mattis non. 
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                Phasellus varius viverra orci, nec vestibulum urna consectetur eu. Nullam rhoncus consequat diam non feugiat. Nullam diam est, condimentum eget convallis in, commodo et eros.
+                </p>
+
+
+                <br>
+                <br>
+                <h3 style="color: black;">
+                    <b>§ 5 Opis biura - Warszawa: </b>
+                </h3>
+                <p align="justify">
+                Integer tempor lorem eget nisl convallis, at varius risus posuere. Aliquam sodales ultricies tempor. Proin a eleifend nibh. Ut et consequat magna. Nam consequat sodales nulla nec pulvinar. 
+                Sed vitae mi vitae lorem posuere laoreet. Phasellus sollicitudin efficitur mauris. Quisque varius vestibulum varius. Suspendisse eu dolor tincidunt, porta ipsum vel, vestibulum lectus. 
+                Duis porttitor porta felis eu molestie. Aenean varius sem eget leo vulputate feugiat. Maecenas at metus sed nisi pulvinar mollis. Mauris feugiat tortor odio, ut accumsan mi ornare nec. 
+                Mauris felis lectus, dapibus non pulvinar a, euismod vitae felis. Proin et scelerisque tortor, et finibus sem. In hac habitasse platea dictumst.
+                </p>
+
+
+                <br>
+                <br>
+                <h3 style="color: black;">
+                    <b>§ 6 Opis biura - Kraków: </b>
+                </h3>
+                <p align="justify">
+                Curabitur accumsan ullamcorper quam et semper. Integer in dignissim eros, vel gravida dui. Nulla consectetur, leo sit amet aliquam imperdiet, diam quam consectetur sapien, in faucibus urna lorem non metus. 
+                Donec id diam odio. In gravida, sem in maximus vulputate, libero nunc dictum magna, sed tristique purus sapien et sem. Nulla sit amet rutrum ex. Aenean sit amet leo nec nisi imperdiet porta. Quisque a erat ullamcorper, efficitur urna et, efficitur erat. 
+                Morbi in ante vitae nunc dignissim porttitor in in purus. 
+                Aliquam erat volutpat. Vivamus maximus eros felis, eu aliquet dui venenatis eu.
+                Morbi vel sem sit amet nibh lobortis varius. Vestibulum id elit sapien. Pellentesque in porttitor nulla, et molestie purus. 
+                Duis pellentesque dolor tortor, eget faucibus velit hendrerit eu. Phasellus dapibus tortor gravida metus ultrices, eget venenatis ante mattis. Etiam placerat non erat eget molestie. 
+                Vestibulum vehicula nulla orci.
+                </p>
+                <br>
+                <br>
+                            
+
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<div class="footer">
+          <img src="assets/images/partners/partner1.png" 
+               align="left" 
+               style="position:absolute; left:5%;margin-top:50px;">
+          <img src="assets/images/partners/partner2.png" 
+               align="left" 
+               style="position:absolute; right:35%;margin-top:50px;">
+          <img src="assets/images/partners/partner3.png" 
+               align="left" 
+               style="position:absolute; right:60%;margin-top:80px;">
+          <img src="assets/images/partners/partner4.png" 
+               align="right" 
+               style="position:absolute; right:5%;margin-top:80px;">
+</div>
+

@@ -3,19 +3,32 @@
         <div class="login-html">
 
              
-            <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" [zoom]="zoom">
+            <agm-map [latitude]="latitude" 
+                     [longitude]="longitude" 
+                     (mapClick)="onChoseLocation($event)" 
+                     [zoom]="zoom">
         
-                <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>    
+                            <agm-marker [latitude]="latitude" 
+                                        [longitude]="longitude" 
+                                        *ngIf="locationChosen">
+                            </agm-marker>    
      
-              </agm-map>
+            </agm-map>
 
   
-        <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+        <input placeholder="search for location" 
+               autocorrect="off" 
+               autocapitalize="off" 
+               spellcheck="off" 
+               type="text" 
+               class="form-control" 
+               #search 
+               [formControl]="searchControl">
 
        
 
-<div class="scroll">
-                            <ul class="row">
+            <div class="scroll">
+                        <ul class="row">
                             <li class="col-sm-6">
                                 <address>
                                     <h5>Główne biuro</h5>
@@ -23,7 +36,9 @@
                                     Tumon, MP 96911</p>
                                     <p>Phone:670-898-2847 <br>
                                     Email Address:info@olsztyn.com</p>
-                                    <p (click)="location1()" style="cursor: pointer; width: 200px;">Pokaż na mapie
+                                    <p (click)="location1()" 
+                                       style="cursor: pointer; width: 200px;">
+                                       Pokaż na mapie
                                     <img src="assets/images/pin.png"> <br>
                                     </p>
                                 </address>
@@ -34,7 +49,9 @@
                                     Tumon, MP 96911</p>                                
                                     <p>Phone:670-898-2847 <br>
                                     Email Address:info@olsztyn.com</p>
-                                    <p (click)="location2()" style="cursor: pointer; width: 200px;">Pokaż na mapie
+                                    <p (click)="location2()" 
+                                       style="cursor: pointer; width: 200px;">
+                                       Pokaż na mapie
                                     <img src="assets/images/pin.png"> <br>
                                     </p>
                                 </address>
@@ -48,7 +65,9 @@
                                     Tumon, MP 96911</p>
                                     <p>Phone:670-898-2847 <br>
                                     Email Address:info@giżycko.com</p>
-                                    <p (click)="location3()" style="cursor: pointer; width: 200px;">Pokaż na mapie
+                                    <p (click)="location3()" 
+                                       style="cursor: pointer; width: 200px;">
+                                       Pokaż na mapie
                                     <img src="assets/images/pin.png"> <br>
                                     </p>
                                 </address>
@@ -59,20 +78,24 @@
                                     Tumon, MP 96911</p>
                                     <p>Phone:670-898-2847 <br>
                                     Email Address:info@giżycko.com</p>
-                                    <p (click)="location4()" style="cursor: pointer; width: 200px;">Pokaż na mapie
+                                    <p (click)="location4()" 
+                                       style="cursor: pointer; width: 200px;">
+                                       Pokaż na mapie
                                     <img src="assets/images/pin.png"> <br>
                                     </p>
                                 </address>
                             </li>
 
-                                <li class="col-sm-6">
+                            <li class="col-sm-6">
                                 <address>
                                     <h5>Biuro #4</h5>
                                     <p>Ryn, Hotel ZAMEK RYN<br>
                                     Tumon, MP 96911</p>
                                     <p>Phone:670-898-2847 <br>
                                     Email Address:info@ryn.com</p>
-                                    <p (click)="location5()" style="cursor: pointer; width: 200px;">Pokaż na mapie
+                                    <p (click)="location5()" 
+                                       style="cursor: pointer; width: 200px;">
+                                       Pokaż na mapie
                                     <img src="assets/images/pin.png"> <br>
                                     </p>
                                 </address>
@@ -83,21 +106,25 @@
                                     Tumon, MP 96911</p>
                                     <p>Phone:670-898-2847 <br>
                                     Email Address:info@ryn.com</p>
-                                    <p (click)="location6()" style="cursor: pointer; width: 200px;">Pokaż na mapie
+                                    <p (click)="location6()" 
+                                       style="cursor: pointer; width: 200px;">
+                                       Pokaż na mapie
                                     <img src="assets/images/pin.png"> <br>
                                     </p>
                                 </address>
                             </li>
 
 
-                                <li class="col-sm-6">
+                            <li class="col-sm-6">
                                 <address>
                                     <h5>Biuro #6</h5>
                                     <p>Gdańsk, Galeria Bałtycka<br>
                                     Tumon, MP 96911</p>
                                     <p>Phone:670-898-2847 <br>
                                     Email Address:info@gdańsk.com</p>
-                                    <p (click)="location7()" style="cursor: pointer; width: 200px;">Pokaż na mapie
+                                    <p (click)="location7()" 
+                                       style="cursor: pointer; width: 200px;">
+                                       Pokaż na mapie
                                     <img src="assets/images/pin.png"> <br>
                                     </p>
                                 </address>
@@ -108,21 +135,25 @@
                                     Tumon, MP 96911</p>
                                     <p>Phone:670-898-2847 <br>
                                     Email Address:info@gdańsk.com</p>
-                                    <p (click)="location8()" style="cursor: pointer; width: 200px;">Pokaż na mapie
+                                    <p (click)="location8()" 
+                                       style="cursor: pointer; width: 200px;">
+                                       Pokaż na mapie
                                     <img src="assets/images/pin.png"> <br>
                                     </p>
                                 </address>
                             </li>
                    
 
-                      <li class="col-sm-6">
+                            <li class="col-sm-6">
                                 <address>
                                     <h5>Biuro #8</h5>
                                     <p>Warszawa, Centrum Nauki Kopernik<br>
                                     Tumon, MP 96911</p>
                                     <p>Phone:670-898-2847 <br>
                                     Email Address:info@warszawa.com</p>
-                                    <p (click)="location9()" style="cursor: pointer; width: 200px;">Pokaż na mapie
+                                    <p (click)="location9()" 
+                                       style="cursor: pointer; width: 200px;">
+                                       Pokaż na mapie
                                     <img src="assets/images/pin.png"> <br>
                                     </p>
                                 </address>
@@ -133,21 +164,25 @@
                                     Tumon, MP 96911</p>
                                     <p>Phone:670-898-2847 <br>
                                     Email Address:info@warszawa.com</p>
-                                    <p (click)="location10()" style="cursor: pointer; width: 200px;">Pokaż na mapie
+                                    <p (click)="location10()" 
+                                       style="cursor: pointer; width: 200px;">
+                                       Pokaż na mapie
                                     <img src="assets/images/pin.png"> <br>
                                     </p>
                                 </address>
                             </li>
 
 
-                                <li class="col-sm-6">
+                            <li class="col-sm-6">
                                 <address>
                                     <h5>Biuro #10</h5>
                                     <p>Kraków, Rynek Główny<br>
                                     Tumon, MP 96911</p>
                                     <p>Phone:670-898-2847 <br>
                                     Email Address:info@kraków.com</p>
-                                    <p (click)="location11()" style="cursor: pointer; width: 200px;">Pokaż na mapie
+                                    <p (click)="location11()" 
+                                       style="cursor: pointer; width: 200px;">
+                                       Pokaż na mapie
                                     <img src="assets/images/pin.png"> <br>
                                     </p>
                                 </address>
@@ -158,23 +193,34 @@
                                     Tumon, MP 96911</p>
                                     <p>Phone:670-898-2847 <br>
                                     Email Address:info@kraków.com</p>
-                                    <p (click)="location12()" style="cursor: pointer; width: 200px;">Pokaż na mapie
+                                    <p (click)="location12()" 
+                                       style="cursor: pointer; width: 200px;">
+                                       Pokaż na mapie
                                     <img src="assets/images/pin.png"> <br>
                                     </p>
                                 </address>
                             </li>
-                          </ul>
+                        </ul>
 
 
-</div>
+            </div>
         </div>
     </div>
 </body>
 
+
 <div class="footer">
-          <img src="assets/images/partners/partner1.png" align="left" style="position:absolute; left:5%;margin-top:50px;">
-          <img src="assets/images/partners/partner2.png" align="left" style="position:absolute; right:35%;margin-top:50px;">
-          <img src="assets/images/partners/partner3.png" align="left" style="position:absolute; right:60%;margin-top:80px;">
-          <img src="assets/images/partners/partner4.png" align="right" style="position:absolute; right:5%;margin-top:80px;">
+          <img src="assets/images/partners/partner1.png" 
+               align="left" 
+               style="position:absolute; left:5%;margin-top:50px;">
+          <img src="assets/images/partners/partner2.png" 
+               align="left" 
+               style="position:absolute; right:35%;margin-top:50px;">
+          <img src="assets/images/partners/partner3.png" 
+               align="left" 
+               style="position:absolute; right:60%;margin-top:80px;">
+          <img src="assets/images/partners/partner4.png" 
+               align="right" 
+               style="position:absolute; right:5%;margin-top:80px;">
 </div>
 
