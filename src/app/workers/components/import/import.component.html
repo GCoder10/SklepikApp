@@ -1,23 +1,39 @@
 <body [ngStyle]="{'background-image': 'url(' + backgroundImagePath + ')'}">
     <div class="login-wrap">
         <div class="login-html">
-          <div style="overflow-y: scroll; height:1000px;">
 
-              <p>Wybierz plik z pracownikami w formacie JSON i importuj go do bazy</p>
-              <p>Przygotowany przykładowy plik JSON z danymi znajduje się w plikach projektu</p>
-              <p>Jest to: ImportDATA.json</p>
-              <div *ngIf="!(checkIfSend)">
-              <input type="file" (change)="onFileSelected($event)">
-              <button type="button" (click)="onUploadJson()">Prześlij plik JSON</button>
-              </div>
-          </div>
+
+            <div style="overflow-y: scroll; height:1000px;">
+                    <p>Wybierz plik z pracownikami w formacie JSON i importuj go do bazy</p>
+                    <p>Przygotowany przykładowy plik JSON z danymi znajduje się w plikach projektu</p>
+                    <p>Jest to: ImportDATA.json</p>
+                    <div *ngIf="!(checkIfSend)">
+                            <input type="file" 
+                                   (change)="onFileSelected($event)">
+                            <button type="button" 
+                                    (click)="onUploadJson()">
+                                    Prześlij plik JSON
+                            </button>
+                    </div>
+            </div>
+
+
         </div>
     </div>
 </body>
 
+
 <div class="footer">
-          <img src="assets/images/partners/partner1.png" align="left" style="position:absolute; left:5%;margin-top:50px;">
-          <img src="assets/images/partners/partner2.png" align="left" style="position:absolute; right:35%;margin-top:50px;">
-          <img src="assets/images/partners/partner3.png" align="left" style="position:absolute; right:60%;margin-top:80px;">
-          <img src="assets/images/partners/partner4.png" align="right" style="position:absolute; right:5%;margin-top:80px;">
+          <img src="assets/images/partners/partner1.png" 
+               align="left" 
+               style="position:absolute; left:5%;margin-top:50px;">
+          <img src="assets/images/partners/partner2.png" 
+               align="left" 
+               style="position:absolute; right:35%;margin-top:50px;">
+          <img src="assets/images/partners/partner3.png" 
+               align="left" 
+               style="position:absolute; right:60%;margin-top:80px;">
+          <img src="assets/images/partners/partner4.png" 
+               align="right" 
+               style="position:absolute; right:5%;margin-top:80px;">
 </div>

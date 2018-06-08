@@ -1,48 +1,85 @@
 <body [ngStyle]="{'background-image': 'url(' + backgroundImagePath + ')'}">
     <div class="login-wrap">
-        <div class="login-html">
+      <div class="login-html">
           <div style="overflow-y: scroll; height:1000px;">
 
 
-        <div class="setForm">
-        <div class="login-form">    
-        <div class="sign-in-htm">
-   <form (ngSubmit)="onTrySearch(f)" #f="ngForm">
-   <div class="group">
-              <label for="surname" class="label">Nazwisko pracownika</label>
-              <input id="surname" name="surname" ngModel required type="text" class="input" #surname="ngModel">
-              <span class="help-block" *ngIf="!surname.valid && surname.touched" style="color:red;">Wprowadź poprawne nazwisko pracownika!</span>
-   </div>
-             <div class="group" *ngIf="CanSearch=='1'">
-              <input type="submit" class="button" value="Wyszukaj zdjęcie pracownika" [disabled]="!f.valid">
-            </div>
-              </form>
-            <button (click)="onSearchAgain()" *ngIf="CanSearch=='0'" class="btn btn-warning">Ponowne wyszukiwanie</button>           
-           <hr>
+                    <div class="setForm">
+                          <div class="login-form">    
+                                <div class="sign-in-htm">
+                                      <form (ngSubmit)="onTrySearch(f)" 
+                                            #f="ngForm">
 
-        </div>
-        </div>
-        </div>
+                                      <div class="group">
+                                            <label for="surname" 
+                                                   class="label">
+                                                   Nazwisko pracownika
+                                            </label>
+                                            <input id="surname" 
+                                                   name="surname" 
+                                                   ngModel 
+                                                   required 
+                                                   type="text" 
+                                                   class="input" 
+                                                   #surname="ngModel">
+                                            <span class="help-block" 
+                                                  *ngIf="!surname.valid && surname.touched" 
+                                                  style="color:red;">
+                                                  Wprowadź poprawne nazwisko pracownika!
+                                            </span>
+                                      </div>
+                                      <div class="group" 
+                                           *ngIf="CanSearch=='1'">
+                                            <input type="submit" 
+                                                   class="button" 
+                                                   value="Wyszukaj zdjęcie pracownika" 
+                                                   [disabled]="!f.valid">
+                                      </div>
 
-<br>
-<p> Wpisz nazwisko pracownika a następnie po zsynchronizowaniu się aplikacji z bazą danych, naciśnij "Pokaż zdjęcie" </p>
-<p> "Pokaż zdjęcie" - po naciśnięciu chwilkę trzeba odczekać </p>
-<p> Kowalski/Nowak posiadają zdjęcie </p>
-   <button (click)="ShowPhoto()" class="btn btn-success" *ngIf="CanSearch=='1'">Pokaż zdjęcie</button>    
-            
-            <br>
-            <br>
+                                      </form>
+                                            <button (click)="onSearchAgain()" 
+                                                    *ngIf="CanSearch=='0'" 
+                                                    class="btn btn-warning">
+                                                    Ponowne wyszukiwanie
+                                            </button>           
+                                      <hr>
 
-      <img src = {{daneZdjecia}}>  
+                                </div>
+                          </div>
+                    </div>
+
+
+                        <br>
+                                <p> Wpisz nazwisko pracownika a następnie po zsynchronizowaniu się aplikacji z bazą danych, naciśnij "Pokaż zdjęcie" </p>
+                                <p> "Pokaż zdjęcie" - po naciśnięciu chwilkę trzeba odczekać </p>
+                                <p> Kowalski/Nowak posiadają zdjęcie </p>
+                                <button (click)="ShowPhoto()" 
+                                        class="btn btn-success" 
+                                        *ngIf="CanSearch=='1'">
+                                        Pokaż zdjęcie
+                                </button>    
+                        <br>
+                        <br>
+
+                    <img src = {{daneZdjecia}}>  
+
 
           </div>
-        </div>
+      </div>
     </div>
 </body>
 
 <div class="footer">
-          <img src="assets/images/partners/partner1.png" align="left" style="position:absolute; left:5%;margin-top:50px;">
-          <img src="assets/images/partners/partner2.png" align="left" style="position:absolute; right:35%;margin-top:50px;">
-          <img src="assets/images/partners/partner3.png" align="left" style="position:absolute; right:60%;margin-top:80px;">
-          <img src="assets/images/partners/partner4.png" align="right" style="position:absolute; right:5%;margin-top:80px;">
+          <img src="assets/images/partners/partner1.png" 
+               align="left" 
+               style="position:absolute; left:5%;margin-top:50px;">
+          <img src="assets/images/partners/partner2.png" 
+               align="left" 
+               style="position:absolute; right:35%;margin-top:50px;">
+          <img src="assets/images/partners/partner3.png" 
+               align="left" 
+               style="position:absolute; right:60%;margin-top:80px;">
+          <img src="assets/images/partners/partner4.png" 
+               align="right" 
+               style="position:absolute; right:5%;margin-top:80px;">
 </div>

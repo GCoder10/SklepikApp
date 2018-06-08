@@ -1,53 +1,118 @@
-<nav class="navbar navbar-inverse" role="banner">
-  <div class="container">
-      <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </button>
-          <div class="row">
-      
-          <a class="navbar-brand" href=""><img src="assets\images\partners\partner1.png"></a>
-     
+<nav class="navbar navbar-inverse" 
+     role="banner">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" 
+                    class="navbar-toggle" 
+                    data-toggle="collapse" 
+                    data-target=".navbar-collapse">
+                        <span class="sr-only">
+                              Toggle navigation
+                        </span>
+                        <span class="icon-bar">
+
+                        </span>
+                        <span class="icon-bar">
+
+                        </span>
+                        <span class="icon-bar">
+
+                        </span>
+            </button>
+        <div class="row">
+        
+            <a class="navbar-brand" 
+               href="">
+                    <img src="assets\images\partners\partner1.png">
+            </a>
+            <div class="col-lg-28 col-md-28 col-sm-8 col-xm-6">
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+
+                        <li routerLinkActive="active">
+                            <a routerLink="">
+                               Home
+                               <i class="fa fa-globe" 
+                                  style="font-size:24px;padding-left:5px;">
+                               </i>
+                            </a>
+                        </li>
+                        <li routerLinkActive="active">
+                            <a routerLink="/oNas">
+                               O nas
+                               <i class="fa fa-user-circle" 
+                                  style="font-size:24px;padding-left:5px;">
+                               </i>
+                            </a>
+                        </li>
+                        <li routerLinkActive="active">
+                            <a routerLink=" ">
+                               Services
+                            </a>
+                        </li>
 
 
-   <div class="col-lg-28 col-md-28 col-sm-8 col-xm-6">
-      <div class="collapse navbar-collapse navbar-right">
-          <ul class="nav navbar-nav">
-              <li routerLinkActive="active"><a routerLink="">Home<i class="fa fa-globe" style="font-size:24px;padding-left:5px;"></i></a></li>
-              <li routerLinkActive="active"><a routerLink="/oNas">O nas<i class="fa fa-user-circle" style="font-size:24px;padding-left:5px;"></i></a></li>
-              <li routerLinkActive="active"><a routerLink=" ">Services</a></li>
+                        <li>
+                            <div class="btn-group" 
+                                 dropdown>
+                                    <button id="button-basic" 
+                                            dropdownToggle 
+                                            type="button" 
+                                            class="btn btn-primary dropdown-toggle"
+                                            aria-controls="dropdown-basic">
+                                            Autoryzacja 
+                                                <span class="caret">
 
-              <li>
-                <div class="btn-group" dropdown>
-        <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
-        aria-controls="dropdown-basic">
-                Autoryzacja <span class="caret"></span>
-        </button>
-          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-          role="menu" aria-labelledby="button-basic">
-              <li routerLinkActive="active" *ngIf="!(chechIfSomeUserIsLoggedInViaToken())"><a routerLink="/logowanie">Zaloguj się<i class="fa fa-user" style="font-size:24px;padding-left:5px;"></i></a></li> 
-              <li routerLinkActive="active" *ngIf="!(chechIfSomeUserIsLoggedInViaToken())"><a routerLink="/rejestracja">Rejestracja<i class="fa fa-user-plus" style="font-size:24px;padding-left:5px;"></i></a></li>
-              <li class="divider dropdown-divider"></li>
-              <li routerLinkActive="active" *ngIf="(chechIfSomeUserIsLoggedInViaToken())" ><a style="cursor: pointer;" (click)="logout()">Wylogowanie</a></li>
-             </ul>
+                                                </span>
+                                    </button>
+                                    <ul id="dropdown-basic" 
+                                        *dropdownMenu class="dropdown-menu"
+                                        role="menu" 
+                                        aria-labelledby="button-basic">
+                                                <li routerLinkActive="active" 
+                                                    *ngIf="!(chechIfSomeUserIsLoggedInViaToken())">
+                                                            <a routerLink="/logowanie">
+                                                               Zaloguj się
+                                                                    <i class="fa fa-user" 
+                                                                       style="font-size:24px;padding-left:5px;">
+                                                                    </i>
+                                                            </a>
+                                                </li> 
+                                                <li routerLinkActive="active" 
+                                                    *ngIf="!(chechIfSomeUserIsLoggedInViaToken())">
+                                                            <a routerLink="/rejestracja">
+                                                               Rejestracja
+                                                                    <i class="fa fa-user-plus" 
+                                                                       style="font-size:24px;padding-left:5px;">
+                                                                    </i>
+                                                            </a>
+                                                </li>
+                                                <li class="divider dropdown-divider">
+
+                                                </li>
+                                                <li routerLinkActive="active" 
+                                                    *ngIf="(chechIfSomeUserIsLoggedInViaToken())">
+                                                            <a style="cursor: pointer;" 
+                                                               (click)="logout()">
+                                                               Wylogowanie
+                                                            </a>
+                                                </li>
+                                    </ul>
+                            </div>
+                        </li>
+
+                        <li *ngIf="(chechIfSomeUserIsLoggedInViaToken())" 
+                            style="font-size:24px;padding-left:5px;color:blue;font-family:'Cursive',serif;">
+                            Witaj: {{authService.decodedToken.unique_name}}
+                        </li>  
+
+                    </ul>
                 </div>
-            </li>
-
-              <li *ngIf="(chechIfSomeUserIsLoggedInViaToken())" style="font-size:24px;padding-left:5px;color:blue;font-family:'Cursive',serif;">Witaj: {{authService.decodedToken.unique_name}}</li>  
-            
-            
-
-          </ul>
-          
-  
             </div>
 
-
         </div>
-      </div>
-          </div>
-  </div>
+        </div>
+
+    </div>
 </nav>

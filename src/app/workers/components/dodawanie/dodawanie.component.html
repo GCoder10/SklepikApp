@@ -3,76 +3,198 @@
         <div class="login-html">
 
 
-        <div class="login-form">    
-        <div class="sign-in-htm">
-          <form (ngSubmit)="onSignUp(f)" #f="ngForm">
-            <div class="group">
-              <label for="name" class="label">Imie pracownika</label>
-              <input id="name" name="name" ngModel required type="text" class="input" #name="ngModel">
-              <span class="help-block" *ngIf="!name.valid && name.touched" style="color:red;">Wprowadź poprawne imie pracownika!</span>
-            </div>
-            <div class="group">
-              <label for="surname" class="label">Nazwisko pracownika</label>
-              <input id="surname" name="surname" ngModel required type="text" class="input" #surname="ngModel">
-              <span class="help-block" *ngIf="!surname.valid && surname.touched" style="color:red;">Wprowadź poprawne nazwisko pracownika!</span>
-            </div>
-            <div class="group">
-              <label for="city" class="label">Miejscowość</label>
-              <input id="city" name="city" ngModel required type="text" class="input" #city="ngModel">
-              <span class="help-block" *ngIf="!city.valid && city.touched" style="color:red;">Wprowadź miejscowość!</span>
-            </div>
-            <div class="group">
-              <label for="street" class="label">Ulica</label>
-              <input id="street" name="street" ngModel required type="text" class="input" #street="ngModel">
-              <span class="help-block" *ngIf="!street.valid && street.touched" style="color:red;">Wprowadź ulice!</span>
-            </div>
-            <div class="group">
-              <label for="email" class="label">Adres email</label>
-              <input id="email" name="email" ngModel required email type="email" class="input" #email="ngModel">
-              <span class="help-block" *ngIf="!email.valid && email.touched" style="color:red;">Wprowadź poprawny adres email !</span>
-            </div>
-            <div class="group">
-              <label for="pesel" class="label">PESEL</label>
-              <input id="pesel" name="pesel" ngModel required type="number" class="input" #pesel="ngModel">
-              <span class="help-block" *ngIf="!pesel.valid && pesel.touched" style="color:red;">Wprowadź pesel!</span>
-            </div>
-            <div class="group">
-              <label for="pass" class="label">Hasło</label>
-              <input id="pass" name="pass" ngModel required type="password" class="input" data-type="password" #pass="ngModel">
-              <span class="help-block" *ngIf="!pass.valid && pass.touched" style="color:red;">Wprowadź poprawne hasło !</span>
-            </div>
-            <div class="group">
-              <label for="passrep" class="label">Powtórz hasło</label>
-              <input id="passrep" name="passrep" ngModel required type="password" class="input" data-type="password">
-            </div>
-            <div class="group">
-              <input type="submit" class="button" value="Dodaj pracownika" [disabled]="!f.valid">
-            </div>
-              </form>
-            <div class="hr"></div>
-            <div class="foot-lnk">
-              <a routerLink="/regulamin">Regulamin</a>
-            </div>
-        </div>   
-          </div>
+              <div class="login-form">    
+                  <div class="sign-in-htm">
+                    <form (ngSubmit)="onSignUp(f)" 
+                          #f="ngForm">
+                              <div class="group">
+                                  <label for="name" 
+                                         class="label">
+                                         Imie pracownika
+                                  </label>
+                                  <input id="name" 
+                                         name="name" 
+                                         ngModel 
+                                         required 
+                                         type="text" 
+                                         class="input" 
+                                         #name="ngModel">
+                                  <span class="help-block" 
+                                        *ngIf="!name.valid && name.touched" 
+                                        style="color:red;">
+                                        Wprowadź poprawne imie pracownika!
+                                  </span>
+                              </div>
+                              <div class="group">
+                                  <label for="surname" 
+                                         class="label">
+                                         Nazwisko pracownika
+                                  </label>
+                                  <input id="surname" 
+                                         name="surname" 
+                                         ngModel 
+                                         required 
+                                         type="text" 
+                                         class="input" 
+                                         #surname="ngModel">
+                                  <span class="help-block" 
+                                        *ngIf="!surname.valid && surname.touched" 
+                                        style="color:red;">
+                                        Wprowadź poprawne nazwisko pracownika!
+                                  </span>
+                              </div>
+                              <div class="group">
+                                  <label for="city" 
+                                         class="label">
+                                         Miejscowość
+                                  </label>
+                                  <input id="city" 
+                                         name="city" 
+                                         ngModel 
+                                         required 
+                                         type="text" 
+                                         class="input" 
+                                         #city="ngModel">
+                                  <span class="help-block" 
+                                        *ngIf="!city.valid && city.touched" 
+                                        style="color:red;">
+                                        Wprowadź miejscowość!
+                                  </span>
+                              </div>
+                              <div class="group">
+                                  <label for="street" 
+                                         class="label">
+                                         Ulica
+                                  </label>
+                                  <input id="street" 
+                                         name="street" 
+                                         ngModel 
+                                         required 
+                                         type="text" 
+                                         class="input" 
+                                         #street="ngModel">
+                                  <span class="help-block" 
+                                        *ngIf="!street.valid && street.touched" 
+                                        style="color:red;">
+                                        Wprowadź ulice!
+                                  </span>
+                              </div>
+                              <div class="group">
+                                  <label for="email" 
+                                         class="label">
+                                         Adres email
+                                  </label>
+                                  <input id="email" 
+                                         name="email" 
+                                         ngModel 
+                                         required 
+                                         email 
+                                         type="email" 
+                                         class="input" 
+                                         #email="ngModel">
+                                  <span class="help-block" 
+                                        *ngIf="!email.valid && email.touched" 
+                                        style="color:red;">
+                                        Wprowadź poprawny adres email !
+                                  </span>
+                              </div>
+                              <div class="group">
+                                  <label for="pesel" 
+                                         class="label">
+                                         PESEL
+                                  </label>
+                                  <input id="pesel" 
+                                         name="pesel" 
+                                         ngModel 
+                                         required 
+                                         type="number" 
+                                         class="input" 
+                                         #pesel="ngModel">
+                                  <span class="help-block" 
+                                        *ngIf="!pesel.valid && pesel.touched" 
+                                        style="color:red;">
+                                        Wprowadź pesel!
+                                  </span>
+                              </div>
+                              <div class="group">
+                                  <label for="pass" 
+                                         class="label">
+                                         Hasło
+                                  </label>
+                                  <input id="pass" 
+                                         name="pass" 
+                                         ngModel 
+                                         required 
+                                         type="password" 
+                                         class="input" 
+                                         data-type="password" 
+                                         #pass="ngModel">
+                                  <span class="help-block" 
+                                        *ngIf="!pass.valid && pass.touched" 
+                                        style="color:red;">
+                                        Wprowadź poprawne hasło !
+                                  </span>
+                              </div>
+                              <div class="group">
+                                  <label for="passrep" 
+                                         class="label">
+                                         Powtórz hasło
+                                  </label>
+                                  <input id="passrep" 
+                                         name="passrep" 
+                                         ngModel 
+                                         required 
+                                         type="password" 
+                                         class="input" 
+                                         data-type="password">
+                              </div>
+                              <div class="group">
+                                  <input type="submit" 
+                                         class="button" 
+                                         value="Dodaj pracownika" 
+                                         [disabled]="!f.valid">
+                              </div>
+                    </form>
+                              <div class="hr">
 
-          <div class="uploadPhoto">
-              <input type="file" (change)="onFileSelected($event)">
-              <button type="button" (click)="onUploadSelectedPhoto()">Prześlij zdjęcie</button>
-          </div>
-<div class="photo">
+                              </div>
+                              <div class="foot-lnk">
+                                  <a routerLink="/regulamin">
+                                     Regulamin
+                                  </a>
+                              </div>
+                  </div>   
+              </div>
+                              <div class="uploadPhoto">
+                                  <input type="file" 
+                                         (change)="onFileSelected($event)">
+                                  <button type="button" 
+                                          (click)="onUploadSelectedPhoto()">
+                                          Prześlij zdjęcie
+                                  </button>
+                              </div>
 
-</div>
+              <div class="photo">
+
+              </div>
 
 
-
-    </div>
+        </div>
     </div>
 </body>
 
+
 <div class="footer">
-          <img src="assets/images/partners/partner1.png" align="left" style="position:absolute; left:5%;margin-top:50px;">
-          <img src="assets/images/partners/partner2.png" align="left" style="position:absolute; right:35%;margin-top:50px;">
-          <img src="assets/images/partners/partner3.png" align="left" style="position:absolute; right:60%;margin-top:80px;">
-          <img src="assets/images/partners/partner4.png" align="right" style="position:absolute; right:5%;margin-top:80px;">
+          <img src="assets/images/partners/partner1.png" 
+               align="left" 
+               style="position:absolute; left:5%;margin-top:50px;">
+          <img src="assets/images/partners/partner2.png" 
+               align="left" 
+               style="position:absolute; right:35%;margin-top:50px;">
+          <img src="assets/images/partners/partner3.png" 
+               align="left" 
+               style="position:absolute; right:60%;margin-top:80px;">
+          <img src="assets/images/partners/partner4.png" 
+               align="right" 
+               style="position:absolute; right:5%;margin-top:80px;">
 </div>
