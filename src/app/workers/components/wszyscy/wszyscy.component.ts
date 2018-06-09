@@ -21,11 +21,11 @@ isCollapsed = true;
 idChecked: number;
 surnameConsoleLogTest: string;
 ifCanSendToDataBase = false;
+orderString = '';
 
 max = 10;
-rate = 1;
-isReadonly = false;
-
+rateByUser = 1;
+isReadonlyUserRating = false;
 
 overStar: number;
 percent: number;
@@ -94,12 +94,6 @@ resetDataOfDownloadedAllWorkers() {
   }
 
 
-  onClickTesting(data) {
-    this.surnameConsoleLogTest = data;
-    console.log(this.surnameConsoleLogTest);
-  }
-
-
   hoveringOver(value, data) {
     this.overStar = value;
     this.percent = (value / this.max) * 100;
@@ -107,15 +101,59 @@ resetDataOfDownloadedAllWorkers() {
   }
 
 
-
   resetStar() {
     this.overStar = void 0;
   }
 
 
-
-  onClickTestingDatabase() {
-    console.log('Worker with surname:' + this.surnameConsoleLogTest + ' Got: ' + this.rate + ' stars rating');
+  onRateWorkerByUser(data, surname) {
+     console.log('Worker with surname: ' + surname + ' Got: ' + this.rateByUser + ' stars rating');
   }
+
+
+  onDeleteWorkerByIdFromDatabase(data, surname) {
+     console.log('Worker with surname: ' + surname + ' and id = ' + data + ' should be deleted');
+  }
+
+
+  onEditSelectedWorker(data, surname) {
+     console.log('Worker with surname: ' + surname + ' and id = ' + data + ' should be edited');
+  }
+
+
+onSort(num) {
+
+  if (num == '1') {
+    this.orderString = 'surname';
+  }
+  if (num == '2') {
+    this.orderString = '-surname';
+  }
+  if (num == '3') {
+    this.orderString = 'name';
+  }
+  if (num == '4') {
+    this.orderString = '-name';
+  }
+  if (num == '5') {
+    this.orderString = 'city';
+  }
+  if (num == '6') {
+    this.orderString = '-city';
+  }
+  if (num == '7') {
+    this.orderString = 'street';
+  }
+  if (num == '8') {
+    this.orderString = '-street';
+  }
+  if (num == '9') {
+    this.orderString = 'email';
+  }
+  if (num == '10') {
+    this.orderString = '-email';
+  }
+
+}
 
 }

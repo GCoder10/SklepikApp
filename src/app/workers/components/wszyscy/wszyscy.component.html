@@ -1,32 +1,63 @@
 <body [ngStyle]="{'background-image': 'url(' + BGwszyscy + ')'}">
-    <div class="login-wrap">
-        <div class="login-html">
-
-              <button (click)="onDownloadAllWorkersFromLocalDatabase()" class="btn btn-info" *ngIf="Button1=='1'">LocalDatabase</button>   
-              <button (click)="onShowTableWithAllWorkers()" class="btn btn-success" *ngIf="Button1=='2'">GenerateTable</button> 
-              <button (click)="resetDataOfDownloadedAllWorkers()" class="btn btn-danger" *ngIf="Button1=='3'">ResetTable/Arrays</button> 
 
 
+            <button (click)="onDownloadAllWorkersFromLocalDatabase()" 
+                    class="btn btn-info" 
+                    *ngIf="Button1=='1'">
+                    LocalDatabase
+            </button>   
+            <button (click)="onShowTableWithAllWorkers()" 
+                    class="btn btn-success" 
+                    *ngIf="Button1=='2'">
+                    GenerateTable
+            </button> 
+            <button (click)="resetDataOfDownloadedAllWorkers()" 
+                    class="btn btn-danger" 
+                    *ngIf="Button1=='3'">
+                    ResetTable/Arrays
+            </button> 
 
- 
+
+
               <hr>
 
-
-<p *ngIf="Button1=='1'"> Tabelka zawiera dynamiczne przeszukiwanie po nazwisku i miejscu zamieszkania</p>
-<p *ngIf="Button1=='1'"> Po poprawnym pobraniu danych z bazy danych kliknij GenerateTable: </p>
-<p *ngIf="Button1=='3'"> ResetTable/Arrays - aby sprobowac ponownie wyswietlic dane: </p>
+<p *ngIf="Button1=='1'"> 
+   Tabelka zawiera dynamiczne przeszukiwanie po nazwisku i miejscu zamieszkania
+</p>
+<p *ngIf="Button1=='1'">
+   Po poprawnym pobraniu danych z bazy danych kliknij GenerateTable:
+</p>
+<p *ngIf="Button1=='3'">
+   ResetTable/Arrays - aby sprobowac ponownie wyswietlic dane:
+</p>
 
 <div *ngIf="(showtable)"> 
-<form id="filter" class="searchingSurname">
-<i class="fa fa-users" style="font-size:24px;padding-left:5px;"></i><label>Filtruj pracowników po nazwisku: </label>
-<input type="text" class="input" [(ngModel)]="termSurname" [ngModelOptions]="{standalone: true}"/>
-</form>
-<form id="filterCity" class="searchingCity">
-<i class="fa fa-home" style="font-size:24px;padding-left:5px;"></i><label>Filtruj pracowników po miejscowości: </label>
-<input type="text" class="input" [(ngModel)]="termCity" [ngModelOptions]="{standalone: true}"/>
-</form> 
+        <form id="filter" 
+              class="searchingSurname">
+                    <i class="fa fa-users" 
+                       style="font-size:24px;padding-left:5px;">
+                    </i>
+                    <label>Filtruj pracowników po nazwisku: </label>
+                    <input type="text"
+                           class="input" 
+                           [(ngModel)]="termSurname" 
+                           [ngModelOptions]="{standalone: true}"/>
+        </form>
+
+        <form id="filterCity" 
+              class="searchingCity">
+                    <i class="fa fa-home" 
+                       style="font-size:24px;padding-left:5px;">
+                    </i>
+                    <label>Filtruj pracowników po miejscowości: </label>
+                    <input type="text" 
+                           class="input" 
+                           [(ngModel)]="termCity" 
+                           [ngModelOptions]="{standalone: true}"/>
+        </form> 
 </div>
 
+<!--
 
 <div *ngIf="(showtable)"> 
 <div class="scroll">  
@@ -84,14 +115,209 @@
 </table>
 </div>
 </div>
+-->
+
+
+<div class="container">
+      <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div *ngIf="(showtable)">
+                        <div class="scroll">  
+
+
+                              <table>
+                                    <thead>
+                                    <th class="idCol">
+                                          id
+                                          <i class="fa fa-key" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                    </th>
+                                    <th class="surnameCol">
+                                          Nazwisko
+                                          <i class="fa fa-book" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                          <i class="fa fa-chevron-down" 
+                                             style="font-size:16px;padding-left:5px;" 
+                                             (click)="onSort(1)">
+                                          </i>
+                                          <i class="fa fa-chevron-up" 
+                                             style="font-size:16px" 
+                                             (click)="onSort(2)">
+                                          </i>
+                                    </th> 
+                                    <th class="nameCol">
+                                          Imie
+                                          <i class="fa fa-id-badge" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                          <i class="fa fa-chevron-down" 
+                                             style="font-size:16px;padding-left:5px;" 
+                                             (click)="onSort(3)">
+                                          </i>
+                                          <i class="fa fa-chevron-up" 
+                                             style="font-size:16px" 
+                                             (click)="onSort(4)">
+                                          </i>
+                                    </th>
+                                    <th class="cityCol">
+                                          Miasto
+                                          <i class="fa fa-building" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                          <i class="fa fa-chevron-down" 
+                                             style="font-size:16px;padding-left:5px;" 
+                                             (click)="onSort(5)">
+                                          </i>
+                                          <i class="fa fa-chevron-up" 
+                                             style="font-size:16px" 
+                                             (click)="onSort(6)">
+                                          </i>
+                                    </th>
+                                    <th class="streetCol">
+                                          Ulica
+                                          <i class="fa fa-send" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                          <i class="fa fa-chevron-down" 
+                                             style="font-size:16px;padding-left:5px;" 
+                                             (click)="onSort(7)">
+                                          </i>
+                                          <i class="fa fa-chevron-up"
+                                             style="font-size:16px" 
+                                             (click)="onSort(8)">
+                                          </i>
+                                    </th>
+                                    <th class="emailCol">
+                                          Email
+                                          <i class="fa fa-envelope-o" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                          <i class="fa fa-chevron-down" 
+                                             style="font-size:16px;padding-left:5px;" 
+                                             (click)="onSort(9)">
+                                          </i>
+                                          <i class="fa fa-chevron-up"
+                                             style="font-size:16px" 
+                                             (click)="onSort(10)">
+                                          </i>
+                                    </th>
+                                    <th class="peselCol">
+                                          Pesel
+                                          <i class="fa fa-drivers-license-o" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                    </th>
+                                    <th class="passCol">
+                                          Password
+                                          <i class="fa fa-cogs" 
+                                             style="font-size:24px;padding-left:5px;">
+                                          </i>
+                                    </th>
+
+                                    </thead>
+
+                                    <tbody *ngFor="let obj of dataOfAllWorkers2 | 
+                                                              filter:termSurname | 
+                                                              filterCity:termCity | 
+                                                              orderBy: orderString">
+                                    <tr (click)="isCollapsed = !isCollapsed && checkId(obj.id)"> 
+                                          <td class="idCol"> 
+                                                {{ obj.id }} 
+                                          </td>
+                                          <td class="surnameCol"> 
+                                                {{ obj.surname }} 
+                                          </td> 
+                                          <td class="nameCol"> 
+                                                {{ obj.name }}
+                                          </td>
+                                          <td class="cityCol">
+                                                {{ obj.city }}
+                                          </td>  
+                                          <td class="streetCol">
+                                                {{ obj.street }}
+                                          </td>
+                                          <td class="emailCol"> 
+                                                {{ obj.email }} 
+                                          </td>
+                                          <td class="peselCol"> 
+                                                {{ obj.pesel }} 
+                                          </td>
+                                          <td class="passCol"> 
+                                                {{ obj.pass }} 
+                                          </td>
+                                    </tr> 
+
+                                    <tr *ngIf="(isCollapsed) && obj.id == idChecked">
+                                          <td colspan="3">
+                                                <div>
+                                                <button type="button" 
+                                                        class="btn btn-success" 
+                                                        (click)="onEditSelectedWorker(obj.id, obj.surname)">
+                                                        Edytuj pracownika
+                                                </button>
+                                                {{ obj.name }}
+                                                </div>
+                                          </td>
+                                          <td colspan="2">
+                                                <div>
+                                                <button type="button" 
+                                                        class="btn btn-danger" 
+                                                        (click)="onDeleteWorkerByIdFromDatabase(obj.id, obj.surname)">
+                                                        Usuń pracownika
+                                                </button>
+                                                {{ obj.surname }}
+                                                </div>
+                                          </td>
+                                          <td colspan="3">
+                                                <div>
+                                                <button type="button" 
+                                                        class="btn btn-info" 
+                                                        (click)="onRateWorkerByUser(obj.id, obj.surname)">
+                                                        Oceń pracownika
+                                                </button>
+                                                <rating [(ngModel)]="rateByUser" 
+                                                        [max]="max" 
+                                                        [readonly]="isReadonlyUserRating"
+                                                        (onHover)="hoveringOver($event)" 
+                                                        (onLeave)="resetStar()"
+                                                        [titles]="['one','two','three']">
+                                                </rating>
+                                                <span class="label"
+                                                      [ngClass]="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+                                                      [ngStyle]="{display: (overStar && !isReadonlyUserRating) ? 'inline' : 'none'}">
+                                                      {{percent}}%
+                                                </span>
+                                                Obecna ocena: bd / 10
+                                                </div>
+                                          </td>
+                                    </tr>
+                                    </tbody>
+
+                              </table>
+
+
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>
+
 
     
-        </div>
-    </div>
 </body>
 <div class="footer">
-          <img src="assets/images/partners/partner1.png" align="left" style="position:absolute; left:5%;margin-top:50px;">
-          <img src="assets/images/partners/partner2.png" align="left" style="position:absolute; right:35%;margin-top:50px;">
-          <img src="assets/images/partners/partner3.png" align="left" style="position:absolute; right:60%;margin-top:80px;">
-          <img src="assets/images/partners/partner4.png" align="right" style="position:absolute; right:5%;margin-top:80px;">
+          <img src="assets/images/partners/partner1.png" 
+               align="left" 
+               style="position:absolute; left:5%;margin-top:50px;">
+          <img src="assets/images/partners/partner2.png" 
+               align="left" 
+               style="position:absolute; right:35%;margin-top:50px;">
+          <img src="assets/images/partners/partner3.png" 
+               align="left" 
+               style="position:absolute; right:60%;margin-top:80px;">
+          <img src="assets/images/partners/partner4.png" 
+               align="right" 
+               style="position:absolute; right:5%;margin-top:80px;">
 </div>
