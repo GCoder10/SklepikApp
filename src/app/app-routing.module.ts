@@ -1,3 +1,4 @@
+import { AllWorkersComponent } from './workers/components/all-workers/all-workers.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { DownloadComponent } from './workers/components/download/download.component';
 import { PhotoComponent } from './workers/components/photo/photo.component';
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
       { path: 'dodawanie', component: DodawanieComponent },
       { path: 'photo', component: PhotoComponent },
       { path: 'import', component: ImportComponent },
-      { path: 'download', component: DownloadComponent }
+      { path: 'download', component: DownloadComponent },
+      { path: 'showAllWorkers', component: AllWorkersComponent },
 
   ]
   },

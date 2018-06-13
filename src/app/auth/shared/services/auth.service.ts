@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,7 +12,7 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class AuthService {
 
-  baseUrl = 'http://localhost:5000/api/auth';
+  baseUrl = environment.apiUrl;
   userToken: any;
   decodedToken: any;
   jwtHelper: JwtHelper = new JwtHelper();
@@ -57,7 +58,8 @@ export class AuthService {
   signup(username: string, password: string) {
 
         const dataToSendAsJson = {username, password};
-        return this.http.post(this.baseUrl + '/register', JSON.stringify(dataToSendAsJson), this.requestOptions()).catch(this.handleError);
+        // tslint:disable-next-line:max-line-length
+        return this.http.post(this.baseUrl + 'auth/register', JSON.stringify(dataToSendAsJson), this.requestOptions()).catch(this.handleError);
 
   }
 
@@ -67,7 +69,8 @@ export class AuthService {
   login(username: string, password: string) {
 
     const dataToSendAsJson = {username, password};
-    return this.http.post(this.baseUrl + '/login', JSON.stringify(dataToSendAsJson), this.requestOptions()).map((response: Response) => {
+    // tslint:disable-next-line:max-line-length
+    return this.http.post(this.baseUrl + 'auth/login', JSON.stringify(dataToSendAsJson), this.requestOptions()).map((response: Response) => {
         const dataOfUser = response.json();
         if (dataOfUser) {
 

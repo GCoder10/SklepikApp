@@ -7,6 +7,7 @@ import { JsonService } from './shared/services/json.service';
 import { SharedModule } from './../shared/shared.module';
 import { AppRoutingModule } from './../app-routing.module';
 import { NgModule } from '@angular/core';
+import { AllWorkersComponent } from './components/all-workers/all-workers.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { NgModule } from '@angular/core';
     WszyscyComponent,
     PhotoComponent,
     ImportComponent,
-    DownloadComponent
+    DownloadComponent,
+    AllWorkersComponent
   ],
   providers: [ JsonService ],
   exports: [
@@ -27,7 +29,8 @@ import { NgModule } from '@angular/core';
     WszyscyComponent,
     PhotoComponent,
     ImportComponent,
-    DownloadComponent
+    DownloadComponent,
+    AllWorkersComponent
   ],
 })
 

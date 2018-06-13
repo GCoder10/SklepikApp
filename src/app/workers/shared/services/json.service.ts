@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import * as firebase from 'firebase';
@@ -11,7 +12,7 @@ import 'rxjs/add/observable/of';
 export class JsonService {
 
     newJsonObj: string;
-    baseUrl = 'http://localhost:5000/api/workers';
+    baseUrl = environment.apiUrl;
 
 constructor(private router: Router,
             private http: Http
@@ -55,7 +56,7 @@ constructor(private router: Router,
     var dataToSendAsJson = file;
 
      // tslint:disable-next-line:max-line-length
-     return this.http.post(this.baseUrl + '/addNewWorkers', JSON.stringify(dataToSendAsJson), this.requestOptions()).catch(this.handleError);
+     return this.http.post(this.baseUrl + 'workers/addNewWorkers', JSON.stringify(dataToSendAsJson), this.requestOptions()).catch(this.handleError);
 
   }
 

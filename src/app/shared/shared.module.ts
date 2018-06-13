@@ -1,3 +1,4 @@
+import { UserService } from './services/user.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
@@ -43,7 +44,7 @@ import { NgModule } from '@angular/core';
     FilterPipe,
     FilterCityPipe
   ],
-  providers: [ AuthGuard, DataService ],
+  providers: [ AuthGuard, DataService, UserService ],
   exports: [
     BrowserModule,
     FormsModule,

@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import * as firebase from 'firebase';
 import database from 'firebase/database';
@@ -17,7 +18,7 @@ export class DataService {
     allItems: Array<any> = [];
     allWorkers: any;
     imageUrl: any;
-    baseUrl = 'http://localhost:5000/api/workers';
+    baseUrl = environment.apiUrl;
 
 constructor(private router: Router,
             private http: Http
@@ -61,7 +62,8 @@ addNewWorker(name: string, surname: string, city: string, street: string, email:
 
     var newData = {name, surname, city, street, email, pesel, pass};
 
-        return this.http.post(this.baseUrl + '/addNewWorkers', JSON.stringify(newData), this.requestOptions()).catch(this.handleError);
+        // tslint:disable-next-line:max-line-length
+        return this.http.post(this.baseUrl + 'workers/addNewWorkers', JSON.stringify(newData), this.requestOptions()).catch(this.handleError);
 
 }
 
@@ -77,7 +79,7 @@ sendPhoto(file) {
 
 
 onDownloadAllWorkersFromLocalDatabase() {
-        this.http.get('http://localhost:5000/api/workers').subscribe(response => {
+        this.http.get(this.baseUrl + 'workers').subscribe(response => {
            this.allWorkers = response.json();
         });
        this.makeAllDataOfWorkersFromLocalDatabaseObservable();

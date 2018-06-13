@@ -11,7 +11,9 @@ export const environment = {
       authDomain: 'sklepikapp-32f5b.firebaseapp.com',
       databaseURL: 'https://sklepikapp-32f5b.firebaseio.com/',
       storageBucket: 'gs://sklepikapp-32f5b.appspot.com',
-  }
+  },
+
+  apiUrl: 'http://localhost:5000/api/'
 
     /*
 #WATSON
