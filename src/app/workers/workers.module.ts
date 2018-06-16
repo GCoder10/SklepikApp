@@ -8,6 +8,8 @@ import { SharedModule } from './../shared/shared.module';
 import { AppRoutingModule } from './../app-routing.module';
 import { NgModule } from '@angular/core';
 import { AllWorkersComponent } from './components/all-workers/all-workers.component';
+import { WorkerCardComponent } from './components/worker-card/worker-card.component';
+
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { AllWorkersComponent } from './components/all-workers/all-workers.compon
     PhotoComponent,
     ImportComponent,
     DownloadComponent,
-    AllWorkersComponent
+    AllWorkersComponent,
+    WorkerCardComponent
   ],
   providers: [ JsonService ],
   exports: [
@@ -30,7 +33,8 @@ import { AllWorkersComponent } from './components/all-workers/all-workers.compon
     PhotoComponent,
     ImportComponent,
     DownloadComponent,
-    AllWorkersComponent
+    AllWorkersComponent,
+    WorkerCardComponent
   ],
 })
 

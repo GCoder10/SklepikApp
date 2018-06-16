@@ -6,6 +6,12 @@ body {
 	min-height: 1000px;
 }
 
+.equal {
+	display: flex;
+	flex-flow: row wrap;
+	align-content: flex-end;
+}
+
 
 /*----------------------
 	   #Responsive
