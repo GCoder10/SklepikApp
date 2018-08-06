@@ -1,8 +1,11 @@
+import { WorkerListResolver } from './resolvers/worker-list.resolver';
+import { WorkerDetailResolver } from './resolvers/worker-detail.resolver';
 import { UserService } from './services/user.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
-import { BsDropdownModule, AccordionModule, CollapseModule, RatingModule } from 'ngx-bootstrap';
+import { NgxGalleryModule } from 'ngx-gallery';
+import { BsDropdownModule, AccordionModule, CollapseModule, RatingModule, TabsModule } from 'ngx-bootstrap';
 import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../../environments/environment';
@@ -17,7 +20,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { AuthGuard } from './guards/auth.guard';
 import { NgModule } from '@angular/core';
 
-
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   imports: [
@@ -25,11 +30,13 @@ import { NgModule } from '@angular/core';
     FormsModule,
     ReactiveFormsModule,
     NgxImageGalleryModule,
+    NgxGalleryModule,
     HttpClientModule,
     HttpModule,
     OrderModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
     AccordionModule.forRoot(),
     CollapseModule.forRoot(),
@@ -44,7 +51,7 @@ import { NgModule } from '@angular/core';
     FilterPipe,
     FilterCityPipe
   ],
-  providers: [ AuthGuard, DataService, UserService ],
+  providers: [ AuthGuard, DataService, UserService, WorkerDetailResolver, WorkerListResolver ],
   exports: [
     BrowserModule,
     FormsModule,
@@ -60,9 +67,11 @@ import { NgModule } from '@angular/core';
     AngularFireModule,
     AngularFireAuthModule,
     NgxImageGalleryModule,
+    NgxGalleryModule,
     HttpClientModule,
     HttpModule,
-    OrderModule
+    OrderModule,
+    TabsModule
   ]
 })
 

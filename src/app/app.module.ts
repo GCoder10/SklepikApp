@@ -9,8 +9,6 @@ import { StoreModule } from '@ngrx/store';
 import { SharedModule } from './shared/shared.module';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent

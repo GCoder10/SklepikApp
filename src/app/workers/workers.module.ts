@@ -9,6 +9,7 @@ import { AppRoutingModule } from './../app-routing.module';
 import { NgModule } from '@angular/core';
 import { AllWorkersComponent } from './components/all-workers/all-workers.component';
 import { WorkerCardComponent } from './components/worker-card/worker-card.component';
+import { WorkerDetailComponent } from './components/worker-detail/worker-detail.component';
 
 
 
@@ -24,7 +25,8 @@ import { WorkerCardComponent } from './components/worker-card/worker-card.compon
     ImportComponent,
     DownloadComponent,
     AllWorkersComponent,
-    WorkerCardComponent
+    WorkerCardComponent,
+    WorkerDetailComponent
   ],
   providers: [ JsonService ],
   exports: [
@@ -34,7 +36,8 @@ import { WorkerCardComponent } from './components/worker-card/worker-card.compon
     ImportComponent,
     DownloadComponent,
     AllWorkersComponent,
-    WorkerCardComponent
+    WorkerCardComponent,
+    WorkerDetailComponent
   ],
 })
 

@@ -1,0 +1,95 @@
+body {
+    margin:0;
+    color:black;
+	background: no-repeat center;
+	font:600 16px/18px 'Open Sans',sans-serif;
+	min-height: 1000px;
+}
+
+
+/*----------------------
+  #Bootstrap 4 Features
+----------------------*/
+
+/*  Card class  */
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+/* card-img-top class */
+.card-img-top {
+  width: 100%;
+}
+
+/* card-body class */
+.card-body {
+  flex: 1 1 auto;
+}
+
+/* card-footer class */
+.card-footer {
+    padding: 0.75rem 1.25rem;
+    background-color: #f7f7f9;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-footer:last-child {
+    border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+}
+
+
+/*----------------------
+      #Card Footer
+----------------------*/
+
+/* sizeOfButton - class for buttons */
+.sizeOfButton {
+    width: 50%
+}
+
+/* sizeOfBtnGroup - div class with buttons */
+.sizeOfBtnGroup {
+    width: 100%
+}
+
+
+/*----------------------
+          #Card
+----------------------*/
+
+/* Class for image inside the card */
+.img-thumbnail {
+    margin: 25px;
+    width: 85%;
+    height: 85%;
+}
+
+/* Adjust card body class */
+.card-body {
+    padding: 0 25px;
+}
+
+.card-footer {
+    padding: 10px 15px;
+    background-color: #fff;
+    border-top: none;
+}
+
+
+/*----------------------
+    #Right side of worker details
+----------------------*/
+
+/* CSS classes in global CSS file */

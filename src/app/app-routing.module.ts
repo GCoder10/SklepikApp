@@ -1,3 +1,6 @@
+import { WorkerListResolver } from './shared/resolvers/worker-list.resolver';
+import { WorkerDetailResolver } from './shared/resolvers/worker-detail.resolver';
+import { WorkerDetailComponent } from './workers/components/worker-detail/worker-detail.component';
 import { AllWorkersComponent } from './workers/components/all-workers/all-workers.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { DownloadComponent } from './workers/components/download/download.component';
@@ -43,7 +46,8 @@ const appRoutes: Routes = [
       { path: 'photo', component: PhotoComponent },
       { path: 'import', component: ImportComponent },
       { path: 'download', component: DownloadComponent },
-      { path: 'showAllWorkers', component: AllWorkersComponent },
+      { path: 'showAllWorkers', component: AllWorkersComponent, resolve: {users: WorkerListResolver} },
+      { path: 'showChosenWorkerDetails/:id', component: WorkerDetailComponent, resolve: {user: WorkerDetailResolver} }
 
   ]
   },
