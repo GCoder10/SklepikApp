@@ -10,6 +10,7 @@ import { NgModule } from '@angular/core';
 import { AllWorkersComponent } from './components/all-workers/all-workers.component';
 import { WorkerCardComponent } from './components/worker-card/worker-card.component';
 import { WorkerDetailComponent } from './components/worker-detail/worker-detail.component';
+import { WorkerEditComponent } from './components/worker-edit/worker-edit.component';
 
 
 
@@ -26,7 +27,8 @@ import { WorkerDetailComponent } from './components/worker-detail/worker-detail.
     DownloadComponent,
     AllWorkersComponent,
     WorkerCardComponent,
-    WorkerDetailComponent
+    WorkerDetailComponent,
+    WorkerEditComponent
   ],
   providers: [ JsonService ],
   exports: [
@@ -37,7 +39,8 @@ import { WorkerDetailComponent } from './components/worker-detail/worker-detail.
     DownloadComponent,
     AllWorkersComponent,
     WorkerCardComponent,
-    WorkerDetailComponent
+    WorkerDetailComponent,
+    WorkerEditComponent
   ],
 })
 

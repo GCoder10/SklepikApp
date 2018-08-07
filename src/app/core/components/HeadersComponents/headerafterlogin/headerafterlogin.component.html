@@ -94,8 +94,21 @@
                                                 <li routerLinkActive="active" 
                                                     *ngIf="(chechIfSomeUserIsLoggedInViaToken())">
                                                             <a style="cursor: pointer;" 
+                                                               [routerLink] = "['/worker/edit']">
+                                                               Edytuj profil
+                                                                    <i class="fa fa-edit" 
+                                                                       style="font-size:24px;padding-left:5px;">
+                                                                    </i>
+                                                            </a>
+                                                </li>
+                                                <li routerLinkActive="active" 
+                                                    *ngIf="(chechIfSomeUserIsLoggedInViaToken())">
+                                                            <a style="cursor: pointer;" 
                                                                (click)="logout()">
                                                                Wylogowanie
+                                                                    <i class="fa fa-external-link" 
+                                                                       style="font-size:24px;padding-left:5px;">
+                                                                    </i>                                                               
                                                             </a>
                                                 </li>
                                     </ul>

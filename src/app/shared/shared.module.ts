@@ -1,3 +1,4 @@
+import { WorkerEditResolver } from './resolvers/worker-edit.resolver';
 import { WorkerListResolver } from './resolvers/worker-list.resolver';
 import { WorkerDetailResolver } from './resolvers/worker-detail.resolver';
 import { UserService } from './services/user.service';
@@ -51,7 +52,14 @@ export function tokenGetter() {
     FilterPipe,
     FilterCityPipe
   ],
-  providers: [ AuthGuard, DataService, UserService, WorkerDetailResolver, WorkerListResolver ],
+  providers: [
+    AuthGuard,
+    DataService,
+    UserService,
+    WorkerDetailResolver,
+    WorkerListResolver,
+    WorkerEditResolver
+  ],
   exports: [
     BrowserModule,
     FormsModule,
