@@ -1,3 +1,4 @@
+import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
 import { WorkerEditResolver } from './resolvers/worker-edit.resolver';
 import { WorkerListResolver } from './resolvers/worker-list.resolver';
 import { WorkerDetailResolver } from './resolvers/worker-detail.resolver';
@@ -54,6 +55,7 @@ export function tokenGetter() {
   ],
   providers: [
     AuthGuard,
+    PreventUnsavedChanges,
     DataService,
     UserService,
     WorkerDetailResolver,

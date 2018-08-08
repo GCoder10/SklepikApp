@@ -2,9 +2,21 @@
 
   <div class = "container mt-4">
     <div class = "row">
-        <h1>
-            Your Profile
-        </h1>
+        <div class = "col-sm-4">
+            <h1>
+                Your Profile
+            </h1>            
+        </div>
+        <div class = "col-sm-8">
+            <div *ngIf = "editForm.dirty" 
+                 class = "alert alert-info">             
+                    <strong>
+                        Information:
+                    </strong>
+                    You have made changes.
+                    Any unsaved changes will be lost
+            </div>
+        </div>
     </div>
       <div class = "row">
           <div class = "col-sm-4">
@@ -48,9 +60,12 @@
                         </div>
                     </div>
                     <div class = "card-footer">
-                        <div class = "btn-group d-flex sizeOfBtnGroup" >
-                              <button class = "btn btn-primary sizeOfButton">Like</button>
-                              <button class = "btn btn-success sizeOfButton">Message</button>
+                        <div class = "sizeOfBtnGroup">
+                              <button [disabled] = "!editForm.dirty"
+                                      form = "editForm"
+                                      class = "btn btn-success btn-block sizeOfButton">
+                                      Save Changes
+                              </button>
                         </div>
                     </div>
               </div>
@@ -59,7 +74,9 @@
                 <div class = "tab-panel">
                       <tabset class = "member-tabset">
                           <tab heading = "Edit Profile">
-                            <form>
+                            <form #editForm = "ngForm"
+                                  id = "editForm"
+                                  (ngSubmit) = "updateUser()">
                               <h4>
                                 Description
                               </h4>

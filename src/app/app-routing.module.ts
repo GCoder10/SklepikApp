@@ -1,3 +1,4 @@
+import { PreventUnsavedChanges } from './shared/guards/prevent-unsaved-changes.guard';
 import { WorkerEditResolver } from './shared/resolvers/worker-edit.resolver';
 import { WorkerEditComponent } from './workers/components/worker-edit/worker-edit.component';
 import { WorkerListResolver } from './shared/resolvers/worker-list.resolver';
@@ -39,7 +40,9 @@ const appRoutes: Routes = [
   { path: 'biura', component: GaleriaBiuraComponent },
   { path: 'lokalizacja', component: LokalizacjaComponent },
 
-  { path: '', runGuardsAndResolvers: 'always', canActivate: [AuthGuard], children: [
+  { path: '', runGuardsAndResolvers: 'always',
+              canActivate: [AuthGuard],
+              children: [
 
       { path: 'end', component: EndComponent },
       { path: 'start', component: StartComponent },
@@ -48,9 +51,13 @@ const appRoutes: Routes = [
       { path: 'photo', component: PhotoComponent },
       { path: 'import', component: ImportComponent },
       { path: 'download', component: DownloadComponent },
-      { path: 'showAllWorkers', component: AllWorkersComponent, resolve: {users: WorkerListResolver} },
-      { path: 'showChosenWorkerDetails/:id', component: WorkerDetailComponent, resolve: {user: WorkerDetailResolver} },
-      { path: 'worker/edit', component: WorkerEditComponent, resolve: {user: WorkerEditResolver} }
+      { path: 'showAllWorkers', component: AllWorkersComponent,
+                                resolve: {users: WorkerListResolver} },
+      { path: 'showChosenWorkerDetails/:id', component: WorkerDetailComponent,
+                                             resolve: {user: WorkerDetailResolver} },
+      { path: 'worker/edit', component: WorkerEditComponent,
+                             resolve: {user: WorkerEditResolver},
+                             canDeactivate: [PreventUnsavedChanges] }
 
   ]
   },

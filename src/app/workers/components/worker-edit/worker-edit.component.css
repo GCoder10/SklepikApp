@@ -56,12 +56,13 @@ body {
 
 /* sizeOfButton - class for buttons */
 .sizeOfButton {
-    width: 50%
+    width: 50%;
+    margin-left: 25%;
 }
 
 /* sizeOfBtnGroup - div class with buttons */
 .sizeOfBtnGroup {
-    width: 100%
+    width: 100%;
 }
 
 
