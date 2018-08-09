@@ -1,3 +1,5 @@
+import { AuthService } from './../../../auth/shared/services/auth.service';
+import { UserService } from './../../../shared/services/user.service';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { User } from './../../../shared/models/User';
@@ -20,7 +22,9 @@ unloadNotification($event: any) {
 }
 
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private userService: UserService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.BgWorkerEdit = 'assets/images/BGsignin2.jpg';
@@ -31,11 +35,15 @@ unloadNotification($event: any) {
 
 
   updateUser() {
-    console.log(this.user);
     var alertify = require('alertifyjs/build/alertify.js');
-    alertify.success('Profile updated successfully');
-    this.editForm.reset(this.user);
-  }
+    this.userService.updateUser(this.authService.decodedToken.nameid, this.user)
+                    .subscribe(next => {
+                        alertify.success('Profile updated successfully');
+                        this.editForm.reset(this.user);
+                    }, error => {
+                        alertify.error(error);
+                    });
 
+  }
 
 }

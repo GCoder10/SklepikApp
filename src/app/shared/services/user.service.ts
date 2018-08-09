@@ -47,6 +47,9 @@ constructor(private http: Http) {}
                         .catch(this.handleError);
     }
 
+    updateUser(id: number, user: User) {
+        return this.http.put(this.baseUrl + 'users/' + id, user, this.jwt());
+    }
 
     private jwt() {
         let token = localStorage.getItem('token');
