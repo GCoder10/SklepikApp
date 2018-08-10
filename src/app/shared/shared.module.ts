@@ -21,6 +21,7 @@ import { OrderModule } from 'ngx-order-pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NgModule } from '@angular/core';
+import { FileUploadModule } from 'ng2-file-upload';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -36,6 +37,7 @@ export function tokenGetter() {
     HttpClientModule,
     HttpModule,
     OrderModule,
+    FileUploadModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     TabsModule.forRoot(),
@@ -74,6 +76,7 @@ export function tokenGetter() {
     CollapseModule,
     RatingModule,
     AgmCoreModule,
+    FileUploadModule,
     AngularFireModule,
     AngularFireAuthModule,
     NgxImageGalleryModule,

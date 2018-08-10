@@ -11,6 +11,7 @@ import { AllWorkersComponent } from './components/all-workers/all-workers.compon
 import { WorkerCardComponent } from './components/worker-card/worker-card.component';
 import { WorkerDetailComponent } from './components/worker-detail/worker-detail.component';
 import { WorkerEditComponent } from './components/worker-edit/worker-edit.component';
+import { PhotoEditorComponent } from './components/photo-editor/photo-editor.component';
 
 
 
@@ -28,7 +29,8 @@ import { WorkerEditComponent } from './components/worker-edit/worker-edit.compon
     AllWorkersComponent,
     WorkerCardComponent,
     WorkerDetailComponent,
-    WorkerEditComponent
+    WorkerEditComponent,
+    PhotoEditorComponent
   ],
   providers: [ JsonService ],
   exports: [
@@ -40,7 +42,8 @@ import { WorkerEditComponent } from './components/worker-edit/worker-edit.compon
     AllWorkersComponent,
     WorkerCardComponent,
     WorkerDetailComponent,
-    WorkerEditComponent
+    WorkerEditComponent,
+    PhotoEditorComponent
   ],
 })
 

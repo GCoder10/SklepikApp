@@ -1,0 +1,14 @@
+/*----------------------
+        #Photo
+----------------------*/
+.img-thumbnail {
+    margin: 8px;
+    width: 85%;
+    height: 85%;
+}
+
+img.img-thumbnail {
+    height: 100px;
+    min-width: 100px !important;
+    margin-bottom: 14px;
+}
