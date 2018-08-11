@@ -12,3 +12,29 @@ img.img-thumbnail {
     min-width: 100px !important;
     margin-bottom: 14px;
 }
+
+
+/*----------------------
+     #PhotoUploader
+----------------------*/
+.PhotoUploader {
+    margin-top: 2%;
+}
+
+.my-drop-zone {
+    height: 200px;
+    width: 450px;
+    text-align: center;
+}
+
+.nv-file-over {
+    border: dotted 3px red;
+}
+
+input[type = file] {
+    color: transparent;
+}
+
+.queueZoneAfterChoosePhotos {
+    margin-top: 35%;
+}
