@@ -115,6 +115,12 @@
                             </div>
                         </li>
 
+                        <li>
+                            <img src = "{{ photoUrl }}"
+                                 *ngIf="(chechIfSomeUserIsLoggedInViaToken())"
+                                 class = "imageOfLoggedInUserInNavbar">
+                        </li>
+
                         <li *ngIf="(chechIfSomeUserIsLoggedInViaToken())" 
                             style="font-size:24px;padding-left:5px;color:blue;font-family:'Cursive',serif;">
                             Witaj: {{authService.decodedToken.unique_name}}

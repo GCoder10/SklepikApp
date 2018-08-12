@@ -14,6 +14,7 @@ export class WorkerEditComponent implements OnInit {
 @ViewChild('editForm') editForm: NgForm;
 BgWorkerEdit: string;
 user: User;
+photoUrl: string;
 @HostListener('window:beforeunload', ['$event'])
 unloadNotification($event: any) {
   if (this.editForm.dirty) {
@@ -31,6 +32,7 @@ unloadNotification($event: any) {
     this.route.data.subscribe(data => {
       this.user = data['user'];
     });
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
 
@@ -44,6 +46,10 @@ unloadNotification($event: any) {
                         alertify.error(error);
                     });
 
+  }
+
+  updateMainPhoto(photoUrl) {
+    this.user.photoUrl = photoUrl;
   }
 
 }

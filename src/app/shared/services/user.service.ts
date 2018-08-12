@@ -51,6 +51,10 @@ constructor(private http: Http) {}
         return this.http.put(this.baseUrl + 'users/' + id, user, this.jwt());
     }
 
+    setMainPhoto(userId: number, id: number) {
+        return this.http.post(this.baseUrl + 'users/' + userId + '/photos/' + id + '/setMain', {}, this.jwt());
+    }
+
     private jwt() {
         let token = localStorage.getItem('token');
         if (token) {

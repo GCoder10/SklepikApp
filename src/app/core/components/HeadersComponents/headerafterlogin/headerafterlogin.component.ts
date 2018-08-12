@@ -10,7 +10,7 @@ import { AuthService } from '../../../../auth/shared/services/auth.service';
   styleUrls: ['./headerafterlogin.component.css']
 })
 export class HeaderafterloginComponent implements OnInit {
-
+  photoUrl: string;
 
 
 
@@ -19,15 +19,18 @@ export class HeaderafterloginComponent implements OnInit {
 
 
   ngOnInit() {
-
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
+
 
 logout() {
  this.authService.logout();
 }
 
+
   chechIfSomeUserIsLoggedInViaToken() {
       return this.authService.chechIfSomeUserIsLoggedInViaDownloadedToken();
   }
+
 
 }
