@@ -19,7 +19,7 @@
              class="sign-up">
       <label for="tab-2" 
              class="tab">
-             Opcje
+             Zarejestruj się 2
       </label>
    
 
@@ -116,8 +116,75 @@
         </div>   
         <div class="sign-up-htm">
 
-            <h2>Jakieś opcje do rejestracji</h2>
+            <h2>
+              Przykładowa rejestracja 2
+            </h2>
    
+            <form [formGroup] = "registerForm"
+                  (ngSubmit) = "register()">
+                        <h2 class = "text-center text-primary">
+                            Sign Up
+                        </h2>
+
+                
+                        <div class="hr">
+                          
+                        </div>
+                        <div class = "group">
+                                <label for="passrep" 
+                                       class="label">
+                                       Username
+                                </label>
+                                <input type = "text"
+                                       class = "input"
+                                       formControlName = "username" 
+                                       [ngClass] = "{'is-invalid': registerForm.get('username').errors}" />
+                                <div class = "invalid-feedback"
+                                     style = "color:red;">
+                                     Please choose a username
+                                </div>
+                        </div>
+
+
+                        <div class = "group">
+                                <label for="passrep" 
+                                       class="label">
+                                       Password
+                                </label>
+                                <input type = "password"
+                                       class = "input"
+                                       formControlName = "password" />
+                        </div>
+
+                        <div class = "group">
+                                <label for="passrep" 
+                                       class="label">
+                                       Confirm Password
+                                </label>
+                                <input type = "password"
+                                       class = "input"
+                                       formControlName = "confirmPassword" />
+                        </div>
+
+            <div class="group">
+              <input type="submit" 
+                     class="button" 
+                     value="Zarejestruj się" 
+                     [disabled]="!registerForm.valid">
+            </div>
+            </form>
+
+
+            <div class="hr">
+              
+            </div>
+            <div class="foot-lnk">
+              <a routerLink="/regulamin">
+                 Regulamin
+              </a>
+            </div>
+
+
         </div>         
     </div>
       

@@ -55,6 +55,10 @@ constructor(private http: Http) {}
         return this.http.post(this.baseUrl + 'users/' + userId + '/photos/' + id + '/setMain', {}, this.jwt());
     }
 
+    deletePhoto(userId: number, id: number) {
+        return this.http.delete(this.baseUrl + 'users/' + userId + '/photos/' + id, this.jwt());
+    }
+
     private jwt() {
         let token = localStorage.getItem('token');
         if (token) {
