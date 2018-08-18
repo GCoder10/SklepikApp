@@ -137,14 +137,13 @@
                                 </label>
                                 <input type = "text"
                                        class = "input"
-                                       formControlName = "username" 
-                                       [ngClass] = "{'is-invalid': registerForm.get('username').errors}" />
-                                <div class = "invalid-feedback"
-                                     style = "color:red;">
-                                     Please choose a username
-                                </div>
+                                       formControlName = "usernameSecondForm" />
+                                <span class = "help-block" 
+                                      *ngIf = "registerForm.get('usernameSecondForm').errors && registerForm.get('usernameSecondForm').touched" 
+                                      style = "color:red;">
+                                      Please choose a username
+                                </span>
                         </div>
-
 
                         <div class = "group">
                                 <label for="passrep" 
@@ -153,7 +152,22 @@
                                 </label>
                                 <input type = "password"
                                        class = "input"
-                                       formControlName = "password" />
+                                       formControlName = "passwordSecondForm" />
+                                <span class = "help-block" 
+                                      *ngIf = "registerForm.get('passwordSecondForm').hasError('required') && registerForm.get('passwordSecondForm').touched" 
+                                      style = "color:red;" >
+                                      Password is required
+                                </span>
+                                <span class = "help-block" 
+                                      *ngIf = "registerForm.get('passwordSecondForm').hasError('minlength') && registerForm.get('passwordSecondForm').touched" 
+                                      style = "color:red;" >
+                                      Password must be at least 4 characters
+                                </span>
+                                <span class = "help-block" 
+                                      *ngIf = "registerForm.get('passwordSecondForm').hasError('maxlength') && registerForm.get('passwordSecondForm').touched" 
+                                      style = "color:red;" >
+                                      Password cannot exceed 8 characters
+                                </span>
                         </div>
 
                         <div class = "group">
@@ -164,6 +178,16 @@
                                 <input type = "password"
                                        class = "input"
                                        formControlName = "confirmPassword" />
+                                <span class = "help-block" 
+                                      *ngIf = "registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched" 
+                                      style = "color:red;" >
+                                      Confirm Password is required
+                                </span>
+                                <span class = "help-block" 
+                                      *ngIf = "registerForm.get('confirmPassword').touched && registerForm.hasError('mismatch')" 
+                                      style = "color:red;" >
+                                      Passwords must match
+                                </span>
                         </div>
 
             <div class="group">

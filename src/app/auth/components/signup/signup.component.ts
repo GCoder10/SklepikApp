@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -16,23 +16,29 @@ export class SignupComponent implements OnInit {
   registerForm: FormGroup;
 
 
-  constructor(public authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService,
+              private router: Router,
+              private fb: FormBuilder) { }
 
 
 
   ngOnInit() {
     this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
     this.registerForm = new FormGroup({
-      username: new FormControl('Hello', Validators.required),
-      password: new FormControl('', [Validators.required,
+      usernameSecondForm: new FormControl('', Validators.required),
+      passwordSecondForm: new FormControl('', [Validators.required,
                                      Validators.minLength(4),
                                      Validators.maxLength(8)]),
       confirmPassword: new FormControl('', Validators.required)
     }, this.passwordMatchValidator);
   }
 
+  createRegisterForm() {
+    this.registerForm = this.fb.group();
+  }
+
   passwordMatchValidator(g: FormGroup) {
-    return g.get('password').value === g.get('confirmPassword').value ? null : {'mismatch': true};
+    return g.get('passwordSecondForm').value === g.get('confirmPassword').value ? null : {'mismatch': true};
   }
 
   register() {
