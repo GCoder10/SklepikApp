@@ -7,7 +7,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
 import { NgxGalleryModule } from 'ngx-gallery';
-import { BsDropdownModule, AccordionModule, CollapseModule, RatingModule, TabsModule } from 'ngx-bootstrap';
+import { BsDropdownModule, AccordionModule, CollapseModule, RatingModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap';
 import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../../environments/environment';
@@ -41,6 +41,7 @@ export function tokenGetter() {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     TabsModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
     AccordionModule.forRoot(),
     CollapseModule.forRoot(),
@@ -72,6 +73,7 @@ export function tokenGetter() {
     FilterPipe,
     FilterCityPipe,
     BsDropdownModule,
+    BsDatepickerModule,
     AccordionModule,
     CollapseModule,
     RatingModule,

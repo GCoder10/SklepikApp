@@ -73,7 +73,13 @@ export class AuthService {
 
   }
 
+  register(user: User) {
 
+        // const dataToSendAsJson = {user};
+        // tslint:disable-next-line:max-line-length
+        return this.http.post(this.baseUrl + 'auth/register', user, this.requestOptions()).catch(this.handleError);
+
+  }
 
 
   login(username: string, password: string) {

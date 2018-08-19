@@ -1,9 +1,11 @@
+import { User } from './../../../shared/models/User';
 import { AuthService } from '../../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { BsDatepickerConfig } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-signup',
@@ -14,6 +16,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class SignupComponent implements OnInit {
   backgroundImagePath: string;
   registerForm: FormGroup;
+  bsConfig: Partial<BsDatepickerConfig>;
+  user: User;
 
 
   constructor(public authService: AuthService,
@@ -23,19 +27,23 @@ export class SignupComponent implements OnInit {
 
 
   ngOnInit() {
+    this.bsConfig = {
+      containerClass: 'theme-red'
+    };
     this.backgroundImagePath = 'assets/images/BGsignin2.jpg';
     this.createRegisterForm();
   }
 
+
   createRegisterForm() {
     this.registerForm = this.fb.group({
       gender: ['male'],
-      usernameSecondForm: ['', Validators.required],
+      username: ['', Validators.required],
       knownAs: ['', Validators.required],
       dateOfBirth: [null, Validators.required],
       city: ['', Validators.required],
       country: ['', Validators.required],
-      passwordSecondForm: ['', [Validators.required,
+      password: ['', [Validators.required,
                                 Validators.minLength(4),
                                 Validators.maxLength(8)]],
       confirmPassword: ['', Validators.required]
@@ -44,13 +52,26 @@ export class SignupComponent implements OnInit {
     });
   }
 
+
   passwordMatchValidator(g: FormGroup) {
-    return g.get('passwordSecondForm').value === g.get('confirmPassword').value ? null : {'mismatch': true};
+    return g.get('password').value === g.get('confirmPassword').value ? null : {'mismatch': true};
   }
 
+
   register() {
-    console.log(this.registerForm.value);
-  }
+    var alertify = require('alertifyjs/build/alertify.js');
+    if (this.registerForm.valid) {
+        this.user = Object.assign({}, this.registerForm.value);
+        this.authService.register(this.user).subscribe(() => {
+          alertify.success('Registration successful');
+        }, error => {
+          alertify.error(error);
+        }, () => {
+          this.router.navigate(['/logowanie']);
+          });
+        }
+    }
+
 
   onSignUp(form: NgForm) {
 

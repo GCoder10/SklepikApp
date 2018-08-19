@@ -113,20 +113,14 @@
                  Regulamin
               </a>
             </div>
-        </div>   
+        </div> 
+          
+        
         <div class="sign-up-htm">
-
-            <h2>
-              Przykładowa rejestracja 2
-            </h2>
    
             <form [formGroup] = "registerForm"
                   (ngSubmit) = "register()">
-                        <h2 class = "text-center text-primary">
-                            Sign Up
-                        </h2>
 
-                
                         <div class="hr">
                           
                         </div>
@@ -137,9 +131,9 @@
                                 </label>
                                 <input type = "text"
                                        class = "input"
-                                       formControlName = "usernameSecondForm" />
+                                       formControlName = "username" />
                                 <span class = "help-block" 
-                                      *ngIf = "registerForm.get('usernameSecondForm').errors && registerForm.get('usernameSecondForm').touched" 
+                                      *ngIf = "registerForm.get('username').errors && registerForm.get('username').touched" 
                                       style = "color:red;">
                                       Please choose a username
                                 </span>
@@ -152,19 +146,19 @@
                                 </label>
                                 <input type = "password"
                                        class = "input"
-                                       formControlName = "passwordSecondForm" />
+                                       formControlName = "password" />
                                 <span class = "help-block" 
-                                      *ngIf = "registerForm.get('passwordSecondForm').hasError('required') && registerForm.get('passwordSecondForm').touched" 
+                                      *ngIf = "registerForm.get('password').hasError('required') && registerForm.get('password').touched" 
                                       style = "color:red;" >
                                       Password is required
                                 </span>
                                 <span class = "help-block" 
-                                      *ngIf = "registerForm.get('passwordSecondForm').hasError('minlength') && registerForm.get('passwordSecondForm').touched" 
+                                      *ngIf = "registerForm.get('password').hasError('minlength') && registerForm.get('password').touched" 
                                       style = "color:red;" >
                                       Password must be at least 4 characters
                                 </span>
                                 <span class = "help-block" 
-                                      *ngIf = "registerForm.get('passwordSecondForm').hasError('maxlength') && registerForm.get('passwordSecondForm').touched" 
+                                      *ngIf = "registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched" 
                                       style = "color:red;" >
                                       Password cannot exceed 8 characters
                                 </span>
@@ -187,6 +181,74 @@
                                       *ngIf = "registerForm.get('confirmPassword').touched && registerForm.hasError('mismatch')" 
                                       style = "color:red;" >
                                       Passwords must match
+                                </span>
+                        </div>
+
+                        <div class="group">
+                                <label class="control-label" 
+                                       style="margin-right:10px" >
+                                       I am a: 
+                                </label>
+                                <label class="radio-inline">
+                                <input class="mr-3" 
+                                       type="radio" 
+                                       value="male" 
+                                       formControlName="gender" >
+                                       Male
+                                </label>
+                                <label class="radio-inline" >
+                                <input class="mr-3" 
+                                       type="radio" 
+                                       value="female" 
+                                       formControlName="gender" >
+                                       Female
+                                </label>
+                        </div>
+
+                        <div class="group">
+                                <input class="input"
+                                       placeholder="Known as" 
+                                       formControlName="knownAs" >
+                                <span class = "help-block" 
+                                      *ngIf = "registerForm.get('knownAs').touched && registerForm.get('knownAs').hasError('required') || registerForm.get('knownAs').errors && registerForm.get('knownAs').touched" 
+                                      style = "color:red;" >
+                                      Known as is required
+                                </span>                               
+                        </div>
+
+                        <div class="group">
+                                <input class = "input"
+                                       placeholder = "Date of Birth" 
+                                       formControlName = "dateOfBirth" 
+                                       type = "text"
+                                       bsDatepicker
+                                       [bsConfig] = "bsConfig" >
+                                <span class = "help-block" 
+                                      *ngIf = "registerForm.get('dateOfBirth').touched && registerForm.get('dateOfBirth').hasError('required') || registerForm.get('dateOfBirth').errors && registerForm.get('dateOfBirth').touched" 
+                                      style = "color:red;" >
+                                      Date of Birth is required
+                                </span>
+                        </div>
+
+                        <div class="group">
+                                <input class="input"
+                                       placeholder="City" 
+                                       formControlName="city" >
+                                <span class = "help-block" 
+                                      *ngIf = "registerForm.get('city').touched && registerForm.get('city').hasError('required') || registerForm.get('city').errors && registerForm.get('city').touched" 
+                                      style = "color:red;" >
+                                      City is required
+                                </span>                         
+                        </div>
+
+                        <div class="group">
+                                <input class="input"
+                                       placeholder="Country" 
+                                       formControlName="country" >
+                                <span class = "help-block" 
+                                      *ngIf = "registerForm.get('country').touched && registerForm.get('country').hasError('required') || registerForm.get('country').errors && registerForm.get('country').touched" 
+                                      style = "color:red;" >
+                                      Country is required
                                 </span>
                         </div>
 
