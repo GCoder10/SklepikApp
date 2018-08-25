@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { FilterCityPipe } from './pipes/filter-city.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { TimeAgoPipe } from 'time-ago-pipe';
 import { OrderModule } from 'ngx-order-pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -54,7 +55,8 @@ export function tokenGetter() {
   declarations: [
     PageNotFoundComponent,
     FilterPipe,
-    FilterCityPipe
+    FilterCityPipe,
+    TimeAgoPipe
   ],
   providers: [
     AuthGuard,
@@ -72,6 +74,7 @@ export function tokenGetter() {
     PageNotFoundComponent,
     FilterPipe,
     FilterCityPipe,
+    TimeAgoPipe,
     BsDropdownModule,
     BsDatepickerModule,
     AccordionModule,
