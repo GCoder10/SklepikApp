@@ -7,7 +7,8 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxImageGalleryModule } from 'ngx-image-gallery';
 import { NgxGalleryModule } from 'ngx-gallery';
-import { BsDropdownModule, AccordionModule, CollapseModule, RatingModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap';
+// tslint:disable-next-line:max-line-length
+import { BsDropdownModule, AccordionModule, CollapseModule, RatingModule, TabsModule, BsDatepickerModule, PaginationModule } from 'ngx-bootstrap';
 import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../../environments/environment';
@@ -44,6 +45,7 @@ export function tokenGetter() {
     TabsModule.forRoot(),
     BsDatepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
+    PaginationModule.forRoot(),
     AccordionModule.forRoot(),
     CollapseModule.forRoot(),
     RatingModule.forRoot(),
@@ -80,6 +82,7 @@ export function tokenGetter() {
     AccordionModule,
     CollapseModule,
     RatingModule,
+    PaginationModule,
     AgmCoreModule,
     FileUploadModule,
     AngularFireModule,
