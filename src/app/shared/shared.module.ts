@@ -1,3 +1,4 @@
+import { ListsResolver } from './resolvers/lists.resolver';
 import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
 import { WorkerEditResolver } from './resolvers/worker-edit.resolver';
 import { WorkerListResolver } from './resolvers/worker-list.resolver';
@@ -68,7 +69,8 @@ export function tokenGetter() {
     UserService,
     WorkerDetailResolver,
     WorkerListResolver,
-    WorkerEditResolver
+    WorkerEditResolver,
+    ListsResolver
   ],
   exports: [
     BrowserModule,
