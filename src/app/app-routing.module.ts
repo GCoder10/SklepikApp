@@ -1,3 +1,4 @@
+import { WorkerLikeListComponent } from './workers/components/worker-like-list/worker-like-list.component';
 import { PreventUnsavedChanges } from './shared/guards/prevent-unsaved-changes.guard';
 import { WorkerEditResolver } from './shared/resolvers/worker-edit.resolver';
 import { WorkerEditComponent } from './workers/components/worker-edit/worker-edit.component';
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
       { path: 'dodawanie', component: DodawanieComponent },
       { path: 'photo', component: PhotoComponent },
       { path: 'import', component: ImportComponent },
+      { path: 'workerLikeList', component: WorkerLikeListComponent },
       { path: 'download', component: DownloadComponent },
       { path: 'showAllWorkers', component: AllWorkersComponent,
                                 resolve: {users: WorkerListResolver} },

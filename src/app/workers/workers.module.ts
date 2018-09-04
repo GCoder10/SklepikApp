@@ -12,6 +12,7 @@ import { WorkerCardComponent } from './components/worker-card/worker-card.compon
 import { WorkerDetailComponent } from './components/worker-detail/worker-detail.component';
 import { WorkerEditComponent } from './components/worker-edit/worker-edit.component';
 import { PhotoEditorComponent } from './components/photo-editor/photo-editor.component';
+import { WorkerLikeListComponent } from './components/worker-like-list/worker-like-list.component';
 
 
 
@@ -30,7 +31,8 @@ import { PhotoEditorComponent } from './components/photo-editor/photo-editor.com
     WorkerCardComponent,
     WorkerDetailComponent,
     WorkerEditComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    WorkerLikeListComponent
   ],
   providers: [ JsonService ],
   exports: [
@@ -43,6 +45,7 @@ import { PhotoEditorComponent } from './components/photo-editor/photo-editor.com
     WorkerCardComponent,
     WorkerDetailComponent,
     WorkerEditComponent,
+    WorkerLikeListComponent,
     PhotoEditorComponent
   ],
 })
