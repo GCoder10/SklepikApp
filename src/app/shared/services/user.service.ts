@@ -90,6 +90,10 @@ constructor(private http: Http,
         return this.http.delete(this.baseUrl + 'users/' + userId + '/photos/' + id, this.jwt());
     }
 
+    sendLike(id: number, recipientId: number) {
+        return this.http.post(this.baseUrl + 'users/' + id + '/like/' + recipientId, {}, this.jwt());
+    }
+
     private jwt() {
         let token = localStorage.getItem('token');
         if (token) {
