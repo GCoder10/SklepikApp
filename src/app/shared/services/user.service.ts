@@ -133,6 +133,17 @@ constructor(private http: Http,
                               );
     }
 
+    getMessageThread(id: number, recipientId: number) {
+
+        let token = localStorage.getItem('token');
+        let headers = new HttpHeaders({
+            'Authorization': 'Bearer ' + token
+        });
+
+
+        return this.httpClient.get<Message[]>(this.baseUrl + 'users/' + id + '/messages/thread/' + recipientId, { headers });
+    }
+
     private jwt() {
         let token = localStorage.getItem('token');
         if (token) {
