@@ -1,3 +1,69 @@
-<p *ngFor = "let message of messages">
-  {{ message.content }}
-</p>
+      <div class = "container mainContainer">        
+              <div *ngIf = "messages?.length === 0">
+                    <p>
+                        No messages yet... say hi by using the message box below
+                    </p>
+              </div>
+
+                          <div *ngFor = "let message of messages">
+                              <!-- to me -->
+                              <div *ngIf = "message.senderId == recipientId"
+                                   class = "chatContainer">
+                                    <span class = "floatLeft">
+                                          <img src = "{{message.senderPhotoUrl}}" 
+                                               alt = "{{message.senderKnownAs}}" 
+                                               class = "chatImage" >
+                                          <strong>
+                                                  {{ message.senderKnownAs }}
+                                          </strong>
+                                    </span>
+                                    <div class = "container">
+                                          <div class = "header">
+                                                  <small class = "time-left">
+                                                            <span class = "fa fa-clock-o">
+                                                                  {{ message.messageSent | timeAgo }}
+                                                            </span>
+                                                  </small>
+                                          </div>
+                                          <span class = "floatRight">
+                                                  <p>
+                                                      {{ message.content }}
+                                                  </p>
+                                          </span>
+                                    </div>
+                              </div>
+
+                              <!-- to them -->
+                              <div *ngIf = "message.senderId != recipientId"
+                                   class = "chatContainer darker">
+                                    <span class = "floatRight">
+                                          <img src = "{{message.senderPhotoUrl}}" 
+                                               alt = "{{message.senderKnownAs}}" 
+                                               class = "chatImageRight" >
+                                          <strong>
+                                                  {{ message.senderKnownAs }}
+                                          </strong>
+                                    </span>
+                                    <div class = "container">
+                                          <div class = "header">
+                                                  <small class = "time-right">
+                                                            <span class = "fa fa-clock-o">
+                                                                  {{ message.messageSent | timeAgo }}
+                                                            </span>
+                                                            <span class = "text-danger"
+                                                                  *ngIf = "!message.isRead">
+                                                                  (unread)
+                                                            </span>
+                                                            <span class = "text-success"
+                                                                  *ngIf = "message.isRead">
+                                                                  (Read {{ message.dateRead | timeAgo }})
+                                                            </span>                                                                                                                            
+                                                  </small>
+                                          </div>
+                                          <p>
+                                              {{ message.content }}
+                                          </p>
+                                    </div>
+                              </div>                              
+                          </div>
+      </div>
