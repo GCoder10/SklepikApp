@@ -1,3 +1,4 @@
+import { Message } from './../models/Message';
 import { PaginatedResult } from './../models/Pagination';
 import { Observable } from 'rxjs/Observable';
 import { User } from './../models/User';
@@ -100,6 +101,36 @@ constructor(private http: Http,
 
     sendLike(id: number, recipientId: number) {
         return this.http.post(this.baseUrl + 'users/' + id + '/like/' + recipientId, {}, this.jwt());
+    }
+
+    getMessages(id: number, page?, itemsPerPage?, messageContainer?) {
+        const paginatedResult: PaginatedResult<Message[]> = new PaginatedResult<Message[]>();
+
+        let params = new HttpParams();
+
+        params = params.append('MessageContainer', messageContainer);
+
+        if (page != null && itemsPerPage != null) {
+            params = params.append('pageNumber', page);
+            params = params.append('pageSize', itemsPerPage);
+        }
+
+
+        let token = localStorage.getItem('token');
+        let headers = new HttpHeaders({
+            'Authorization': 'Bearer ' + token
+        });
+        return this.httpClient.get<Message[]>(this.baseUrl + 'users/' + id + '/messages', {observe: 'response', params, headers})
+                              .pipe(
+                                  map(response => {
+                                      paginatedResult.result = response.body;
+                                      if (response.headers.get('Pagination') !== null) {
+                                          paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+                                      }
+
+                                      return paginatedResult;
+                                  })
+                              );
     }
 
     private jwt() {

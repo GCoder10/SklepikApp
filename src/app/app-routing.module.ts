@@ -1,3 +1,5 @@
+import { MessagesResolver } from './shared/resolvers/messages.resolver';
+import { MessagesComponent } from './workers/components/messages/messages.component';
 import { ListsResolver } from './shared/resolvers/lists.resolver';
 import { WorkerLikeListComponent } from './workers/components/worker-like-list/worker-like-list.component';
 import { PreventUnsavedChanges } from './shared/guards/prevent-unsaved-changes.guard';
@@ -61,7 +63,9 @@ const appRoutes: Routes = [
                                              resolve: {user: WorkerDetailResolver} },
       { path: 'worker/edit', component: WorkerEditComponent,
                              resolve: {user: WorkerEditResolver},
-                             canDeactivate: [PreventUnsavedChanges] }
+                             canDeactivate: [PreventUnsavedChanges] },
+      { path: 'messages', component: MessagesComponent,
+                          resolve: {messages: MessagesResolver} }
 
   ]
   },

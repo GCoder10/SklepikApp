@@ -13,6 +13,7 @@ import { WorkerDetailComponent } from './components/worker-detail/worker-detail.
 import { WorkerEditComponent } from './components/worker-edit/worker-edit.component';
 import { PhotoEditorComponent } from './components/photo-editor/photo-editor.component';
 import { WorkerLikeListComponent } from './components/worker-like-list/worker-like-list.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 
 
@@ -32,7 +33,8 @@ import { WorkerLikeListComponent } from './components/worker-like-list/worker-li
     WorkerDetailComponent,
     WorkerEditComponent,
     PhotoEditorComponent,
-    WorkerLikeListComponent
+    WorkerLikeListComponent,
+    MessagesComponent
   ],
   providers: [ JsonService ],
   exports: [
@@ -46,7 +48,8 @@ import { WorkerLikeListComponent } from './components/worker-like-list/worker-li
     WorkerDetailComponent,
     WorkerEditComponent,
     WorkerLikeListComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    MessagesComponent
   ],
 })
 
