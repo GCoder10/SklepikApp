@@ -127,9 +127,9 @@
 
 /*  Chat Scrollbar  */
 .scroll {
-	max-height: 500px; 
+	max-height: 453px; 
 	overflow-y: scroll; 
-	margin-top: 3%;
+    margin-top: 3%;
 }
 
 .scroll::-webkit-scrollbar {
@@ -146,4 +146,16 @@
 	border-radius: 10px;
 	background: #919396;
 	opacity: 0.6
+}
+
+.chat-input {
+    top: 0;
+    height: 70px;
+}
+
+.chat-input-place {
+    height: 50px;
+    background-color: #0557fc; 
+    opacity: 0.7;
+    color: black;
 }
