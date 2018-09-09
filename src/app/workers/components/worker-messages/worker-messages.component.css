@@ -1,29 +1,32 @@
 /* Style time text */
 .time-right {
     float: right;
-    color: #aaa;
+    color: #565656;
     text-align: end;
+    opacity: 1;
 }
 
 /* Style time text */
 .time-left {
     float: left;
-    color: #999;
+    color: #007a06;
+    opacity: 1;
 }
 
 /* Chat containers */
 .chatContainer {
-    border: 2px solid #dedede;
-    background-color: #f1f1f1;
+    border: 2px solid #898a8c;
+    background-color: #959799;
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
+    opacity: 0.8;
 }
 
 /* Darker chat container */
 .darker {
     border-color: olivedrab;
-    background-color: olive;
+    background-color: #45b249;
 }
 
 /* Clear floats */
@@ -64,4 +67,83 @@
 
 .container {
     max-width: 100%;
+}
+
+/* talk bubble contents */
+.talk-text{
+    padding: 1em;
+	text-align: left;
+    line-height: 1.5em;
+}
+
+/* remove webkit p margins */
+.talk-text p{
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+}
+
+/* CSS talk bubble */
+.talk-bubble {
+	margin: 15px;
+    display: inline-block;
+    position: relative;
+	width: 450px;
+    height: auto;
+    min-height: 80px;
+    background-color: lightyellow;
+}
+
+/* Right triangle in chat bubble */
+.tri-right:after {
+    content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 55px solid transparent;
+	border-left-color: lightyellow;
+	border-right: 0;
+	border-top: 0;
+	margin-top: -27.5px;
+	margin-right: -55px;
+}
+
+/* Left triangle in chat bubble */
+.tri-left:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 55px solid transparent;
+	border-right-color: lightyellow;
+	border-left: 0;
+	border-top: 0;
+	margin-top: -27.5px;
+	margin-left: -55px;
+}
+
+/*  Chat Scrollbar  */
+.scroll {
+	max-height: 500px; 
+	overflow-y: scroll; 
+	margin-top: 3%;
+}
+
+.scroll::-webkit-scrollbar {
+	width: 12px;
+	background: transparent;
+}
+
+.scroll::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background: #c2c9d3;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background: #919396;
+	opacity: 0.6
 }

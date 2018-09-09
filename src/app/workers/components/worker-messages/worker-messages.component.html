@@ -1,10 +1,11 @@
-      <div class = "container mainContainer">        
+      <div class = "container mainContainer"     
+           [ngStyle]="{'background-image': 'url(' + bgConversationZone + ')'}">        
               <div *ngIf = "messages?.length === 0">
                     <p>
                         No messages yet... say hi by using the message box below
                     </p>
               </div>
-
+                  <div class="scroll">
                           <div *ngFor = "let message of messages">
                               <!-- to me -->
                               <div *ngIf = "message.senderId == recipientId"
@@ -26,9 +27,13 @@
                                                   </small>
                                           </div>
                                           <span class = "floatRight">
-                                                  <p>
-                                                      {{ message.content }}
-                                                  </p>
+                                                <div class = "talk-bubble tri-left">
+                                                      <div class = "talk-text">                                                
+                                                            <p>
+                                                                  {{ message.content }}
+                                                            </p>
+                                                      </div>
+                                                </div>
                                           </span>
                                     </div>
                               </div>
@@ -60,10 +65,15 @@
                                                             </span>                                                                                                                            
                                                   </small>
                                           </div>
-                                          <p>
-                                              {{ message.content }}
-                                          </p>
+                                          <div class = "talk-bubble tri-right">
+                                                <div class = "talk-text">
+                                                      <p>
+                                                            {{ message.content }}
+                                                      </p>
+                                                </div>                                               
+                                          </div>
                                     </div>
                               </div>                              
                           </div>
+                  </div>
       </div>

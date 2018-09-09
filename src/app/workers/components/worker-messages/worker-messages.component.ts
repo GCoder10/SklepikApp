@@ -11,11 +11,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class WorkerMessagesComponent implements OnInit {
 @Input() recipientId: number;
 messages: Message[];
+bgConversationZone: string;
 
   constructor(private userService: UserService,
               private authService: AuthService) { }
 
   ngOnInit() {
+    this.bgConversationZone = 'assets/Speech-Bubbles.jpg';
     this.loadMessages();
   }
 
