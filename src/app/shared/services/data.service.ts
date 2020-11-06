@@ -1,7 +1,7 @@
 import { environment } from './../../../environments/environment';
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import * as firebase from 'firebase';
-import database from 'firebase/database';
+import * as firebase from '@firebase/app';
+import database from '@firebase/database';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
